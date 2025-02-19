@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module">
+      import { ref, effect } from "./reactivity.js";
+      const flag = ref(false);
+
+      effect(() => {
+        app.innerHTML = flag.value ? "jw" : 30;
+      });
+
+      //   let flag1 = {
+      //     _v: false,
+      //     get value() {
+      //       return this._v;
+      //     },
+      //     set value(newVal) {
+      //       this._v = newVal;
+      //     },
+      //   };
+
+      setTimeout(() => {
+        flag.value = true;
+      }, 1000);
+    </script>
+  </body>
+</html>

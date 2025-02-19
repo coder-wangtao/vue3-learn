@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module">
+      import { reactive, effect } from "./reactivity.js";
+      const state = reactive({
+        name: "jw",
+        age: 30,
+        flag: true,
+        address: { n: 1 },
+      });
+      // effect(() => {
+      //   app.innerHTML = `姓名${state.name} 年龄${state.age}`;
+      // });
+      // let runner = effect(
+      //   () => {
+      //     app.innerHTML = state.flag ? state.name : state.age;
+      //   },
+      //   {
+      //     scheduler: () => {
+      //       console.log("数据更新了，不重新渲染，走自己的逻辑"); //AOP、批处理（更新两次，只调一次）
+      //       runner();
+      //     },
+      //   }
+      // );
+
+      effect(() => {
+        app.innerHTML = state.address.n;
+        // state.name = Math.random(); //如果本次在执行effect的过程 更细了数据 不会触发effect更新
+      });
+
+      // effect(() => {
+      //   app.innerHTML = state.flag + state.flag + state.flag;
+      // });
+      // effect(() => {
+      //   app.innerHTML = `姓名${state.name}`;
+      // });
+      setTimeout(() => {
+        state.address.n = 602;
+      }, 1000);
+    </script>
+  </body>
+</html>

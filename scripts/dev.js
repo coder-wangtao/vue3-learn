@@ -18,8 +18,6 @@ const format = args.f || "iife"; //打包后的模块化规规范
 const entry = resolve(__dirname, `../packages/${target}/src/index.ts`);
 const pkg = resolve(`../packages/${target}/package.json`);
 
-console.log(entry);
-console.log(pkg);
 esbuild
   .context({
     entryPoints: [entry], //入口
