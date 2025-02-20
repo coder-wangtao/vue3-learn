@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module">
+      import {
+        ref,
+        effect,
+        reactive,
+        toRef,
+        toRefs,
+        proxyRefs,
+      } from "./reactivity.js";
+      let state = reactive({ name: "jw", age: 30 });
+
+      //   console.log({ ...state }); //丧失响应式
+      //   let name = toRef(state, "name");
+      //   let age = toRef(state, "age");
+      //   console.log(name, age);
+
+      //   let { name, age } = toRefs(state);
+      //   console.log(name.value, age.value);
+
+      let proxy = proxyRefs({ ...toRefs(state) });
+      proxy.age = 100; //proxy.age.value = 100
+      effect(() => {
+        console.log(proxy.name, proxy.age);
+      });
+    </script>
+  </body>
+</html>

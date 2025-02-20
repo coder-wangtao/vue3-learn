@@ -8,29 +8,22 @@
   <body>
     <div id="app"></div>
     <script type="module">
-      import {
-        ref,
-        effect,
-        reactive,
-        toRef,
-        toRefs,
-        proxyRefs,
-      } from "./reactivity.js";
-      let state = reactive({ name: "jw", age: 30 });
+      import { watch, reactive } from "./reactivity.js";
+      let state = reactive({ name: "jw", age: 30, address: { n: 1 } });
 
-      //   console.log({ ...state }); //丧失响应式
-      //   let name = toRef(state, "name");
-      //   let age = toRef(state, "age");
-      //   console.log(name, age);
+      watch(
+        state,
+        function (oldValue, newValue) {
+          console.log(oldValue, newValue);
+        },
+        {
+          deep: false,
+        }
+      );
 
-      //   let { name, age } = toRefs(state);
-      //   console.log(name.value, age.value);
-
-      let proxy = proxyRefs({ ...toRefs(state) });
-      proxy.age = 100; //proxy.age.value = 100
-      effect(() => {
-        console.log(proxy.name, proxy.age);
-      });
+      setTimeout(() => {
+        state.address.n = "handsome jw";
+      }, 1000);
     </script>
   </body>
 </html>
