@@ -51,6 +51,7 @@ var ReactiveEffect = class {
       return this.fn();
     }
     let lastEffect = activeEffect;
+    debugger;
     try {
       activeEffect = this;
       preCleanEffect(this);

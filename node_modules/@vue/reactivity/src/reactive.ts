@@ -2,7 +2,7 @@ import { isObject } from "@vue/shared";
 import { mutableHandlers } from "./baseHandler";
 import { ReactiveFlags } from "./constants";
 
-const reactiveMap = new WeakMap();
+const reactiveMap = new WeakMap(); //防止内存泄露
 
 function createReactiveObject(target) {
   if (!isObject(target)) {

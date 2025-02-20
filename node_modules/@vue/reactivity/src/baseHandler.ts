@@ -12,6 +12,7 @@ export const mutableHandlers: ProxyHandler<any> = {
     //取值 让响应式属性 和 effect 映射起来
     //依赖收集
     track(target, key);
+
     let res = Reflect.get(target, key, receiver);
     if (isObject(res)) {
       //当的值也是对象的时候，我们需要对这个对象进行代理，递归代理

@@ -31,6 +31,16 @@
       // );
 
       effect(() => {
+        //f1
+        console.log(state.name);
+        effect(() => {
+          //f2
+          console.log(state.name);
+        });
+        console.log(state.age);
+      });
+
+      effect(() => {
         app.innerHTML = state.address.n;
         // state.name = Math.random(); //如果本次在执行effect的过程 更细了数据 不会触发effect更新
       });

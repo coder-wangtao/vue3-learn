@@ -2,10 +2,14 @@ import { DirtyLevels } from "./constants";
 
 export function effect(fn, options?) {
   //创建一个响应式effect数据变化后可以重新执行
+  //一个fn对应一个ReactiveEffect对象
+  //fn.effect = Reactive对象
+  //Reactive对象.fn = fn
   const _effect = new ReactiveEffect(fn, () => {
     //scheduler
     _effect.run();
   });
+
   _effect.run();
 
   if (options) {
@@ -17,6 +21,7 @@ export function effect(fn, options?) {
   return runner; //外界可以让其重新run
 }
 
+//记录当前的活跃的effect,意思是fn执行一次就记录activeEffect
 export let activeEffect;
 
 function preCleanEffect(effect) {
@@ -58,21 +63,28 @@ export class ReactiveEffect {
 
   run() {
     this._dirtyLevel = DirtyLevels.NoDirty;
+
     if (!this.active) {
       return this.fn(); //不是激活的，执行后，什么都不做
     }
-    let lastEffect = activeEffect;
+
+    //解决循环嵌套effect
+    let lastEffect = activeEffect; // lastEffect=undefined   lastEffect = f1
+    debugger;
     try {
-      activeEffect = this;
+      //解决循环嵌套effect
+      activeEffect = this; //f1 f2
 
       //effect重新执行前，需要将上一次的依赖清空 effect.deps
       preCleanEffect(this);
       this._running++;
-      return this.fn(); //依赖收集  -> state.name state.age
+      return this.fn(); //依赖收集 -> state.name state.age
     } finally {
       this._running--;
       postCleanEffect(this);
-      activeEffect = lastEffect;
+
+      //fn执行完了以后 activeEffect = lastEffect 解决循环嵌套effect
+      activeEffect = lastEffect; //f1
     }
   }
 
@@ -93,6 +105,7 @@ export function cleanDepEffect(dep, effect) {
 //[flag，age]  第二次
 
 //[flag，age] 最后
+
 export function trackEffect(effect, dep) {
   //需要重新去收集依赖，将不需要的移除掉
   // dep.set(effect, effect._trackId);
