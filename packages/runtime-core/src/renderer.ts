@@ -15,14 +15,14 @@ export function createRenderer(renderOptions) {
     patchProp: hostPatchProp,
   } = renderOptions;
 
-const mountChildren = (children,container) => {
-    for(let i =0;i< children.length;i++){
-        patch(null,children[i],container)
+  const mountChildren = (children, container) => {
+    for (let i = 0; i < children.length; i++) {
+      patch(null, children[i], container);
     }
-}
+  };
 
   const mountElement = (vnode, container) => {
-    const { type, children, props,shapeFlag } = vnode;
+    const { type, children, props, shapeFlag } = vnode;
     let el = hostCreateElement(type);
     if (props) {
       for (let key in props) {
@@ -34,12 +34,11 @@ const mountChildren = (children,container) => {
     //1 | 8 = 9
 
     //9 & 8 > 0 说明儿子是文本
-    if(shapeFlag & ShapeFlags.TEXT_CHILDREN){
-        hostSetElementText(el,children)
-    }else if(shapeFlag & ShapeFlags.ARRAY_CHILDREN){
-        mountChildren(children,el)
+    if (shapeFlag & ShapeFlags.TEXT_CHILDREN) {
+      hostSetElementText(el, children);
+    } else if (shapeFlag & ShapeFlags.ARRAY_CHILDREN) {
+      mountChildren(children, el);
     }
-    hostSetElementText(el, children);
     hostInsert(el, container);
   };
 
@@ -50,7 +49,7 @@ const mountChildren = (children,container) => {
       return;
     }
 
-    if (n1) {
+    if (n1 == null) {
       //初始化操作
       mountElement(n2, container);
     }

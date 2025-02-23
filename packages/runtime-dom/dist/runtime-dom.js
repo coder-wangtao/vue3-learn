@@ -1,7 +1,7 @@
 // packages/runtime-dom/src/nodeOps.ts
 var nodeOps = {
   insert(el, parent, anchor) {
-    return parent.appendChild(el, anchor || null);
+    return parent.insertBefore(el, anchor || null);
   },
   remove(el) {
     const parent = el.parentNode;
@@ -191,14 +191,13 @@ function createRenderer(renderOptions2) {
     } else if (shapeFlag & 16 /* ARRAY_CHILDREN */) {
       mountChildren(children, el);
     }
-    hostSetElementText(el, children);
     hostInsert(el, container);
   };
   const patch = (n1, n2, container) => {
     if (n1 == n2) {
       return;
     }
-    if (n1) {
+    if (n1 == null) {
       mountElement(n2, container);
     }
   };

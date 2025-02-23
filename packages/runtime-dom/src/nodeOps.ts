@@ -5,7 +5,7 @@ export const nodeOps = {
     //newElement:你想插入的元素。
     // targetElement:你想把新元素插入到哪个元素(targetElement)之前。
     // parentElement:目标元素的父元素；
-    return parent.appendChild(el, anchor || null);
+    return parent.insertBefore(el, anchor || null);
   },
   remove(el) {
     //移除
