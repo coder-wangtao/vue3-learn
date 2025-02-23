@@ -13,7 +13,7 @@ export function effect(fn, options?) {
   _effect.run();
 
   if (options) {
-    Object.assign(_effect, options);
+    Object.assign(_effect, options); //用用户传递的覆盖内置的
   }
 
   const runner = _effect.run.bind(_effect);
@@ -43,9 +43,9 @@ function postCleanEffect(effect) {
 export class ReactiveEffect {
   _trackId = 0; //用于记录当前effect执行了几次
   deps = [];
-  _dirtyLevel = DirtyLevels.Dirty;
+  _dirtyLevel = DirtyLevels.Dirty; //计算属性：默认是脏的
   _depsLength = 0;
-  _running = 0;
+  _running = 0; //如果本次在执行effect的过程 更新了数据 不会触发effect更新
 
   public active = true; //创建的effect是响应式的
 
@@ -62,6 +62,7 @@ export class ReactiveEffect {
   }
 
   run() {
+    //计算属性每次运行后，此值就不脏了NoDirty
     this._dirtyLevel = DirtyLevels.NoDirty;
 
     if (!this.active) {
@@ -70,17 +71,20 @@ export class ReactiveEffect {
 
     //解决循环嵌套effect
     let lastEffect = activeEffect; // lastEffect=undefined   lastEffect = f1
-    debugger;
     try {
       //解决循环嵌套effect
       activeEffect = this; //f1 f2
 
       //effect重新执行前，需要将上一次的依赖清空 effect.deps
       preCleanEffect(this);
+
       this._running++;
+
       return this.fn(); //依赖收集 -> state.name state.age
     } finally {
       this._running--;
+
+      //对多余的effect清空
       postCleanEffect(this);
 
       //fn执行完了以后 activeEffect = lastEffect 解决循环嵌套effect
@@ -89,7 +93,11 @@ export class ReactiveEffect {
   }
 
   stop() {
-    this.active = false;
+    if (this.active) {
+      this.active = false;
+      preCleanEffect(this);
+      postCleanEffect(this);
+    }
   }
 }
 
@@ -101,7 +109,7 @@ export function cleanDepEffect(dep, effect) {
 }
 
 //_trackId用于记录i执行次数(防止一个属性在当前effect中多次依赖收集)
-//[flag，name] 第一次
+//[flag，name] 第一次 {flag:{effect:1}} {name:{effect:1}}
 //[flag，age]  第二次
 
 //[flag，age] 最后
@@ -111,8 +119,11 @@ export function trackEffect(effect, dep) {
   // dep.set(effect, effect._trackId);
   // effect.deps[effect._depsLength++] = dep;
   if (dep.get(effect) !== effect._trackId) {
+    //避免重复收集
     dep.set(effect, effect._trackId);
+
     let oldDep = effect.deps[effect._depsLength];
+
     //如果没有存过
     if (oldDep !== dep) {
       if (oldDep) {
@@ -128,14 +139,15 @@ export function trackEffect(effect, dep) {
 }
 
 export function triggerEffects(dep) {
+  //name -> 计算属性 -> 计算属性的scheduler -> 触发计算属性收集的effect
   for (const effect of dep.keys()) {
     //当前这个值是不脏的，但是触发更新需要将值变为脏值
     if (effect._dirtyLevel < DirtyLevels.Dirty) {
       effect._dirtyLevel = DirtyLevels.Dirty;
     }
     if (!effect._running) {
+      //如果本次在执行effect的过程 更新了数据 不会触发effect更新(如果不是正在执行，才能执行)
       if (effect.scheduler) {
-        //如果不是正在执行，才能执行
         effect.scheduler(); //-> effect.run()
       }
     }

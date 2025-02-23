@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module">
+      import { watch, reactive } from "./reactivity.js";
+      let state = reactive({ name: "jw", age: 30, address: { n: 1 } });
+      //source:
+      //第一个参数
+      //类型一： 一个函数，返回一个值
+      //类型二：ref
+      //类型三: reactive对象
+      //类型四：以上类型组成的数组
+      //source会先被转化成getter函数
+      //ref/reactive/数组 收集的依赖对应的是getter函数
+
+      //source转化为getter函数
+      const unwatch = watch(
+        () => state.name,
+        function (oldValue, newValue, ) {
+          console.log(oldValue, newValue);
+        },
+        {
+          deep: true,
+          immediate: true,
+        }
+      );
+
+      unwatch();
+
+      setTimeout(() => {
+        state.address = "handsome jw";
+      }, 1000);
+    </script>
+  </body>
+</html>

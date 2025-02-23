@@ -19,8 +19,8 @@
       let state = reactive({ name: "jw", age: 30 });
 
       //   console.log({ ...state }); //丧失响应式
-      //   let name = toRef(state, "name");
-      //   let age = toRef(state, "age");
+      //   let name = toRef(state, "name");   //还是基于 proxy 来获取值的， name.value 意味着 state.name
+      //   let age = toRef(state, "age");    //还是基于 proxy 来获取值的， age.value 意味着 state.age
       //   console.log(name, age);
 
       //   let { name, age } = toRefs(state);

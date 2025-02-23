@@ -37,7 +37,7 @@ export function trackRefValue(ref) {
   if (activeEffect) {
     trackEffect(
       activeEffect,
-      (ref.dep = createDep(() => (ref.dep = undefined), "undefined"))
+      (ref.dep = ref.dep || createDep(() => (ref.dep = undefined), "undefined"))
     );
   }
 }
@@ -61,11 +61,11 @@ class ObjectRefImpl {
   }
 }
 
-//toRef,toRefs
+//toRef
 export function toRef(object, key) {
   return new ObjectRefImpl(object, key);
 }
-
+//toRefs;
 export function toRefs(object) {
   const res = {};
   for (let key in object) {
@@ -75,6 +75,7 @@ export function toRefs(object) {
   return res;
 }
 
+//objectWithRef是个对象，但是里面都是Ref
 export function proxyRefs(objectWithRef) {
   return new Proxy(objectWithRef, {
     get(target, key, receiver) {
@@ -91,4 +92,8 @@ export function proxyRefs(objectWithRef) {
       return Reflect.set(target, key, value, receiver);
     },
   });
+}
+
+export function isRef(value) {
+  return value && value.__v_isRef;
 }

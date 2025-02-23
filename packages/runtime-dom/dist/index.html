@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module">
+      import { h, render } from "./runtime-dom.js";
+
+      //1 + 8 = 9
+      //1 | 8 = 9
+
+      //可能1个（类型）， 参数可以有2个(类型，属性/儿子)  或者是3个（标准的） 超过三个（从第三个开始都是儿子）
+
+      //1.两个参数 第二个参数可能是属性，或者是虚拟节点(__v_isVnode)
+      //2.第二个参数就是一个数组 -> 儿子
+      //3.其他情况就是属性
+      //4.直接传递非对象的，-> 本文
+      //5.不能出现 三个参数的时候第二个不是属性
+      //6.如果超过三个参数，后面的都是儿子
+      const ele1 = h(
+        "div",
+        { style: { color: "red" } },
+        h("div", "a1"),
+        h("div", "b1"),
+        h("div", "c1")
+      );
+      render(ele1, app);
+      console.log(render);
+    </script>
+  </body>
+</html>

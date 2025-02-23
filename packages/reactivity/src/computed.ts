@@ -11,13 +11,14 @@ class ComputedRefImpl {
     this.effect = new ReactiveEffect(
       () => getter(this._value),
       () => {
-        //计算属性依赖的值变化了，我们应该触发渲染effect重新执行
+        //计算属性依赖的值变化了，我们应该触发（渲染effect）重新执行
         triggerRefValue(this); //依赖的属性变化后需要触发重新渲染，还需要将dirty变为true
       }
     );
   }
 
   get value() {
+    //根据dirty判断
     if (this.effect.dirty) {
       //默认取值一定是脏的，但是执行一次run后不脏了
       this._value = this.effect.run();
@@ -28,14 +29,16 @@ class ComputedRefImpl {
   }
 
   set value(v) {
-    this.setter(v);
+    this.setter && this.setter(v);
   }
 }
 
 export function computed(getterOrOptions) {
   let onlyGetter = isFunction(getterOrOptions);
+
   let getter;
   let setter;
+
   if (onlyGetter) {
     getter = getterOrOptions;
     setter = () => {};
