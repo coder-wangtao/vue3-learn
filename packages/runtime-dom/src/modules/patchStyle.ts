@@ -7,8 +7,10 @@ export default function patchStyle(el, preValue, nextValue) {
   if (preValue) {
     for (let key in preValue) {
       //看以前的属性，现在有没有，如果没有就删除
-      if (nextValue[key] == null) {
-        style[key] = null;
+      if (nextValue) {
+        if (nextValue[key] == null) {
+          style[key] = null;
+        }
       }
     }
   }

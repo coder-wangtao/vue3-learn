@@ -1,6 +1,7 @@
 //主要是对节点元素的增删改查
 export const nodeOps = {
   insert(el, parent, anchor) {
+    //如果第三个元素不传递 === appendChild
     //parentElement.insertBefore(newElement,targetElement);
     //newElement:你想插入的元素。
     // targetElement:你想把新元素插入到哪个元素(targetElement)之前。
