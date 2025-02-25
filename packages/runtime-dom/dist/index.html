@@ -17,15 +17,24 @@
       //   }, 1000);
 
       let vnode1 = h("h1", [
-        h("div", { key: "c" }, "c"),
         h("div", { key: "a" }, "a"),
         h("div", { key: "b" }, "b"),
+        h("div", { key: "c" }, "c"),
+        h("div", { key: "d", style: { color: "red" } }, "d"),
+        h("div", { key: "e" }, "e"),
+        h("div", { key: "q" }, "q"),
+        h("div", { key: "f" }, "f"),
+        h("div", { key: "g" }, "g"),
       ]);
       let vnode2 = h("h1", [
-        // h("div", { key: "d" }, "d"),
         h("div", { key: "a" }, "a"),
         h("div", { key: "b" }, "b"),
-        // h("div", { key: "c" }, "c"),
+        h("div", { key: "e" }, "e"),
+        h("div", { key: "c" }, "c"),
+        h("div", { key: "d", style: { color: "green" } }, "d"),
+        h("div", { key: "h" }, "h"),
+        h("div", { key: "f" }, "f"),
+        h("div", { key: "g" }, "g"),
       ]);
 
       render(vnode1, app);
@@ -35,7 +44,7 @@
 
       setTimeout(() => {
         render(vnode2, app);
-      }, 3000);
+      }, 1000);
     </script>
   </body>
 </html>

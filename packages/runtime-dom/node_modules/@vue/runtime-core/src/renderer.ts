@@ -148,7 +148,55 @@ export function createRenderer(renderOptions) {
         unmount(c1[i]);
         i++;
       }
+    } else {
+      let s1 = i;
+      let s2 = i;
+
+      const keyToNewIndexMap = new Map(); //做一个映射表用于快速查找，看老的是否在新的里面还有，没有就删除，有的话就更新
+      let toBePatched = e2 - s1 + 1; //要倒序插入的个数
+
+      let newIndexToOldMapIndex = new Array(toBePatched).fill(0); //[5,3,2,0]
+      //根据新的节点，找到对应老的位置
+
+      //[4,2,3,0] -> [1,2] 跟据最长递增子序列求出对应的索引结果
+
+      for (let i = s2; i <= e2; i++) {
+        const vnode = c2[i];
+        keyToNewIndexMap.set(vnode.key, i);
+      }
+      for (let i = s1; i <= e1; i++) {
+        const vnode = c1[i];
+        const newIndex = keyToNewIndexMap.get(vnode.key); //通过key找到对应的索引
+        if (newIndex == undefined) {
+          //如果新的里面找不到，则说明老的有的要删除掉
+          unmount(vnode);
+        } else {
+          //比较前后节点的差异，更新属性和儿子
+          //我们i可能是0的情况，为了保证0 是没有比对过的元素 直接i+1
+          newIndexToOldMapIndex[newIndex - s2] = i + 1;
+          patch(vnode, c2[newIndex], el); //复用
+        }
+      }
+
+      //调整顺序
+      //我们介意按照新的队列 倒序插入insertBefore 通过参照物往前面插入
+      //插入的过程中，可能新的元素多，需要创建
+      for (let i = toBePatched - 1; i >= 0; i--) {
+        let newIndex = s2 + i;
+        let anchor = c2[newIndex + 1]?.el;
+        const vnode = c2[newIndex];
+        if (!vnode.el) {
+          //新列表新增的元素
+          patch(null, vnode, el, anchor); //创建新的元素
+        } else {
+          hostInsert(vnode.el, el, anchor); //接着倒序插入
+        }
+      }
+      //倒序比对每一个元素，做插入操作
     }
+
+    //以上确认不变化的节点，并且对插入和移除做了处理
+    //后面就是特殊的比对方式了
   };
 
   const patChildren = (n1, n2, el) => {
