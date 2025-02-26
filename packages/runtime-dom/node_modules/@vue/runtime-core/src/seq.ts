@@ -20,12 +20,12 @@
 //1 3 4 6 7 9  （4的前一个是3）              6个   (序列是不对的 但是个数是对的)
 //将大的排到后面，如果有潜力的不是最后一个，我们就替换前面的，而且替换的时候要标识前一个是谁，这样我就能找回前一个是谁
 
-//1 3 4 6 7 9 
+//1 3 4 6 7 9
 //9 7 6 5 3 2  //倒序
 
 //找更有潜力的
 
-function getSequence(arr) {
+export default function getSequence(arr) {
   const result = [0];
   const len = arr.length;
   const p = result.slice(0); //用于存放索引的
