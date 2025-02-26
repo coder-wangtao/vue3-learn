@@ -1,6 +1,7 @@
 import { ShapeFlags } from "@vue/shared";
-import { isSameVnode } from "./createVnode";
+import { isSameVnode, Text, Fragment } from "./createVnode";
 import getSequence from "./seq";
+import { reactive, ReactiveEffect } from "@vue/reactivity";
 
 export function createRenderer(renderOptions) {
   //core中不关心如何渲染
@@ -279,7 +280,71 @@ export function createRenderer(renderOptions) {
     patChildren(n1, n2, el);
   };
 
-  const processText = (n1, n2, container) => {};
+  const processText = (n1, n2, container) => {
+    if (n1 == null) {
+      //虚拟节点要关联真实节点
+      //将节点插入到页面中
+      hostInsert((n2.el = hostCreateText(n2.children)), container);
+    } else {
+      const el = (n2.el = n1.el);
+      if (n1.children !== n2.children) {
+        hostSetText(el, n2.children);
+      }
+    }
+  };
+
+  const processFragment = (n1, n2, container) => {
+    if (n1 == null) {
+      mountChildren(n2.children, container);
+    } else {
+      patChildren(n1, n2, container);
+    }
+  };
+
+  const mountComponent = (n2, container, anchor) => {
+    //组件可以基于自己的状态重新渲染
+    const { data = () => {}, render } = n2.type;
+    const state = reactive(data());
+
+    const instance = {
+      state, //状态
+      vnode: n2, //组件的虚拟节点
+      subTree: null, //子树
+      isMounted: false, //是否挂载完成
+      update: null, //组件的更新函数
+    };
+
+    const componentUpdateFn = () => {
+      //我们要在这里面区分，是第一次还是之后的
+      if (!instance.isMounted) {
+        const subTree = render.call(state, state); //第一个参数this指向，第二个参数proxy   render(proxy){}
+        patch(null, subTree, container, anchor);
+        instance.isMounted = true;
+        instance.subTree = subTree;
+      } else {
+        //基于状态的组件更新
+        const subTree = render.call(state, state);
+        patch(instance.subTree, subTree, container, anchor);
+        instance.subTree = subTree;
+      }
+    };
+
+    const effect = new ReactiveEffect(componentUpdateFn, () => update());
+
+    const update = (instance.update = () => {
+      effect.run();
+    });
+    update();
+  };
+
+  const processComponent = (n1, n2, container, anchor) => {
+    if (n1 == null) {
+      //组件的挂载
+      mountComponent(n2, container, anchor);
+    } else {
+      //组件的更新
+    }
+  };
 
   //渲染走这里，更新也走这里
   const patch = (n1, n2, container, anchor = null) => {
@@ -292,22 +357,33 @@ export function createRenderer(renderOptions) {
     if (n1 && !isSameVnode(n1, n2)) {
       unmount(n1);
       n1 = null; //就会执行后续n2的初始化
-      //
     }
 
-    const { type } = n2;
+    const { type, shapeFlag } = n2;
     switch (type) {
       case Text:
         processText(n1, n2, container);
         break;
+      case Fragment:
+        processFragment(n1, n2, container);
+        break;
       default:
-        processElement(n1, n2, container, anchor); //对元素处理
+        if (shapeFlag & ShapeFlags.ELEMENT) {
+          processElement(n1, n2, container, anchor); //对元素处理
+        } else if (shapeFlag & ShapeFlags.COMPONENT) {
+          //对组件的处理，vue3中函数式组件，已经废弃了,没有性能节约
+          processComponent(n1, n2, container, anchor);
+        }
     }
   };
 
   //卸载操作
   const unmount = (vnode) => {
-    return hostRemove(vnode.el);
+    if (vnode.type === Fragment) {
+      unmountChildren(vnode.children);
+    } else {
+      hostRemove(vnode.el);
+    }
   };
 
   //多次调用render会进行虚拟节点的比较，再进行更新
@@ -317,12 +393,12 @@ export function createRenderer(renderOptions) {
       if (container._vnode) {
         unmount(container._vnode);
       }
+    } else {
+      //将虚拟节点真实节点进行渲染
+      patch(container._vnode || null, vnode, container);
+
+      container._vnode = vnode;
     }
-
-    //将虚拟节点真实节点进行渲染
-    patch(container._vnode || null, vnode, container);
-
-    container._vnode = vnode;
   };
 
   return {
