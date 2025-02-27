@@ -110,6 +110,8 @@ function isFunction(value) {
 function isString(value) {
   return typeof value == "string";
 }
+var hasOwnProperty = Object.prototype.hasOwnProperty;
+var hasOwn = (value, key) => hasOwnProperty.call(value, key);
 
 // packages/runtime-core/src/createVnode.ts
 var Text = Symbol("Text");
@@ -596,6 +598,108 @@ function watchEffect(source, options) {
   return doWatch(source, null, options = {});
 }
 
+// packages/runtime-core/src/scheduler.ts
+var queue = [];
+var isFlushing = false;
+var resolvePromise = Promise.resolve();
+function queueJob(job) {
+  if (!queue.includes(job)) {
+    queue.push(job);
+  }
+  if (!isFlushing) {
+    isFlushing = true;
+    resolvePromise.then(() => {
+      isFlushing = false;
+      const copy = queue.slice(0);
+      queue.length = 0;
+      copy.forEach(() => job());
+      copy.length = 0;
+    });
+  }
+}
+
+// packages/runtime-core/src/component.ts
+function createComponentInstance(vnode) {
+  const instance = {
+    data: null,
+    //状态
+    vnode,
+    //组件的虚拟节点
+    subTree: null,
+    //子树
+    isMounted: false,
+    //是否挂载完成
+    update: null,
+    //组件的更新函数
+    props: {},
+    attrs: {},
+    render: null,
+    propsOptions: vnode.type.props,
+    //包括attr+prop
+    component: null,
+    proxy: null
+    //用来代理props,attrs,data  让用户更方便的使用
+  };
+  return instance;
+}
+var initProps = (instance, rawProps) => {
+  const props = {};
+  const attrs = {};
+  const propsOptions = instance.propsOptions || {};
+  if (rawProps) {
+    for (let key in rawProps) {
+      const value = rawProps[key];
+      if (key in propsOptions) {
+        props[key] = value;
+      } else {
+        attrs[key] = value;
+      }
+    }
+  }
+  instance.attrs = attrs;
+  instance.props = reactive(props);
+};
+var publicProperty = {
+  $attrs: (instance) => instance.attrs
+};
+var handler = {
+  get(target, key) {
+    const { data, props } = target;
+    if (data && hasOwn(data, key)) {
+      return data[key];
+    } else if (props && hasOwn(props, key)) {
+      return props[key];
+    }
+    const getter = publicProperty[key];
+    if (getter) {
+      return getter(target);
+    }
+  },
+  set(target, key, value) {
+    const { data, props } = target;
+    if (data && hasOwn(data, key)) {
+      data[key] = value;
+    } else if (props && hasOwn(props, key)) {
+      console.log("props are readonly");
+      return false;
+    }
+    return true;
+  }
+};
+function setupComponent(instance) {
+  const { vnode } = instance;
+  initProps(instance, vnode.props);
+  instance.proxy = new Proxy(instance, handler);
+  const { data = () => {
+  }, render: render2 } = vnode.type;
+  if (data && !isFunction(data)) {
+    console.warn("data option must be a function");
+  } else {
+    instance.data = reactive(data.call(instance.proxy));
+  }
+  instance.render = render2;
+}
+
 // packages/runtime-core/src/renderer.ts
 function createRenderer(renderOptions2) {
   const {
@@ -782,44 +886,87 @@ function createRenderer(renderOptions2) {
       patChildren(n1, n2, container);
     }
   };
-  const mountComponent = (n2, container, anchor) => {
-    const { data = () => {
-    }, render: render3 } = n2.type;
-    const state = reactive(data());
-    const instance = {
-      state,
-      //状态
-      vnode: n2,
-      //组件的虚拟节点
-      subTree: null,
-      //子树
-      isMounted: false,
-      //是否挂载完成
-      update: null
-      //组件的更新函数
-    };
+  const updateProps = (instance, prevProps, nextProps) => {
+    if (hasPropsChange(prevProps, nextProps)) {
+      for (let key in nextProps) {
+        instance.props[key] = nextProps[key];
+      }
+      for (let key in instance.props) {
+        if (!(key in nextProps)) {
+          delete instance.props[key];
+        }
+      }
+    }
+  };
+  const updateComponentPreRender = (instance, next) => {
+    instance.next = null;
+    instance.vnode = next;
+    updateProps(instance, instance.props, next.props);
+  };
+  function setupRenderEffect(instance, container, anchor) {
+    const { render: render3 } = instance;
     const componentUpdateFn = () => {
       if (!instance.isMounted) {
-        const subTree = render3.call(state, state);
+        const subTree = render3.call(instance.proxy, instance.proxy);
         patch(null, subTree, container, anchor);
         instance.isMounted = true;
         instance.subTree = subTree;
       } else {
-        const subTree = render3.call(state, state);
+        const { next } = instance;
+        if (next) {
+          updateComponentPreRender(instance, next);
+        }
+        const subTree = render3.call(instance.proxy, instance.proxy);
         patch(instance.subTree, subTree, container, anchor);
         instance.subTree = subTree;
       }
     };
-    const effect2 = new ReactiveEffect(componentUpdateFn, () => update());
+    const effect2 = new ReactiveEffect(
+      componentUpdateFn,
+      () => queueJob(update)
+    );
     const update = instance.update = () => {
       effect2.run();
     };
     update();
+  }
+  const mountComponent = (vnode, container, anchor) => {
+    const instance = vnode.component = createComponentInstance(vnode);
+    setupComponent(instance);
+    setupRenderEffect(instance, container, anchor);
+  };
+  const hasPropsChange = (prevProps, nextProps) => {
+    let nKeys = Object.keys(nextProps);
+    if (nKeys.length !== Object.keys(prevProps).length) {
+      return true;
+    }
+    for (let i = 0; i < nKeys.length; i++) {
+      const key = nKeys[i];
+      if (nextProps[key] !== prevProps[key]) {
+        return true;
+      }
+    }
+    return false;
+  };
+  const shouldComponentUpdate = (n1, n2) => {
+    const { props: prevProps, children: prevChildren } = n1;
+    const { props: nextProps, children: nextChildren } = n2;
+    if (prevChildren || nextChildren) return true;
+    if (prevProps === nextProps) return false;
+    return hasPropsChange(prevProps, nextProps);
+  };
+  const updateComponent = (n1, n2) => {
+    const instance = n2.component = n1.component;
+    if (shouldComponentUpdate(n1, n2)) {
+      instance.next = n2;
+      instance.update();
+    }
   };
   const processComponent = (n1, n2, container, anchor) => {
     if (n1 == null) {
       mountComponent(n2, container, anchor);
     } else {
+      updateComponent(n1, n2);
     }
   };
   const patch = (n1, n2, container, anchor = null) => {

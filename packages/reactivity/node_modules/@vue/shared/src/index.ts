@@ -6,8 +6,10 @@ export function isFunction(value) {
   return typeof value == "function";
 }
 
-export function isString(value){
-  return typeof value == "string" 
+export function isString(value) {
+  return typeof value == "string";
 }
 
+const hasOwnProperty = Object.prototype.hasOwnProperty;
+export const hasOwn = (value, key) => hasOwnProperty.call(value, key);
 export * from "./shapeFlags";

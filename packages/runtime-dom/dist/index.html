@@ -9,28 +9,32 @@
     <div id="app"></div>
     <script type="module">
       import { h, render, Text, Fragment } from "./runtime-dom.js";
-      // render(h(Text, "jw"), app);
-      // setTimeout(() => {
-      //   render(null, app);
-      // }, 1000);
 
-      const VueComponent = {
-        data() {
-          return { name: "jw", age: 30 };
+      //组件更新 有三种方式 （状态 属性 插槽）
+
+      const RenderComponent = {
+        props: {
+          address: String,
         },
         render() {
-          setTimeout(() => {
-            this.age++;
-          }, 1000);
-          return h("div", [
-            h(Text, "my name is" + this.name),
-            h("a", this.age),
+          return h(Text, this.address);
+        },
+      };
+      const VueComponent = {
+        data() {
+          return {
+            flag: true,
+            address: "北京",
+          };
+        },
+        render() {
+          return h(Fragment, null, [
+            h("button", { onClick: () => (this.flag = !this.flag) }, "点我啊"),
+            h(RenderComponent, { address: this.flag ? "北京" : "上海" }),
           ]);
         },
       };
 
-      //组件由两个虚拟节点组成 h(VueComponent) = vnode 产生的是组件的内的虚拟节点
-      //render函数返回的虚拟节点，这个虚拟节点才是最终要渲染的内容 = subTree
       render(h(VueComponent), app);
     </script>
   </body>

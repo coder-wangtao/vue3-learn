@@ -1,7 +1,10 @@
-import { ShapeFlags } from "@vue/shared";
+import { render } from "./../../runtime-dom/src/index";
+import { hasOwn, ShapeFlags } from "@vue/shared";
 import { isSameVnode, Text, Fragment } from "./createVnode";
 import getSequence from "./seq";
 import { reactive, ReactiveEffect } from "@vue/reactivity";
+import queueJob from "./scheduler";
+import { createComponentInstance, setupComponent } from "./component";
 
 export function createRenderer(renderOptions) {
   //core中不关心如何渲染
@@ -301,40 +304,106 @@ export function createRenderer(renderOptions) {
     }
   };
 
-  const mountComponent = (n2, container, anchor) => {
+  const updateProps = (instance, prevProps, nextProps) => {
+    if (hasPropsChange(prevProps, nextProps)) {
+      //看属性是否存在变化
+      for (let key in nextProps) {
+        //用新的覆盖掉老的
+        instance.props[key] = nextProps[key]; //更新
+      }
+      for (let key in instance.props) {
+        //删除多余老的
+        if (!(key in nextProps)) {
+          delete instance.props[key];
+        }
+      }
+    }
+  };
+
+  const updateComponentPreRender = (instance, next) => {
+    instance.next = null;
+    instance.vnode = next; //
+    updateProps(instance, instance.props, next.props);
+  };
+
+  function setupRenderEffect(instance, container, anchor) {
     //组件可以基于自己的状态重新渲染
-    const { data = () => {}, render } = n2.type;
-    const state = reactive(data());
 
-    const instance = {
-      state, //状态
-      vnode: n2, //组件的虚拟节点
-      subTree: null, //子树
-      isMounted: false, //是否挂载完成
-      update: null, //组件的更新函数
-    };
-
+    const { render } = instance;
     const componentUpdateFn = () => {
       //我们要在这里面区分，是第一次还是之后的
+      //元素更新 n2.el = n1.el
+      //组件更新 n2.component.subTree.el = n1.component.subTree.el
       if (!instance.isMounted) {
-        const subTree = render.call(state, state); //第一个参数this指向，第二个参数proxy   render(proxy){}
+        const subTree = render.call(instance.proxy, instance.proxy); //第一个参数this指向，第二个参数proxy   render(proxy){}
         patch(null, subTree, container, anchor);
         instance.isMounted = true;
         instance.subTree = subTree;
       } else {
         //基于状态的组件更新
-        const subTree = render.call(state, state);
+        const { next } = instance;
+        if (next) {
+          //更新属性和插槽
+          updateComponentPreRender(instance, next);
+        }
+        const subTree = render.call(instance.proxy, instance.proxy);
         patch(instance.subTree, subTree, container, anchor);
         instance.subTree = subTree;
       }
     };
 
-    const effect = new ReactiveEffect(componentUpdateFn, () => update());
+    const effect = new ReactiveEffect(componentUpdateFn, () =>
+      queueJob(update)
+    );
 
     const update = (instance.update = () => {
       effect.run();
     });
+
     update();
+  }
+
+  const mountComponent = (vnode, container, anchor) => {
+    //1.先创建组件实例
+    const instance = (vnode.component = createComponentInstance(vnode));
+    //2.给实例的属性赋值
+    setupComponent(instance);
+    //3.创建一个effect
+    setupRenderEffect(instance, container, anchor);
+  };
+
+  const hasPropsChange = (prevProps, nextProps) => {
+    let nKeys = Object.keys(nextProps);
+    if (nKeys.length !== Object.keys(prevProps).length) {
+      return true;
+    }
+    for (let i = 0; i < nKeys.length; i++) {
+      const key = nKeys[i];
+      if (nextProps[key] !== prevProps[key]) {
+        return true;
+      }
+    }
+    return false;
+  };
+
+  const shouldComponentUpdate = (n1, n2) => {
+    const { props: prevProps, children: prevChildren } = n1;
+    const { props: nextProps, children: nextChildren } = n2;
+    if (prevChildren || nextChildren) return true; //有插槽直接走重新渲染即可
+    if (prevProps === nextProps) return false;
+    //如果属性不一致则更新
+    return hasPropsChange(prevProps, nextProps);
+  };
+
+  const updateComponent = (n1, n2) => {
+    //组件的复用是component
+    //元素的复用是el
+    const instance = (n2.component = n1.component);
+
+    if (shouldComponentUpdate(n1, n2)) {
+      instance.next = n2; //如果调用update 有next属性，说明是属性更新，插槽更新
+      instance.update(); //让更新逻辑统一
+    }
   };
 
   const processComponent = (n1, n2, container, anchor) => {
@@ -343,6 +412,7 @@ export function createRenderer(renderOptions) {
       mountComponent(n2, container, anchor);
     } else {
       //组件的更新
+      updateComponent(n1, n2);
     }
   };
 
