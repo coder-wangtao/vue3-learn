@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module">
+      import { h, render, Text, Fragment, ref } from "./runtime-dom.js";
+
+      //setup 函数 每个组件只会执行一次 可以放入我们的compositionApi reactive ref
+      //setup 可以返回render函数
+
+      const VueComponent = {
+        setup(props, { emit, attrs, expose, slots }) {
+          //提供渲染逻辑
+          const a = ref(1);
+          setTimeout(() => {
+            a.value = 2;
+          }, 1000);
+          //   return {
+          //     a: a,
+          //   };
+          return () => {
+            return h("div", a.value);
+          };
+        },
+        // render(proxy) {
+        //   return h("div", proxy.a);
+        // },
+      };
+
+      render(h(VueComponent, {}), app);
+    </script>
+  </body>
+</html>
