@@ -1,10 +1,10 @@
-import { render } from "./../../runtime-dom/src/index";
-import { hasOwn, ShapeFlags } from "@vue/shared";
+import { ShapeFlags } from "@vue/shared";
 import { isSameVnode, Text, Fragment } from "./createVnode";
 import getSequence from "./seq";
-import { reactive, ReactiveEffect } from "@vue/reactivity";
+import { isRef, reactive, ReactiveEffect } from "@vue/reactivity";
 import queueJob from "./scheduler";
 import { createComponentInstance, setupComponent } from "./component";
+import { invokeArray } from "./apiLifeCycle";
 
 export function createRenderer(renderOptions) {
   //core中不关心如何渲染
@@ -334,21 +334,34 @@ export function createRenderer(renderOptions) {
       //我们要在这里面区分，是第一次还是之后的
       //元素更新 n2.el = n1.el
       //组件更新 n2.component.subTree.el = n1.component.subTree.el
+      const { bm, m } = instance;
       if (!instance.isMounted) {
+        if (bm) {
+          invokeArray(bm);
+        }
         const subTree = render.call(instance.proxy, instance.proxy); //第一个参数this指向，第二个参数proxy   render(proxy){}
         patch(null, subTree, container, anchor);
         instance.isMounted = true;
         instance.subTree = subTree;
+        if (m) {
+          invokeArray(m);
+        }
       } else {
         //基于状态的组件更新
-        const { next } = instance;
+        const { next, bu, u } = instance;
         if (next) {
           //更新属性和插槽
           updateComponentPreRender(instance, next);
         }
+        if (bu) {
+          invokeArray(bu);
+        }
         const subTree = render.call(instance.proxy, instance.proxy);
         patch(instance.subTree, subTree, container, anchor);
         instance.subTree = subTree;
+        if (u) {
+          invokeArray(u);
+        }
       }
     };
 
@@ -429,7 +442,7 @@ export function createRenderer(renderOptions) {
       n1 = null; //就会执行后续n2的初始化
     }
 
-    const { type, shapeFlag } = n2;
+    const { type, shapeFlag, ref } = n2;
     switch (type) {
       case Text:
         processText(n1, n2, container);
@@ -440,17 +453,37 @@ export function createRenderer(renderOptions) {
       default:
         if (shapeFlag & ShapeFlags.ELEMENT) {
           processElement(n1, n2, container, anchor); //对元素处理
+        } else if (shapeFlag & ShapeFlags.TELEPORT) {
+          // type.process(n1, n2, container, anchor);
         } else if (shapeFlag & ShapeFlags.COMPONENT) {
           //对组件的处理，vue3中函数式组件，已经废弃了,没有性能节约
           processComponent(n1, n2, container, anchor);
         }
     }
+
+    if (ref !== null) {
+      //n2是dom 还是组件 还是组件由expose
+      setRef(ref, n2);
+    }
   };
+
+  function setRef(rawRef, vnode) {
+    let value =
+      vnode.shapeFlag & ShapeFlags.STATEFUL_COMPONENT
+        ? vnode.component.exposed || vnode.component.proxy
+        : vnode.el;
+    if (isRef(rawRef)) {
+      rawRef.value = value;
+    }
+  }
 
   //卸载操作
   const unmount = (vnode) => {
+    const { shapeFlag } = vnode;
     if (vnode.type === Fragment) {
       unmountChildren(vnode.children);
+    } else if (shapeFlag & ShapeFlags.COMPONENT) {
+      unmount(vnode.component.subTree);
     } else {
       hostRemove(vnode.el);
     }

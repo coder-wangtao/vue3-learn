@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module">
+      import {
+        h,
+        render,
+        Text,
+        Fragment,
+        ref,
+        onBeforeMount,
+        onMounted,
+        onBeforeUpdate,
+        onUpdated,
+        getCurrentInstance,
+      } from "./runtime-dom.js";
+
+      const My = {
+        props: {
+          value: String,
+        },
+        setup(props, { emit, attrs, expose, slots }) {
+          //   console.log(getCurrentInstance(), "child");
+          console.log("child setup");
+
+          //instance和钩子关联在一起，在特定的时机去调用对应的钩子
+          onBeforeMount(() => {
+            console.log("child beforeMount");
+          });
+          onMounted(() => {
+            console.log("child mounted");
+          });
+          onBeforeUpdate(() => {
+            console.log("child beforeupdate");
+          });
+          onUpdated(() => {
+            console.log("child updated");
+          });
+
+          return () => {
+            return h("div", props.value);
+          };
+        },
+      };
+
+      //父初始化 -> 子初始化 -> 子初始化完 -> 父初始完
+      //父更新 -> 子更新 -> 子完成 -> 父完成
+      const VueComponent = {
+        setup(props, { emit, attrs, expose, slots }) {
+          //   console.log(getCurrentInstance(), "parent");
+          console.log("parent setup");
+
+          //instance和钩子关联在一起，在特定的时机去调用对应的钩子
+          onBeforeMount(() => {
+            console.log("parent beforeMount");
+          });
+          onMounted(() => {
+            console.log("parent mounted");
+          });
+          onBeforeUpdate(() => {
+            console.log("parent beforeupdate");
+          });
+          onUpdated(() => {
+            console.log("parent updated");
+          });
+          const val = ref("a");
+
+          setTimeout(() => {
+            val.value = "b";
+          }, 1000);
+
+          return () => {
+            return h(My, { value: val.value });
+          };
+        },
+      };
+
+      render(h(VueComponent), app);
+    </script>
+  </body>
+</html>

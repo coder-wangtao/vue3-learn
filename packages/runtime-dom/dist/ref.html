@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module">
+      import {
+        h,
+        render,
+        Text,
+        Fragment,
+        ref,
+        onBeforeMount,
+        onMounted,
+        onBeforeUpdate,
+        onUpdated,
+        getCurrentInstance,
+      } from "./runtime-dom.js";
+
+      const My = {
+        props: {
+          a: Number,
+        },
+        setup(props, { emit, attrs, expose, slots }) {
+          expose({
+            a: 200,
+          });
+          return () => {
+            return h("div", 111);
+          };
+        },
+      };
+
+      const VueComponent = {
+        setup(props, { emit, attrs, expose, slots }) {
+          const comp = ref(null);
+
+          //如果ref放到组件上，指代的是组件实例，如果当前组件由expose则是expose
+          //如果放到dom元素上指代的是dom元素
+          onMounted(() => {
+            // console.log(comp.value);
+            console.log(comp.value.a);
+          });
+
+          return () => {
+            // return h(My, { ref: comp, a: 100 });
+            return h("div", { ref: comp, a: 100 });
+          };
+        },
+      };
+
+      render(h(VueComponent), app);
+    </script>
+  </body>
+</html>

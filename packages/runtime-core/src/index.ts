@@ -3,3 +3,6 @@ export * from "./createVnode";
 export * from "./h";
 export * from "./renderer";
 export * from "@vue/reactivity";
+export * from "./Teleport";
+export * from "./apiLifeCycle";
+export * from "./component";

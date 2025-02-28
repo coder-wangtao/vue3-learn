@@ -123,7 +123,7 @@ function isSameVnode(n1, n2) {
   return n1.type === n2.type && n1.key === n2.key;
 }
 function createVnode(type, props, children) {
-  const shapeFlag = isString(type) ? 1 /* ELEMENT */ : isObject(type) ? 4 /* STATEFUL_COMPONENT */ : 0;
+  const shapeFlag = isString(type) ? 1 /* ELEMENT */ : isTeleport(type) ? 64 /* TELEPORT */ : isObject(type) ? 4 /* STATEFUL_COMPONENT */ : isFunction(type) ? 2 /* FUNCTIONAL_COMPONENT */ : 0;
   const vnode = {
     __v_isVnode: true,
     type,
@@ -133,11 +133,14 @@ function createVnode(type, props, children) {
     //diff算法后面用的key
     el: null,
     //虚拟节点需要对应的真实节点是谁
-    shapeFlag
+    shapeFlag,
+    ref: props?.ref
   };
   if (children) {
     if (Array.isArray(children)) {
       vnode.shapeFlag = vnode.shapeFlag | 16 /* ARRAY_CHILDREN */;
+    } else if (isObject(children)) {
+      vnode.shapeFlag = vnode.shapeFlag | 32 /* SLOTS_CHILDREN */;
     } else {
       children = String(children);
       vnode.shapeFlag = vnode.shapeFlag | 8 /* TEXT_CHILDREN */;
@@ -633,13 +636,16 @@ function createComponentInstance(vnode) {
     //组件的更新函数
     props: {},
     attrs: {},
+    slots: {},
+    //插槽
     render: null,
     propsOptions: vnode.type.props,
     //包括attr+prop
     component: null,
     proxy: null,
     //用来代理props,attrs,data  让用户更方便的使用
-    setupState: {}
+    setupState: {},
+    exposed: null
   };
   return instance;
 }
@@ -661,7 +667,8 @@ var initProps = (instance, rawProps) => {
   instance.props = reactive(props);
 };
 var publicProperty = {
-  $attrs: (instance) => instance.attrs
+  $attrs: (instance) => instance.attrs,
+  $slots: (instance) => instance.slots
 };
 var handler = {
   get(target, key) {
@@ -691,17 +698,36 @@ var handler = {
     return true;
   }
 };
+function initSlots(instance, children) {
+  if (instance.vnode.shapeFlag & 32 /* SLOTS_CHILDREN */) {
+    instance.slots = children;
+  } else {
+    instance.slots = {};
+  }
+}
 function setupComponent(instance) {
   const { vnode } = instance;
   initProps(instance, vnode.props);
+  initSlots(instance, vnode.children);
   instance.proxy = new Proxy(instance, handler);
   const { data = () => {
   }, render: render2, setup } = vnode.type;
   if (setup) {
     const setupContext = {
-      //
+      slots: instance.slots,
+      attrs: instance.attrs,
+      expose(value) {
+        instance.exposed = value;
+      },
+      emit(event, ...payload) {
+        const eventName = `on${event[0].toUpperCase() + event.slice(1)}`;
+        const handler2 = instance.vnode.props[eventName];
+        handler2 && handler2(...payload);
+      }
     };
+    setCurrentInstance(instance);
     const setupResult = setup(instance.props, setupContext);
+    unsetCurrentInstance();
     if (isFunction(setupResult)) {
       instance.render = setupResult;
     } else {
@@ -715,6 +741,47 @@ function setupComponent(instance) {
   }
   if (!instance.render) {
     instance.render = render2;
+  }
+}
+var currentInstance = null;
+var getCurrentInstance = () => {
+  return currentInstance;
+};
+var setCurrentInstance = (instance) => {
+  currentInstance = instance;
+};
+var unsetCurrentInstance = () => {
+  currentInstance = null;
+};
+
+// packages/runtime-core/src/apiLifeCycle.ts
+var LifeCycle = /* @__PURE__ */ ((LifeCycle2) => {
+  LifeCycle2["BEFORE_MOUNT"] = "bm";
+  LifeCycle2["MOUNTED"] = "m";
+  LifeCycle2["BEFORE_UPDATE"] = "bu";
+  LifeCycle2["UPDATED"] = "u";
+  return LifeCycle2;
+})(LifeCycle || {});
+function createHook(type) {
+  return (hook, target = currentInstance) => {
+    if (target) {
+      const hooks = target[type] || (target[type] = []);
+      const wrapHook = () => {
+        setCurrentInstance(target);
+        hook.call(target);
+        unsetCurrentInstance();
+      };
+      hooks.push(wrapHook);
+    }
+  };
+}
+var onBeforeMount = createHook("bm" /* BEFORE_MOUNT */);
+var onMounted = createHook("m" /* MOUNTED */);
+var onBeforeUpdate = createHook("bu" /* BEFORE_UPDATE */);
+var onUpdated = createHook("u" /* UPDATED */);
+function invokeArray(fns) {
+  for (let i = 0; i < fns.length; i++) {
+    fns[i]();
   }
 }
 
@@ -924,19 +991,32 @@ function createRenderer(renderOptions2) {
   function setupRenderEffect(instance, container, anchor) {
     const { render: render3 } = instance;
     const componentUpdateFn = () => {
+      const { bm, m } = instance;
       if (!instance.isMounted) {
+        if (bm) {
+          invokeArray(bm);
+        }
         const subTree = render3.call(instance.proxy, instance.proxy);
         patch(null, subTree, container, anchor);
         instance.isMounted = true;
         instance.subTree = subTree;
+        if (m) {
+          invokeArray(m);
+        }
       } else {
-        const { next } = instance;
+        const { next, bu, u } = instance;
         if (next) {
           updateComponentPreRender(instance, next);
+        }
+        if (bu) {
+          invokeArray(bu);
         }
         const subTree = render3.call(instance.proxy, instance.proxy);
         patch(instance.subTree, subTree, container, anchor);
         instance.subTree = subTree;
+        if (u) {
+          invokeArray(u);
+        }
       }
     };
     const effect2 = new ReactiveEffect(
@@ -995,7 +1075,7 @@ function createRenderer(renderOptions2) {
       unmount(n1);
       n1 = null;
     }
-    const { type, shapeFlag } = n2;
+    const { type, shapeFlag, ref: ref2 } = n2;
     switch (type) {
       case Text:
         processText(n1, n2, container);
@@ -1006,14 +1086,27 @@ function createRenderer(renderOptions2) {
       default:
         if (shapeFlag & 1 /* ELEMENT */) {
           processElement(n1, n2, container, anchor);
+        } else if (shapeFlag & 64 /* TELEPORT */) {
         } else if (shapeFlag & 6 /* COMPONENT */) {
           processComponent(n1, n2, container, anchor);
         }
     }
+    if (ref2 !== null) {
+      setRef(ref2, n2);
+    }
   };
+  function setRef(rawRef, vnode) {
+    let value = vnode.shapeFlag & 4 /* STATEFUL_COMPONENT */ ? vnode.component.exposed || vnode.component.proxy : vnode.el;
+    if (isRef(rawRef)) {
+      rawRef.value = value;
+    }
+  }
   const unmount = (vnode) => {
+    const { shapeFlag } = vnode;
     if (vnode.type === Fragment) {
       unmountChildren(vnode.children);
+    } else if (shapeFlag & 6 /* COMPONENT */) {
+      unmount(vnode.component.subTree);
     } else {
       hostRemove(vnode.el);
     }
@@ -1033,6 +1126,12 @@ function createRenderer(renderOptions2) {
   };
 }
 
+// packages/runtime-core/src/Teleport.ts
+var Teleport = {
+  __isTeleport: true
+};
+var isTeleport = (value) => value?.__isTeleport;
+
 // packages/runtime-dom/src/index.ts
 var renderOptions = Object.assign({ patchProp }, nodeOps);
 var render = (vnode, container) => {
@@ -1040,24 +1139,38 @@ var render = (vnode, container) => {
 };
 export {
   Fragment,
+  LifeCycle,
   ReactiveEffect,
+  Teleport,
   Text,
   activeEffect,
   cleanDepEffect,
   computed,
+  createComponentInstance,
   createRenderer,
   createVnode,
+  currentInstance,
   effect,
+  getCurrentInstance,
   h,
+  initSlots,
+  invokeArray,
   isReactive,
   isRef,
   isSameVnode,
+  isTeleport,
   isVnode,
+  onBeforeMount,
+  onBeforeUpdate,
+  onMounted,
+  onUpdated,
   proxyRefs,
   reactive,
   ref,
   render,
   renderOptions,
+  setCurrentInstance,
+  setupComponent,
   toReactive,
   toRef,
   toRefs,
@@ -1065,6 +1178,7 @@ export {
   trackRefValue,
   triggerEffects,
   triggerRefValue,
+  unsetCurrentInstance,
   watch,
   watchEffect
 };

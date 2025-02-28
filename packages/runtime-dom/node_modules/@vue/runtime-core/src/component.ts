@@ -1,5 +1,5 @@
 import { proxyRefs, reactive } from "@vue/reactivity";
-import { hasOwn, isFunction } from "@vue/shared";
+import { hasOwn, isFunction, ShapeFlags } from "@vue/shared";
 
 export function createComponentInstance(vnode) {
   const instance = {
@@ -10,11 +10,13 @@ export function createComponentInstance(vnode) {
     update: null, //组件的更新函数
     props: {},
     attrs: {},
+    slots: {}, //插槽
     render: null,
     propsOptions: vnode.type.props, //包括attr+prop
     component: null,
     proxy: null, //用来代理props,attrs,data  让用户更方便的使用
     setupState: {},
+    exposed: null,
   };
   return instance;
 }
@@ -42,7 +44,9 @@ const initProps = (instance, rawProps) => {
 
 const publicProperty = {
   $attrs: (instance) => instance.attrs,
+  $slots: (instance) => instance.slots,
 };
+
 const handler = {
   get(target, key) {
     //data 和 props属性不要重名
@@ -76,12 +80,21 @@ const handler = {
   },
 };
 
+export function initSlots(instance, children) {
+  if (instance.vnode.shapeFlag & ShapeFlags.SLOTS_CHILDREN) {
+    instance.slots = children;
+  } else {
+    instance.slots = {};
+  }
+}
+
 //给实例的属性赋值
 export function setupComponent(instance) {
   const { vnode } = instance;
-
   //赋值属性
   initProps(instance, vnode.props);
+
+  initSlots(instance, vnode.children);
 
   //赋值代理对象
   instance.proxy = new Proxy(instance, handler);
@@ -89,9 +102,20 @@ export function setupComponent(instance) {
   const { data = () => {}, render, setup } = vnode.type;
   if (setup) {
     const setupContext = {
-      //
+      slots: instance.slots,
+      attrs: instance.attrs,
+      expose(value) {
+        instance.exposed = value;
+      },
+      emit(event, ...payload) {
+        const eventName = `on${event[0].toUpperCase() + event.slice(1)}`;
+        const handler = instance.vnode.props[eventName];
+        handler && handler(...payload);
+      },
     };
+    setCurrentInstance(instance);
     const setupResult = setup(instance.props, setupContext);
+    unsetCurrentInstance();
     if (isFunction(setupResult)) {
       instance.render = setupResult;
     } else {
@@ -110,3 +134,16 @@ export function setupComponent(instance) {
     instance.render = render;
   }
 }
+
+export let currentInstance = null;
+export const getCurrentInstance = () => {
+  return currentInstance;
+};
+
+export const setCurrentInstance = (instance) => {
+  currentInstance = instance;
+};
+
+export const unsetCurrentInstance = () => {
+  currentInstance = null;
+};
