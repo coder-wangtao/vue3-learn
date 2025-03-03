@@ -479,7 +479,18 @@ export function createRenderer(renderOptions) {
         if (shapeFlag & ShapeFlags.ELEMENT) {
           processElement(n1, n2, container, anchor, parentComponent); //对元素处理
         } else if (shapeFlag & ShapeFlags.TELEPORT) {
-          // type.process(n1, n2, container, anchor);
+          type.process(n1, n2, container, anchor, parentComponent, {
+            mountChildren,
+            patchChildren,
+            move(vnode, container, anchor) {
+              //此方法可以将组件 或者dom元素移动到指定位置
+              hostInsert(
+                vnode.component ? vnode.component.subTree.el : vnode.el,
+                container,
+                anchor
+              );
+            },
+          });
         } else if (shapeFlag & ShapeFlags.COMPONENT) {
           //对组件的处理，vue3中函数式组件，已经废弃了,没有性能节约
           processComponent(n1, n2, container, anchor, parentComponent);
@@ -509,6 +520,8 @@ export function createRenderer(renderOptions) {
       unmountChildren(vnode.children);
     } else if (shapeFlag & ShapeFlags.COMPONENT) {
       unmount(vnode.component.subTree);
+    } else if (shapeFlag & ShapeFlags.TELEPORT) {
+      vnode.type.remove(vnode, unmountChildren);
     } else {
       hostRemove(vnode.el);
     }

@@ -8,10 +8,22 @@
   <body>
     <div id="app"></div>
     <div id="root"></div>
+    <div id="root2"></div>
     <script type="module">
-      import { h, render, Text, Fragment, ref } from "./runtime-dom.js";
+      import {
+        h,
+        render,
+        Text,
+        Fragment,
+        ref,
+        Teleport,
+      } from "./runtime-dom.js";
 
-      render(h(Teleport, { to: "#root" }, [123, "abc"]), app);
+      render(h(Teleport, { to: "#root" }, [123, "123"]), app);
+
+      setTimeout(() => {
+        render(null, app);
+      }, 5000);
     </script>
   </body>
 </html>
