@@ -819,7 +819,7 @@ function createRenderer(renderOptions2) {
     }
   };
   const mountElement = (vnode, container, anchor, parentComponent) => {
-    const { type, children, props, shapeFlag } = vnode;
+    const { type, children, props, shapeFlag, transition } = vnode;
     let el = vnode.el = hostCreateElement(type);
     if (props) {
       for (let key in props) {
@@ -831,7 +831,13 @@ function createRenderer(renderOptions2) {
     } else if (shapeFlag & 16 /* ARRAY_CHILDREN */) {
       mountChildren(children, el, parentComponent);
     }
+    if (transition) {
+      transition.beforeEnter(el);
+    }
     hostInsert(el, container, anchor);
+    if (transition) {
+      transition.enter(el);
+    }
   };
   const processElement = (n1, n2, container, anchor, parentComponent) => {
     if (n1 == null) {
@@ -1002,13 +1008,14 @@ function createRenderer(renderOptions2) {
     instance.next = null;
     instance.vnode = next;
     updateProps(instance, instance.props, next.props);
+    Object.assign(instance.slots, next.children);
   };
   function renderComponent(instance) {
-    const { render: render3, vnode, proxy, props, attrs } = instance;
+    const { render: render3, vnode, proxy, props, attrs, slots } = instance;
     if (vnode.shapeFlag & 4 /* STATEFUL_COMPONENT */) {
       return render3.call(proxy, proxy);
     } else {
-      return vnode.type(attrs);
+      return vnode.type(attrs, { slots });
     }
   }
   function setupRenderEffect(instance, container, anchor, parentComponent) {
@@ -1139,7 +1146,8 @@ function createRenderer(renderOptions2) {
     }
   }
   const unmount = (vnode) => {
-    const { shapeFlag } = vnode;
+    const { shapeFlag, transition, el } = vnode;
+    const performRemove = () => hostRemove(vnode.el);
     if (vnode.type === Fragment) {
       unmountChildren(vnode.children);
     } else if (shapeFlag & 6 /* COMPONENT */) {
@@ -1147,7 +1155,11 @@ function createRenderer(renderOptions2) {
     } else if (shapeFlag & 64 /* TELEPORT */) {
       vnode.type.remove(vnode, unmountChildren);
     } else {
-      hostRemove(vnode.el);
+      if (transition) {
+        transition.leave(el, performRemove);
+      } else {
+        performRemove();
+      }
     }
   };
   const render2 = (vnode, container) => {
@@ -1165,7 +1177,7 @@ function createRenderer(renderOptions2) {
   };
 }
 
-// packages/runtime-core/src/Teleport.ts
+// packages/runtime-core/src/components/Teleport.ts
 var Teleport = {
   __isTeleport: true,
   process(n1, n2, container, anchor, parentComponent, internals) {
@@ -1191,6 +1203,93 @@ var Teleport = {
   }
 };
 var isTeleport = (value) => value?.__isTeleport;
+
+// packages/runtime-core/src/components/Transition.ts
+function nextFrame(fn) {
+  requestAnimationFrame(() => {
+    requestAnimationFrame(fn);
+  });
+}
+function resolveTransitionProps(props) {
+  const {
+    name = "v",
+    enterFromClass = `${name}-enter-from`,
+    enterActiveClass = `${name}-enter-active`,
+    enterToClass = `${name}-enter-to`,
+    leaveFromClass = `${name}-leave-from`,
+    leaveActiveClass = `${name}-leave-active`,
+    leaveToClass = `${name}-leave-to`,
+    onBeforeEnter,
+    onEnter,
+    onLeave
+  } = props;
+  return {
+    onBeforeEnter(el) {
+      onBeforeEnter && onBeforeEnter(el);
+      el.classList.add(enterFromClass);
+      el.classList.add(enterActiveClass);
+    },
+    onEnter(el, done) {
+      const resolve = () => {
+        el.classList.remove(enterToClass);
+        el.classList.remove(enterActiveClass);
+        done && done();
+      };
+      onEnter && onEnter(el, resolve);
+      nextFrame(() => {
+        el.classList.remove(enterFromClass);
+        el.classList.add(enterToClass);
+        if (!onEnter || onEnter.length <= 1) {
+          el.addEventListener("transitionend", resolve);
+        }
+      });
+    },
+    onLeave(el, done) {
+      const resolve = () => {
+        el.classList.remove(leaveActiveClass);
+        el.classList.remove(leaveToClass);
+        done && done();
+      };
+      onLeave && onLeave(el, resolve);
+      el.classList.add(leaveFromClass);
+      document.body.offsetHeight;
+      el.classList.add(leaveActiveClass);
+      nextFrame(() => {
+        el.classList.remove(leaveFromClass);
+        el.classList.add(leaveToClass);
+        if (!onLeave || onLeave.length <= 1) {
+          el.addEventListener("transitionend", resolve);
+        }
+      });
+    }
+  };
+}
+function Transition(props, { slots }) {
+  return h(BaseTransitionImpl, resolveTransitionProps(props), slots);
+}
+var BaseTransitionImpl = {
+  //真正的组件 只需要渲染的时候调用封装后的钩子即可
+  props: {
+    onBeforeEnter: Function,
+    onEnter: Function,
+    onLeave: Function
+  },
+  setup(props, { slots }) {
+    return () => {
+      const vnode = slots.default && slots.default();
+      const instance = getCurrentInstance();
+      if (!vnode) {
+        return;
+      }
+      vnode.transition = {
+        beforeEnter: props.onBeforeEnter,
+        enter: props.onEnter,
+        leave: props.onLeave
+      };
+      return vnode;
+    };
+  }
+};
 
 // packages/runtime-core/src/apiProvide.ts
 function provide(key, value) {
@@ -1223,6 +1322,7 @@ export {
   ReactiveEffect,
   Teleport,
   Text,
+  Transition,
   activeEffect,
   cleanDepEffect,
   computed,
@@ -1251,6 +1351,7 @@ export {
   ref,
   render,
   renderOptions,
+  resolveTransitionProps,
   setCurrentInstance,
   setupComponent,
   toReactive,
