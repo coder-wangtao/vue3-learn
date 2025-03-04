@@ -1,7 +1,7 @@
 import { isObject } from "@vue/shared";
 import { createVnode, isVnode } from "./createVnode";
 
-export function h(type, propsOrChildren, children) {
+export function h(type, propsOrChildren?, children?) {
   let l = arguments.length;
   if (l === 2) {
     //h(h1,虚拟节点|属性)

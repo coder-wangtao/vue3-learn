@@ -1400,6 +1400,77 @@ function inject(key, defaultValue) {
   }
 }
 
+// packages/runtime-core/src/defineAsyncComponent.ts
+function defineAsyncComponent(options) {
+  if (isFunction(options)) {
+    options = { loader: options };
+  }
+  return {
+    setup() {
+      const {
+        loader,
+        errorComponent,
+        timeout,
+        delay,
+        loadingComponent,
+        onError
+      } = options;
+      const loaded = ref(false);
+      const error = ref(false);
+      const loading = ref(false);
+      let loadingTimer = null;
+      if (delay) {
+        loadingTimer = setTimeout(() => {
+          loading.value = true;
+        }, delay);
+      }
+      let Comp = null;
+      let attempts = 0;
+      function loadFunc() {
+        attempts++;
+        return loader().catch((err) => {
+          if (onError) {
+            return new Promise((resolve, reject) => {
+              const retry = () => resolve(loadFunc());
+              const fail = () => reject(err);
+              onError(err, retry, fail, ++attempts);
+            });
+          } else {
+            throw err;
+          }
+        });
+      }
+      loadFunc().then((comp) => {
+        Comp = comp;
+        loaded.value = true;
+      }).catch((err) => {
+        error.value = err;
+      }).finally(() => {
+        loading.value = false;
+        clearTimeout(loadingTimer);
+      });
+      if (timeout) {
+        setTimeout(() => {
+          error.value = true;
+          throw new Error("\u7EC4\u4EF6\u52A0\u8F7D\u5931\u8D25");
+        }, timeout);
+      }
+      const placeholder = h("div");
+      return () => {
+        if (loaded.value) {
+          return h(Comp);
+        } else if (error.value && errorComponent) {
+          return h(errorComponent);
+        } else if (loading.value && loadingComponent) {
+          return h(loadingComponent);
+        } else {
+          return placeholder;
+        }
+      };
+    }
+  };
+}
+
 // packages/runtime-dom/src/index.ts
 var renderOptions = Object.assign({ patchProp }, nodeOps);
 var render = (vnode, container) => {
@@ -1420,6 +1491,7 @@ export {
   createRenderer,
   createVnode,
   currentInstance,
+  defineAsyncComponent,
   effect,
   getCurrentInstance,
   h,
