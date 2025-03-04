@@ -5,6 +5,7 @@ export * from "./renderer";
 export * from "@vue/reactivity";
 export * from "./components/Teleport";
 export * from "./components/Transition";
+export * from "./components/KeepAlive";
 export * from "./apiLifeCycle";
 export * from "./component";
 export * from "./apiProvide";
