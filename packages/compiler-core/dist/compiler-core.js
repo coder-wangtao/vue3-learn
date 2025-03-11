@@ -1,9 +1,17 @@
 // packages/compiler-core/src/runtimeHelper.ts
 var TO_DISPLAY_STRING = Symbol(`TO_DISPLAY_STRING`);
 var CREATE_TEXT_VNODE = Symbol(`CREATE_TEXT_VNODE`);
+var CREATE_ELEMENT_VNODE = Symbol(`CREATE_ELEMENT_VNODE`);
+var OPEN_BLOCK = Symbol("OPEN_BLOCK");
+var CREATE_ELEMENT_BLOCK = Symbol(`CREATE_ELEMENT_BLOCK`);
+var Fragment = Symbol(`Fragment`);
 var helperNameMaps = {
   [TO_DISPLAY_STRING]: `toDisplayString`,
-  [CREATE_TEXT_VNODE]: `createTextVNode`
+  [CREATE_TEXT_VNODE]: `createTextVNode`,
+  [CREATE_ELEMENT_VNODE]: `createElementVNode`,
+  [OPEN_BLOCK]: `openBlock`,
+  [CREATE_ELEMENT_BLOCK]: `createElementBlock`,
+  [Fragment]: `Fragment`
 };
 
 // packages/compiler-core/src/ast.ts
@@ -14,6 +22,26 @@ function createCallExpression(context, args) {
     type: 14 /* JS_CALL_EXPRESSION */,
     callee: name,
     arguments: args
+  };
+}
+function createVnodeCall(context, tag, props, children) {
+  let name;
+  if (tag !== Fragment) {
+    name = context.helper(CREATE_ELEMENT_VNODE);
+  }
+  return {
+    // createElementVnode
+    type: 13 /* VNODE_CALL */,
+    tag,
+    props,
+    children,
+    callee: name
+  };
+}
+function createObjectExpression(properties) {
+  return {
+    type: 15 /* JS_OBJECT_EXPRESSION */,
+    properties
   };
 }
 
@@ -249,17 +277,36 @@ function parse(template) {
   return createRoot(parseChildren(context, []));
 }
 
-// packages/compiler-core/src/index.ts
+// packages/compiler-core/src/transform.ts
+function isText(node) {
+  return node.type === 2 /* TEXT */ || node.type === 5 /* INTERPOLATION */;
+}
 function transformElement(node, context) {
   if (1 /* ELEMENT */ === node.type) {
     console.log("\u5904\u7406\u5143\u7D20");
     return function() {
-      console.log("\u5904\u7406\u5143\u7D20\u540E\u6267\u884C");
+      console.log("\u5904\u7406\u6587\u672C\u540E\u6267\u884C");
+      let { tag, props, children } = node;
+      let vnodeTag = tag;
+      let properties = [];
+      for (let i = 0; i < props.length; i++) {
+        properties.push({ key: props[i].name, value: props[i].value.content });
+      }
+      const propsExpression = properties.length > 0 ? createObjectExpression(properties) : null;
+      let vnodeChildren = null;
+      if (children.length == 1) {
+        vnodeChildren = children[0];
+      } else if (children.length > 1) {
+        vnodeChildren = children;
+      }
+      node.codegenNode = createVnodeCall(
+        context,
+        vnodeTag,
+        propsExpression,
+        vnodeChildren
+      );
     };
   }
-}
-function isText(node) {
-  return node.type === 2 /* TEXT */ || node.type === 5 /* INTERPOLATION */;
 }
 function transformText(node, context) {
   if (1 /* ELEMENT */ === node.type || 0 /* ROOT */ === node.type) {
@@ -282,7 +329,7 @@ function transformText(node, context) {
                   children: [child]
                 };
               }
-              container.children.push(`+${next}`);
+              container.children.push("+", next);
               children.splice(j, 1);
               j--;
             } else {
@@ -334,16 +381,27 @@ function createTransformContext(root) {
       let count = context.helpers.get(name) || 0;
       context.helpers.set(name, count + 1);
       return name;
+    },
+    removeHelper(name) {
+      let count = context.helpers.get(name);
+      if (count) {
+        let c = count - 1;
+        if (!c) {
+          context.helpers.delete(name);
+        } else {
+          context.helpers.set(name, c);
+        }
+      }
     }
   };
   return context;
 }
 function traverseNode(node, context) {
   context.currentNode = node;
-  const transform2 = context.transformNode;
+  const transforms = context.transformNode;
   const exits = [];
-  for (let i2 = 0; i2 < transform2.length; i2++) {
-    let exit = transform2[i2](node, context);
+  for (let i2 = 0; i2 < transforms.length; i2++) {
+    let exit = transforms[i2](node, context);
     exit && exits.push(exit);
   }
   switch (node.type) {
@@ -353,6 +411,7 @@ function traverseNode(node, context) {
         context.parent = node;
         traverseNode(node.children[i2], context);
       }
+      break;
     case 5 /* INTERPOLATION */:
       context.helper(TO_DISPLAY_STRING);
       break;
@@ -365,14 +424,144 @@ function traverseNode(node, context) {
     }
   }
 }
+function createRootCodegenNode(ast, context) {
+  let { children } = ast;
+  if (children.length == 1) {
+    let child = children[0];
+    if (child.type === 1 /* ELEMENT */) {
+      ast.codegenNode = child.codegenNode;
+      context.removeHelper(CREATE_ELEMENT_VNODE);
+      context.helper(CREATE_ELEMENT_BLOCK);
+      context.helper(OPEN_BLOCK);
+      ast.codegenNode.isBlock = true;
+    } else {
+      ast.codegenNode = child;
+    }
+  } else if (children.length > 0) {
+    ast.codegenNode = createVnodeCall(
+      context,
+      context.helper(Fragment),
+      void 0,
+      children
+    );
+    context.helper(CREATE_ELEMENT_BLOCK);
+    context.helper(OPEN_BLOCK);
+    ast.codegenNode.isBlock = true;
+  }
+}
 function transform(ast) {
   const context = createTransformContext(ast);
   traverseNode(ast, context);
+  createRootCodegenNode(ast, context);
   ast.helpers = [...context.helpers.keys()];
+}
+
+// packages/compiler-core/src/index.ts
+function createCodegenContext(ast) {
+  const context = {
+    code: ``,
+    level: 0,
+    helper(name) {
+      return "_" + helperNameMaps[name];
+    },
+    push(code) {
+      context.code += code;
+    },
+    indent() {
+      newLine(++context.level);
+    },
+    deindent(noNewLine = false) {
+      if (noNewLine) {
+        --context.level;
+      } else {
+        newLine(--context.level);
+      }
+    },
+    newLine() {
+      newLine(context.level);
+    }
+  };
+  function newLine(n) {
+    context.push("\n" + `  `.repeat(n));
+  }
+  return context;
+}
+function getFunctionPreamble(ast, context) {
+  const { push, indent, deindent, newLine } = context;
+  if (ast.helpers.length > 0) {
+    push(
+      `const {${ast.helpers.map(
+        (item) => `${helperNameMaps[item]}:${context.helper(item)}`
+      )}} = Vue`
+    );
+    newLine();
+  }
+  push(`return function render(_ctx){`);
+}
+function genText(node, context) {
+  context.push(JSON.stringify(node.content));
+}
+function genInterpolation(node, context) {
+  const { push, indent, deindent, newLine, helper } = context;
+  push(`${helper(TO_DISPLAY_STRING)}(`);
+  genNode(node.content, context);
+  push(`)`);
+}
+function genExpression(node, context) {
+  context.push(node.content);
+}
+function genVnodeCall(node, context) {
+  const { push, indent, deindent, newLine, helper } = context;
+  const { tag, props, children, isBlock } = node;
+  if (isBlock) {
+    push(`(${helper(OPEN_BLOCK)}(),`);
+  }
+  const h = isBlock ? CREATE_ELEMENT_BLOCK : CREATE_ELEMENT_VNODE;
+  push(`${helper(h)}(`);
+  if (node.isBlock) {
+    push(")");
+  }
+  push(")");
+}
+function genNode(node, context) {
+  const { push, indent, deindent, newLine } = context;
+  switch (node.type) {
+    case 2 /* TEXT */:
+      genText(node, context);
+      break;
+    case 5 /* INTERPOLATION */:
+      genInterpolation(node, context);
+      break;
+    case 4 /* SIMPLE_EXPRESSION */:
+      genExpression(node, context);
+      break;
+    case 13 /* VNODE_CALL */:
+      genVnodeCall(node, context);
+      break;
+    default:
+      return;
+  }
+}
+function generate(ast) {
+  const context = createCodegenContext(ast);
+  getFunctionPreamble(ast, context);
+  const { push, indent, deindent, newLine } = context;
+  indent();
+  push(`return `);
+  if (ast.codegenNode) {
+    genNode(ast.codegenNode, context);
+  } else {
+    push("null");
+  }
+  deindent();
+  push(`}`);
+  console.log(context.code);
 }
 function compile(template) {
   const ast = parse(template);
   transform(ast);
+  generate(ast);
+  return generate(ast);
 }
 export {
   compile,

@@ -155,6 +155,7 @@ function parseTag(context) {
   } else {
     advanceBy(context, 1); // 不是自闭合标签的话，说明只剩 >, 所以截取掉一个字符
   }
+
   return {
     type: NodeTypes.ELEMENT,
     tag,
@@ -163,6 +164,7 @@ function parseTag(context) {
     props,
   };
 }
+
 function parseElement(context, ancestors = []) {
   const ele: any = parseTag(context); // 解析开始标签
   ancestors.push(ele.tag); // 将当前标签加入栈
@@ -171,7 +173,7 @@ function parseElement(context, ancestors = []) {
 
   if (context.source.startsWith("</")) {
     // 检查闭合标签是否匹配
-    const endTag = parseTag(context); // 解析闭合标签
+    const endTag = parseTag(context); // 解析闭合标签(闭合标签没有意义直接移除即可)
     if (endTag.tag !== ele.tag) {
       console.error(
         `标签 <${ele.tag}> 的闭合标签 </${endTag.tag}> 不匹配，位置: line ${context.line}, column ${context.column}`
@@ -249,6 +251,7 @@ function parseInterpolation(context) {
     loc: getSelection(context, start),
   };
 }
+
 function parseChildren(context, ancestors = []) {
   const nodes = [] as any;
   while (!isEnd(context, ancestors)) {
@@ -294,9 +297,10 @@ function createRoot(children) {
     children,
   };
 }
+
 export function parse(template) {
   // 根据template产生一颗树 line column offset
   const context = createParserContext(template);
-
+  
   return createRoot(parseChildren(context, []));
 }

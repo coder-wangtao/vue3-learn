@@ -13,3 +13,4 @@ export function isString(value) {
 const hasOwnProperty = Object.prototype.hasOwnProperty;
 export const hasOwn = (value, key) => hasOwnProperty.call(value, key);
 export * from "./shapeFlags";
+export * from "./patchFlags";
