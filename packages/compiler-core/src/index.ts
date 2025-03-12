@@ -135,9 +135,60 @@ function generate(ast) {
 function compile(template: string) {
   const ast = parse(template);
   // 进行代码的转化
-  transform(ast);
-  generate(ast);
+  transform(ast); //生成javascript AST抽象语法树
+  generate(ast); //生成render函数
   return generate(ast);
 }
 
 export { parse, compile };
+
+//buildStart 启动vite时调用
+//transform 没访问一个文件都会调用
+
+1; //启动将options。compiler设置为 vue/compiler-sfc
+
+2; ///浏览器访问，通过 vue/compiler-sfc parse生成 descriptor => 本质上也掉了 @vue/compiler-core包的parse => @vue/compiler-core包的baseParse函数
+
+3; //descriptor中包含（其中template已经被编译）
+//vue/compiler-sfc 包暴露出来的 parse 函数
+// template 经过parse生成ast抽象语法树、code字符串
+//script code字符串 (字符串)
+//scriptSetup  code字符串 (字符串)
+//style [code字符串]
+
+4; //通过descriptor, scriptSetup  code字符串 (字符串)
+//这里的 options.compiler.compileScript() 其实就是调用的 vue/compiler-sfc 包暴露出来的 compileScript 函数
+//compileScript解析script
+// 返回值类型中主要有 scriptAst、scriptSetupAst、content 这三个属性，
+// scriptAst 为编译不带 setup 属性的 script 标签生成的 AST 抽象语法树。
+// scriptSetupAst 为编译带 setup 属性的 script 标签生成的 AST 抽象语法树，
+// content 为 Vue 文件中的 script 模块编译后生成的浏览器可执行的 JavaScript 代码。
+
+5; //genTemplateCode
+//将 template 模块编译成 render 函数
+//调用 options.compiler.compileTemplate() 其实就是调用的 vue/compiler-sfc 包暴露出来的 compileTemplate 函数，
+//compileTemplate 返回render函数
+
+6; //genStyleCode 将style循环，做字符串拼接
+//import "C:/Users/wangt/Desktop/back-end-project/my-vue-app/src/App.vue?vue&type=style&index=0&scoped=7a7a37b1&lang.css";
+//之后重新调用transform
+//通过vue/compiler-sfc 包暴露出来的 compileStyleAsync函数做解析
+//解析成 id= scoped
+//'\n.msg[data-v-7a7a37b1] {\n  color: red;\n  font-weight: bold;\n}\n'
+
+///
+///
+///
+//compileTemplate
+//compiler变量的值为undefined, compiler会被赋值为CompilerDOMCompilerDOM。而CompilerDOM就是@vue/compiler-dom
+//执行@vue/compiler-dom包中的compile函数 => @vue/compiler-core包的baseCompile函数
+// 执行vue/compiler-sfc 包暴露出来的 compileScript 函数 => 执行@vue/compiler-dom包中的compile函数 => @vue/compiler-core包的baseCompile函数
+// 答案是baseCompile函数是一个处于@vue/compiler-core包中的API，而@vue/compiler-core可以运行在各种 JavaScript 环境下，
+// 比如浏览器端、服务端等各个平台。baseCompile函数接收这些平台专有的一些options，而我们这里的demo是浏览器平台。
+// 所以才需要从@vue/compiler-dom包中绕一圈去调用@vue/compiler-core包中的baseCompile函数传入一些浏览器中特有的options。
+// 在上面的代码中我们看到使用DOMNodeTransforms数组对options中的nodeTransforms属性进行了扩展，
+// 使用DOMDirectiveTransforms对象对options中的directiveTransforms属性进行了扩展。
+//nodeTransforms=[] 对dom属性转换
+//DOMDirectiveTransforms={} 对指令转换
+
+//baseCompile 参数是html字符串/AST抽象语法树  调 baseParse
