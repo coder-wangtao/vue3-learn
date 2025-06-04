@@ -10,9 +10,10 @@ import esbuild from "esbuild";
 const args = minimist(process.argv.slice(2));
 const __filename = fileURLToPath(import.meta.url); //获取文件的绝对路径 file: -> usr
 const __dirname = dirname(__filename);
-const require = createRequire(import.meta.url);
+const require = createRequire(import.meta.url); //再es6中使用require
 const target = args._[0] || "reactivity"; //打包的项目
 const format = args.f || "iife"; //打包后的模块化规规范
+
 // node 中 esm模块没有__dirname
 //入口文件
 const entry = resolve(__dirname, `../packages/${target}/src/index.ts`);
@@ -25,8 +26,8 @@ esbuild
     bundle: true, //reactivity -> shared 会打包到一起
     platform: "browser", //打包后给浏览器使用
     sourcemap: true, //可以调试源代码
-    format, //cjs esm iife
-    globalName: pkg?.buildOptions?.name,
+    format, //cjs:require() module.exports  esm:import/export iife:立即执行函数
+    globalName: pkg?.buildOptions?.name, //iife全局name var xx = (function(){ return xx })()
   })
   .then((ctx) => {
     console.log("start dev");

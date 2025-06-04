@@ -2,6 +2,7 @@ import { DirtyLevels } from "./constants";
 
 export function effect(fn, options?) {
   //创建一个响应式effect数据变化后可以重新执行
+
   //一个fn对应一个ReactiveEffect对象
   //fn.effect = Reactive对象
   //Reactive对象.fn = fn
@@ -41,7 +42,7 @@ function postCleanEffect(effect) {
 }
 
 export class ReactiveEffect {
-  _trackId = 0; //用于记录当前effect执行了几次
+  _trackId = 0; //用于记录当前effect执行了几次，没执行一次就++（防止重复收集）
   deps = [];
   _dirtyLevel = DirtyLevels.Dirty; //计算属性：默认是脏的
   _depsLength = 0;

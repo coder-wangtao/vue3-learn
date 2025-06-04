@@ -23,10 +23,10 @@
       //   let age = toRef(state, "age");    //还是基于 proxy 来获取值的， age.value 意味着 state.age
       //   console.log(name, age);
 
-      //   let { name, age } = toRefs(state);
-      //   console.log(name.value, age.value);
-
-      let proxy = proxyRefs({ ...toRefs(state) });
+      // let { name, age } = toRefs(state);
+      // console.log(name.value, age.value);
+      const a = { ...toRefs(state) };
+      let proxy = proxyRefs(a);
       proxy.age = 100; //proxy.age.value = 100
       effect(() => {
         console.log(proxy.name, proxy.age);

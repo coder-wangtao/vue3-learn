@@ -12,16 +12,16 @@ function effect(fn, options) {
   return runner;
 }
 var activeEffect;
-function preCleanEffect(effect2) {
-  effect2._depsLength = 0;
-  effect2._trackId++;
+function preCleanEffect(effect3) {
+  effect3._depsLength = 0;
+  effect3._trackId++;
 }
-function postCleanEffect(effect2) {
-  if (effect2.deps.length > effect2._depsLength) {
-    for (let i = effect2._depsLength; i < effect2.deps.length; i++) {
-      cleanDepEffect(effect2.deps[i], effect2);
+function postCleanEffect(effect3) {
+  if (effect3.deps.length > effect3._depsLength) {
+    for (let i = effect3._depsLength; i < effect3.deps.length; i++) {
+      cleanDepEffect(effect3.deps[i], effect3);
     }
-    effect2.deps.length = effect2._depsLength;
+    effect3.deps.length = effect3._depsLength;
   }
 }
 var ReactiveEffect = class {
@@ -32,7 +32,7 @@ var ReactiveEffect = class {
     this.fn = fn;
     this.scheduler = scheduler;
     this._trackId = 0;
-    //用于记录当前effect执行了几次
+    //用于记录当前effect执行了几次，没执行一次就++（防止重复收集）
     this.deps = [];
     this._dirtyLevel = 4 /* Dirty */;
     //计算属性：默认是脏的
@@ -72,34 +72,34 @@ var ReactiveEffect = class {
     }
   }
 };
-function cleanDepEffect(dep, effect2) {
-  dep.delete(effect2);
+function cleanDepEffect(dep, effect3) {
+  dep.delete(effect3);
   if (dep.size === 0) {
     dep.cleanup();
   }
 }
-function trackEffect(effect2, dep) {
-  if (dep.get(effect2) !== effect2._trackId) {
-    dep.set(effect2, effect2._trackId);
-    let oldDep = effect2.deps[effect2._depsLength];
+function trackEffect(effect3, dep) {
+  if (dep.get(effect3) !== effect3._trackId) {
+    dep.set(effect3, effect3._trackId);
+    let oldDep = effect3.deps[effect3._depsLength];
     if (oldDep !== dep) {
       if (oldDep) {
-        cleanDepEffect(oldDep, effect2);
+        cleanDepEffect(oldDep, effect3);
       }
-      effect2.deps[effect2._depsLength++] = dep;
+      effect3.deps[effect3._depsLength++] = dep;
     } else {
-      effect2._depsLength++;
+      effect3._depsLength++;
     }
   }
 }
 function triggerEffects(dep) {
-  for (const effect2 of dep.keys()) {
-    if (effect2._dirtyLevel < 4 /* Dirty */) {
-      effect2._dirtyLevel = 4 /* Dirty */;
+  for (const effect3 of dep.keys()) {
+    if (effect3._dirtyLevel < 4 /* Dirty */) {
+      effect3._dirtyLevel = 4 /* Dirty */;
     }
-    if (!effect2._running) {
-      if (effect2.scheduler) {
-        effect2.scheduler();
+    if (!effect3._running) {
+      if (effect3.scheduler) {
+        effect3.scheduler();
       }
     }
   }
@@ -248,6 +248,7 @@ var ObjectRefImpl = class {
     this.__v_isRef = true;
   }
   get value() {
+    debugger;
     return this._object[this._key];
   }
   set value(newValue) {
@@ -363,28 +364,28 @@ function doWatch(source, cb, { deep, immediate }) {
   };
   const job = () => {
     if (cb) {
-      const newValue = effect2.run();
+      const newValue = effect3.run();
       if (clean) {
         clean();
       }
       cb(newValue, oldValue, onCleanup);
       oldValue = newValue;
     } else {
-      effect2.run();
+      effect3.run();
     }
   };
-  const effect2 = new ReactiveEffect(getter, job);
+  const effect3 = new ReactiveEffect(getter, job);
   if (cb) {
     if (immediate) {
       job();
     } else {
-      oldValue = effect2.run();
+      oldValue = effect3.run();
     }
   } else {
-    effect2.run();
+    effect3.run();
   }
   const unwatch = () => {
-    effect2.stop();
+    effect3.stop();
   };
   return unwatch;
 }

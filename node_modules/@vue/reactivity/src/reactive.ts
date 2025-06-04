@@ -2,6 +2,7 @@ import { isObject } from "@vue/shared";
 import { mutableHandlers } from "./baseHandler";
 import { ReactiveFlags } from "./constants";
 
+//同一个对象代理多次，缓存起来，不重新创建
 const reactiveMap = new WeakMap(); //防止内存泄露
 
 function createReactiveObject(target) {
@@ -9,6 +10,7 @@ function createReactiveObject(target) {
     return target;
   }
 
+  //判断有没有代理过,已经代理过了就不会再代理了
   if (target[ReactiveFlags.IS_REACTIVE]) {
     return target;
   }

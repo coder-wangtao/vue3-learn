@@ -25,6 +25,7 @@
       //{flag,name}
       //{flag,age}
       //简易diff算法
+
       let runner = effect(
         () => {
           app.innerHTML = state.flag ? state.name : state.age;
@@ -39,9 +40,9 @@
 
       setTimeout(() => {
         state.flag = false;
-        setTimeout(() => {
-          state.name = "handsome jw";
-        }, 1000);
+        // setTimeout(() => {
+        //   state.name = "handsome jw";
+        // }, 1000);
       }, 1000);
 
       // effect(() => {
@@ -58,16 +59,15 @@
       //   app.innerHTML = state.address.n;
       //   // state.name = Math.random(); //如果本次在执行effect的过程 更新了数据 不会触发effect更新
       // });
-
       // effect(() => {
       //   app.innerHTML = state.flag + state.flag + state.flag;
       // });
       // effect(() => {
       //   app.innerHTML = `姓名${state.name}`;
       // });
-      setTimeout(() => {
-        state.address.n = 602;
-      }, 1000);
+      // setTimeout(() => {
+      //   state.address.n = 602;
+      // }, 1000);
     </script>
   </body>
 </html>

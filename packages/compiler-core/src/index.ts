@@ -135,7 +135,7 @@ function generate(ast) {
 function compile(template: string) {
   const ast = parse(template);
   // 进行代码的转化
-  transform(ast); //生成javascript AST抽象语法树
+  transform(ast); //生成javascript AST抽象语法树  (对指令v-for、v-if node节点进行转换)
   generate(ast); //生成render函数
   return generate(ast);
 }
@@ -192,3 +192,13 @@ export { parse, compile };
 //DOMDirectiveTransforms={} 对指令转换
 
 //baseCompile 参数是html字符串/AST抽象语法树  调 baseParse
+
+//@vue/compiler-core包中会定义一份 directiveTransforms、nodeTransforms ，vue/compiler-dom也会传过来y一份，DOMDirectiveTransforms会被替换
+//,但是本质上在@vue/compiler-dom包中的v-model转换函数会手动调用@vue/compiler-core包中v-model转换函数。
+
+// 经过directiveTransforms对象中的transformModel转换函数处理后，v-mode节点上面就会多两个props属性：modelValue和onUpdate:modelValue属性。
+// directiveTransforms对象中的转换函数不会每次都全部执行，而是要node节点中有对应的指令，才会执行指令的转换函数。
+// 所以directiveTransforms是对象，而不是数组。
+
+//那为什么有的指令转换函数在directiveTransforms对象中，有的又在nodeTransforms数组中呢？
+//答案是在directiveTransforms对象中的指令全部都是会给node节点生成props属性的，那些不生成props属性的就在nodeTransforms数组中。

@@ -53,6 +53,7 @@ class ObjectRefImpl {
   public __v_isRef = true; //增加ref标识
   constructor(public _object, public _key) {}
   get value() {
+    debugger;
     return this._object[this._key];
   }
 

@@ -1,4 +1,4 @@
-import { activeEffect, trackEffect, triggerEffects } from "./effect";
+import { activeEffect, effect, trackEffect, triggerEffects } from "./effect";
 
 const targetMap = new WeakMap(); //存放依赖收集的关系 防止内存泄露
 
@@ -29,7 +29,7 @@ export function track(target, key) {
       );
     }
 
-    trackEffect(activeEffect, dep);  //将当前的effect放入到dep(映射表)中，后续可以根据值的变化触发次dep中存放的effect
+    trackEffect(activeEffect, dep); //将当前的effect放入到dep(映射表)中，后续可以根据值的变化触发次dep中存放的effect
   }
 }
 
