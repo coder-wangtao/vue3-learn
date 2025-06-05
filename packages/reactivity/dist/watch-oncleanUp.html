@@ -25,7 +25,7 @@
         async (newValue, oldValue, onCleanup) => {
           let flag = true;
           timer -= 1000;
-
+          // debugger;
           onCleanup(() => {
             flag = false; //把这个函数先存起来，下一次执行回调的时候执行
           });
@@ -45,6 +45,7 @@
       //第一次请求是2s后返回的2000  第二次请求1s后返回的 1000
 
       setTimeout(() => {
+        // debugger;
         val.value = "a";
         val.value = "b";
       }, 1000);

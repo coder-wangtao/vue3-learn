@@ -21,8 +21,8 @@
 
       //source转化为getter函数
       const unwatch = watch(
-        () => state.name,
-        function (oldValue, newValue, ) {
+        state,
+        function (oldValue, newValue) {
           console.log(oldValue, newValue);
         },
         {
@@ -30,7 +30,7 @@
           immediate: true,
         }
       );
-
+      debugger;
       unwatch();
 
       setTimeout(() => {

@@ -31,7 +31,12 @@
       //6.如果超过三个参数，后面的都是儿子
       const ele1 = h(
         "div",
-        { style: { color: "red" } },
+        {
+          style: { color: "red" },
+          class: "abc",
+          onClick: () => alert(1),
+          a: 12,
+        },
         h("div", "a1"),
         h("div", "b1"),
         h("div", "c1"),

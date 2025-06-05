@@ -29,13 +29,13 @@
       let runner = effect(
         () => {
           app.innerHTML = state.flag ? state.name : state.age;
-        },
-        {
-          scheduler: () => {
-            console.log("数据更新了，不重新渲染，走自己的逻辑"); //AOP、批处理（更新两次，只调一次）
-            runner();
-          },
         }
+        // {
+        //   scheduler: () => {
+        //     console.log("数据更新了，不重新渲染，走自己的逻辑"); //AOP、批处理（更新两次，只调一次）
+        //     runner();
+        //   },
+        // }
       );
 
       setTimeout(() => {

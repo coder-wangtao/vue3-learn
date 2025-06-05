@@ -6,6 +6,8 @@ import patchStyle from "./modules/patchStyle";
 import patchAttr from "./modules/pathAttr";
 
 export default function patchProp(el, key, preValue, nextValue) {
+  // debugger;
+
   if (key === "class") {
     return patchClass(el, nextValue);
   } else if (key === "style") {

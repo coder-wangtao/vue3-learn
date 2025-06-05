@@ -248,7 +248,6 @@ var ObjectRefImpl = class {
     this.__v_isRef = true;
   }
   get value() {
-    debugger;
     return this._object[this._key];
   }
   set value(newValue) {

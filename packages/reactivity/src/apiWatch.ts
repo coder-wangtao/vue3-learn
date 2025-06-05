@@ -54,8 +54,8 @@ function doWatch(source, cb, { deep, immediate }) {
   const job = () => {
     if (cb) {
       const newValue = effect.run();
-      if(clean){
-        clean()  //在执行回调之前，先调用上一次的清理操作进行清理
+      if (clean) {
+        clean(); //在执行回调之前，先调用上一次的清理操作进行清理
       }
       cb(newValue, oldValue, onCleanup);
       oldValue = newValue;
