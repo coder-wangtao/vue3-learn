@@ -115,6 +115,7 @@ export function createRenderer(renderOptions) {
   };
 
   const patchKeyedChildren = (c1, c2, el, parentComponent) => {
+    // debugger;
     //[a,b,c]
     //[a,b,d,e]
     //减少对比范围，先从头开始比对，再从尾部开始比对，确定不一样的范围
@@ -173,8 +174,8 @@ export function createRenderer(renderOptions) {
       }
     } else if (i > e2) {
       //新的少
-      //a b c d e f
-      //a b          i=2 e1=2 e2=1   i>e2
+      //a b c d
+      //a b          i=2 e1=3 e2=1   i>e2
       // i<=e1 就是删掉的部分
 
       //c a b
@@ -194,7 +195,7 @@ export function createRenderer(renderOptions) {
       let s1 = i;
       let s2 = i;
 
-      const keyToNewIndexMap = new Map(); //做一个映射表用于快速查找，看老的是否在新的里面还有，没有就删除，有的话就更新
+      const keyToNewIndexMap = new Map();
 
       let toBePatched = e2 - s2 + 1; //要倒序插入的个数
 
@@ -212,6 +213,7 @@ export function createRenderer(renderOptions) {
       //老的范围
       for (let i = s1; i <= e1; i++) {
         const vnode = c1[i];
+        // debugger;
         const newIndex = keyToNewIndexMap.get(vnode.key); //通过key找到对应的索引
         if (newIndex == undefined) {
           //如果新的里面找不到，则说明老的有的要删除掉
@@ -234,7 +236,7 @@ export function createRenderer(renderOptions) {
       let j = increasingSeq.length - 1;
 
       //toBePatched:[0,1,2,3]
-
+      // debugger;
       for (let i = toBePatched - 1; i >= 0; i--) {
         //3,1,2,0
         let newIndex = s2 + i;
@@ -244,11 +246,11 @@ export function createRenderer(renderOptions) {
           //新列表新增的元素
           patch(null, vnode, el, anchor); //创建新的元素
         } else {
-          if (i == increasingSeq[j]) {
-            j--; //做了diff算法
-          } else {
-            hostInsert(vnode.el, el, anchor); //接着倒序插入
-          }
+          // if (i == increasingSeq[j]) {
+          //   j--; //做了diff算法
+          // } else {
+          hostInsert(vnode.el, el, anchor); //接着倒序插入
+          // }
         }
       }
       //倒序比对每一个元素，做插入操作
@@ -621,6 +623,7 @@ export function createRenderer(renderOptions) {
       patch(container._vnode || null, vnode, container);
 
       container._vnode = vnode;
+      // debugger;
     }
   };
 

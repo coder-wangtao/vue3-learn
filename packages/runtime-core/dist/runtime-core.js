@@ -100,144 +100,6 @@ function patchProp(el, key, preValue, nextValue) {
   }
 }
 
-// packages/shared/src/index.ts
-function isObject(value) {
-  return typeof value === "object" && value !== null;
-}
-function isFunction(value) {
-  return typeof value == "function";
-}
-function isString(value) {
-  return typeof value == "string";
-}
-var hasOwnProperty = Object.prototype.hasOwnProperty;
-var hasOwn = (value, key) => hasOwnProperty.call(value, key);
-
-// packages/runtime-core/src/createVnode.ts
-var Text = Symbol("Text");
-var Fragment = Symbol("Fragment");
-function isVnode(value) {
-  return value?.__v_isVnode;
-}
-function isSameVnode(n1, n2) {
-  return n1.type === n2.type && n1.key === n2.key;
-}
-function createVnode(type, props, children, patchFlag) {
-  const shapeFlag = isString(type) ? 1 /* ELEMENT */ : isTeleport(type) ? 64 /* TELEPORT */ : isObject(type) ? 4 /* STATEFUL_COMPONENT */ : isFunction(type) ? 2 /* FUNCTIONAL_COMPONENT */ : 0;
-  const vnode = {
-    __v_isVnode: true,
-    type,
-    props,
-    children,
-    key: props?.key,
-    //diff算法后面用的key
-    el: null,
-    //虚拟节点需要对应的真实节点是谁
-    shapeFlag,
-    ref: props?.ref,
-    patchFlag
-  };
-  if (currentBlock && patchFlag > 0) {
-    currentBlock.push(vnode);
-  }
-  if (children) {
-    if (Array.isArray(children)) {
-      vnode.shapeFlag = vnode.shapeFlag | 16 /* ARRAY_CHILDREN */;
-    } else if (isObject(children)) {
-      vnode.shapeFlag = vnode.shapeFlag | 32 /* SLOTS_CHILDREN */;
-    } else {
-      children = String(children);
-      vnode.shapeFlag = vnode.shapeFlag | 8 /* TEXT_CHILDREN */;
-    }
-  }
-  return vnode;
-}
-var currentBlock = null;
-function openBlock() {
-  currentBlock = [];
-}
-function closeBlock() {
-  currentBlock = null;
-}
-function setupBlock(vnode) {
-  vnode.dynamicChildren = currentBlock;
-  closeBlock();
-  return vnode;
-}
-function createElementBlock(type, props, children, patchFlag) {
-  const vnode = createVnode(type, props, children, patchFlag);
-  return setupBlock(vnode);
-}
-function toDisplayString(value) {
-  return isString(value) ? value : value == null ? "" : isObject(value) ? JSON.stringify(value) : String(value);
-}
-
-// packages/runtime-core/src/h.ts
-function h(type, propsOrChildren, children) {
-  let l = arguments.length;
-  if (l === 2) {
-    if (isObject(propsOrChildren) && !Array.isArray(propsOrChildren)) {
-      if (isVnode(propsOrChildren)) {
-        return createVnode(type, null, [propsOrChildren]);
-      } else {
-        return createVnode(type, propsOrChildren);
-      }
-    }
-    return createVnode(type, null, propsOrChildren);
-  } else {
-    if (l > 3) {
-      children = Array.from(arguments).slice(2);
-    }
-    if (l === 3 && isVnode(children)) {
-      children = [children];
-    }
-    return createVnode(type, propsOrChildren, children);
-  }
-}
-
-// packages/runtime-core/src/seq.ts
-function getSequence(arr) {
-  const result = [0];
-  const len = arr.length;
-  const p = result.slice(0);
-  let start;
-  let end;
-  let middle;
-  for (let i = 0; i < len; i++) {
-    const arrI = arr[i];
-    if (arrI !== 0) {
-      let resultLastIndex = result[result.length - 1];
-      if (arr[resultLastIndex] < arrI) {
-        p[i] = result[result.length - 1];
-        result.push(i);
-        continue;
-      }
-    }
-    start = 0;
-    end = result.length - 1;
-    while (start < end) {
-      middle = (start + end) / 2 | 0;
-      if (arr[result[middle]] < arrI) {
-        start = middle + 1;
-      } else {
-        end = middle;
-      }
-    }
-    if (arrI < arr[result[start]]) {
-      p[i] = result[start - 1];
-      result[start] = i;
-    }
-  }
-  let l = result.length;
-  let last = result[l - 1];
-  while (l-- > 0) {
-    result[l] = last;
-    last = p[last];
-  }
-  return result;
-}
-console.log(getSequence([2, 3, 1, 5, 6, 8, 7, 9, 4]));
-
 // packages/reactivity/src/effect.ts
 function effect(fn, options) {
   const _effect = new ReactiveEffect(fn, () => {
@@ -344,6 +206,19 @@ function triggerEffects(dep) {
     }
   }
 }
+
+// packages/shared/src/index.ts
+function isObject(value) {
+  return typeof value === "object" && value !== null;
+}
+function isFunction(value) {
+  return typeof value == "function";
+}
+function isString(value) {
+  return typeof value == "string";
+}
+var hasOwnProperty = Object.prototype.hasOwnProperty;
+var hasOwn = (value, key) => hasOwnProperty.call(value, key);
 
 // packages/reactivity/src/reactiveEffect.ts
 var targetMap = /* @__PURE__ */ new WeakMap();
@@ -624,6 +499,134 @@ function watchEffect(source, options) {
   return doWatch(source, null, options = {});
 }
 
+// packages/runtime-dom/src/index.ts
+var renderOptions = Object.assign({ patchProp }, nodeOps);
+
+// packages/runtime-core/src/createVnode.ts
+var Text = Symbol("Text");
+var Fragment = Symbol("Fragment");
+function isVnode(value) {
+  return value?.__v_isVnode;
+}
+function isSameVnode(n1, n2) {
+  return n1.type === n2.type && n1.key === n2.key;
+}
+function createVnode(type, props, children, patchFlag) {
+  const shapeFlag = isString(type) ? 1 /* ELEMENT */ : isTeleport(type) ? 64 /* TELEPORT */ : isObject(type) ? 4 /* STATEFUL_COMPONENT */ : isFunction(type) ? 2 /* FUNCTIONAL_COMPONENT */ : 0;
+  const vnode = {
+    __v_isVnode: true,
+    type,
+    props,
+    children,
+    key: props?.key,
+    //diff算法后面用的key
+    el: null,
+    //虚拟节点需要对应的真实节点是谁
+    shapeFlag,
+    ref: props?.ref,
+    patchFlag
+  };
+  if (currentBlock && patchFlag > 0) {
+    currentBlock.push(vnode);
+  }
+  if (children) {
+    if (Array.isArray(children)) {
+      vnode.shapeFlag = vnode.shapeFlag | 16 /* ARRAY_CHILDREN */;
+    } else if (isObject(children)) {
+      vnode.shapeFlag = vnode.shapeFlag | 32 /* SLOTS_CHILDREN */;
+    } else {
+      children = String(children);
+      vnode.shapeFlag = vnode.shapeFlag | 8 /* TEXT_CHILDREN */;
+    }
+  }
+  return vnode;
+}
+var currentBlock = null;
+function openBlock() {
+  currentBlock = [];
+}
+function closeBlock() {
+  currentBlock = null;
+}
+function setupBlock(vnode) {
+  vnode.dynamicChildren = currentBlock;
+  closeBlock();
+  return vnode;
+}
+function createElementBlock(type, props, children, patchFlag) {
+  const vnode = createVnode(type, props, children, patchFlag);
+  return setupBlock(vnode);
+}
+function toDisplayString(value) {
+  return isString(value) ? value : value == null ? "" : isObject(value) ? JSON.stringify(value) : String(value);
+}
+
+// packages/runtime-core/src/h.ts
+function h(type, propsOrChildren, children) {
+  let l = arguments.length;
+  if (l === 2) {
+    if (isObject(propsOrChildren) && !Array.isArray(propsOrChildren)) {
+      if (isVnode(propsOrChildren)) {
+        return createVnode(type, null, [propsOrChildren]);
+      } else {
+        return createVnode(type, propsOrChildren);
+      }
+    }
+    return createVnode(type, null, propsOrChildren);
+  } else {
+    if (l > 3) {
+      children = Array.from(arguments).slice(2);
+    }
+    if (l === 3 && isVnode(children)) {
+      children = [children];
+    }
+    return createVnode(type, propsOrChildren, children);
+  }
+}
+
+// packages/runtime-core/src/seq.ts
+function getSequence(arr) {
+  const result = [0];
+  const len = arr.length;
+  const p = result.slice(0);
+  let start;
+  let end;
+  let middle;
+  for (let i = 0; i < len; i++) {
+    const arrI = arr[i];
+    if (arrI !== 0) {
+      let resultLastIndex = result[result.length - 1];
+      if (arr[resultLastIndex] < arrI) {
+        p[i] = result[result.length - 1];
+        result.push(i);
+        continue;
+      }
+    }
+    start = 0;
+    end = result.length - 1;
+    while (start < end) {
+      middle = (start + end) / 2 | 0;
+      if (arr[result[middle]] < arrI) {
+        start = middle + 1;
+      } else {
+        end = middle;
+      }
+    }
+    if (arrI < arr[result[start]]) {
+      p[i] = result[start - 1];
+      result[start] = i;
+    }
+  }
+  let l = result.length;
+  let last = result[l - 1];
+  while (l-- > 0) {
+    result[l] = last;
+    last = p[last];
+  }
+  return result;
+}
+console.log(getSequence([2, 3, 1, 5, 6, 8, 7, 9, 4]));
+
 // packages/runtime-core/src/scheduler.ts
 var queue = [];
 var isFlushing = false;
@@ -742,7 +745,7 @@ function setupComponent(instance) {
   initSlots(instance, vnode.children);
   instance.proxy = new Proxy(instance, handler);
   const { data = () => {
-  }, render: render2, setup } = vnode.type;
+  }, render, setup } = vnode.type;
   if (setup) {
     const setupContext = {
       slots: instance.slots,
@@ -771,7 +774,7 @@ function setupComponent(instance) {
     instance.data = reactive(data.call(instance.proxy));
   }
   if (!instance.render) {
-    instance.render = render2;
+    instance.render = render;
   }
 }
 var currentInstance = null;
@@ -1062,15 +1065,15 @@ function createRenderer(renderOptions2) {
     Object.assign(instance.slots, next.children);
   };
   function renderComponent(instance) {
-    const { render: render3, vnode, proxy, props, attrs, slots } = instance;
+    const { render: render2, vnode, proxy, props, attrs, slots } = instance;
     if (vnode.shapeFlag & 4 /* STATEFUL_COMPONENT */) {
-      return render3.call(proxy, proxy);
+      return render2.call(proxy, proxy);
     } else {
       return vnode.type(attrs, { slots });
     }
   }
   function setupRenderEffect(instance, container, anchor, parentComponent) {
-    const { render: render3 } = instance;
+    const { render: render2 } = instance;
     const componentUpdateFn = () => {
       const { bm, m } = instance;
       if (!instance.isMounted) {
@@ -1232,7 +1235,7 @@ function createRenderer(renderOptions2) {
       }
     }
   };
-  const render2 = (vnode, container) => {
+  const render = (vnode, container) => {
     if (vnode == null) {
       if (container._vnode) {
         unmount(container._vnode, null);
@@ -1243,7 +1246,7 @@ function createRenderer(renderOptions2) {
     }
   };
   return {
-    render: render2
+    render
   };
 }
 
@@ -1519,12 +1522,6 @@ function defineAsyncComponent(options) {
     }
   };
 }
-
-// packages/runtime-dom/src/index.ts
-var renderOptions = Object.assign({ patchProp }, nodeOps);
-var render = (vnode, container) => {
-  return createRenderer(renderOptions).render(vnode, container);
-};
 export {
   Fragment,
   KeepAlive,
@@ -1565,8 +1562,6 @@ export {
   proxyRefs,
   reactive,
   ref,
-  render,
-  renderOptions,
   resolveTransitionProps,
   setCurrentInstance,
   setupBlock,
@@ -1583,4 +1578,4 @@ export {
   watch,
   watchEffect
 };
-//# sourceMappingURL=runtime-dom.js.map
+//# sourceMappingURL=runtime-core.js.map
