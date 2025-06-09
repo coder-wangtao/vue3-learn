@@ -27,9 +27,9 @@
       //handleEvent = (value) => alert(value)
       render(h(VueComponent, { onMyEvent: (value) => alert(value) }), app);
 
-      setTimeout(() => {
-        render(h(null, { onMyEvent: (value) => alert(value) }), app);
-      }, 1000);
+      // setTimeout(() => {
+      //   render(h(null, { onMyEvent: (value) => alert(value) }), app);
+      // }, 1000);
     </script>
   </body>
 </html>

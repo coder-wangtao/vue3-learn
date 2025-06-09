@@ -957,7 +957,11 @@ function createRenderer(renderOptions2) {
         if (!vnode.el) {
           patch(null, vnode, el, anchor);
         } else {
-          hostInsert(vnode.el, el, anchor);
+          if (i2 == increasingSeq[j]) {
+            j--;
+          } else {
+            hostInsert(vnode.el, el, anchor);
+          }
         }
       }
     }

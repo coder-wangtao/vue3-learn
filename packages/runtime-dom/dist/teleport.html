@@ -21,9 +21,11 @@
 
       render(h(Teleport, { to: "#root" }, [123, "123"]), app);
 
-      setTimeout(() => {
-        render(null, app);
-      }, 5000);
+      // setTimeout(() => {
+      //   render(h(Teleport, { to: "#root2" }, [123, "abc"]), app);
+
+      //   // render(null, app);
+      // }, 1000);
     </script>
   </body>
 </html>

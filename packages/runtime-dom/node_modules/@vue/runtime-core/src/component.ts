@@ -103,7 +103,6 @@ export function setupComponent(instance) {
   initProps(instance, vnode.props);
 
   initSlots(instance, vnode.children);
-
   //赋值代理对象
   instance.proxy = new Proxy(instance, handler);
 

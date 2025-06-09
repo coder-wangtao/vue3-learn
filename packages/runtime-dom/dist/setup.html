@@ -20,16 +20,16 @@
           setTimeout(() => {
             a.value = 2;
           }, 1000);
-          //   return {
-          //     a: a,
-          //   };
-          return () => {
-            return h("div", a.value);
+          return {
+            a: a,
           };
+          // return () => {
+          //   return h("div", a.value);
+          // };
         },
-        // render(proxy) {
-        //   return h("div", proxy.a);
-        // },
+        render(proxy) {
+          return h("div", proxy.a);
+        },
       };
 
       render(h(VueComponent, {}), app);

@@ -246,11 +246,11 @@ export function createRenderer(renderOptions) {
           //新列表新增的元素
           patch(null, vnode, el, anchor); //创建新的元素
         } else {
-          // if (i == increasingSeq[j]) {
-          //   j--; //做了diff算法
-          // } else {
-          hostInsert(vnode.el, el, anchor); //接着倒序插入
-          // }
+          if (i == increasingSeq[j]) {
+            j--; //做了diff算法
+          } else {
+            hostInsert(vnode.el, el, anchor); //接着倒序插入
+          }
         }
       }
       //倒序比对每一个元素，做插入操作
@@ -505,7 +505,6 @@ export function createRenderer(renderOptions) {
     //组件的复用是component
     //元素的复用是el
     const instance = (n2.component = n1.component);
-
     if (shouldComponentUpdate(n1, n2)) {
       instance.next = n2; //如果调用update 有next属性，说明是属性更新，插槽更新
       instance.update(); //让更新逻辑统一
@@ -552,6 +551,7 @@ export function createRenderer(renderOptions) {
         if (shapeFlag & ShapeFlags.ELEMENT) {
           processElement(n1, n2, container, anchor, parentComponent); //对元素处理
         } else if (shapeFlag & ShapeFlags.TELEPORT) {
+          // debugger;
           type.process(n1, n2, container, anchor, parentComponent, {
             mountChildren,
             patchChildren,

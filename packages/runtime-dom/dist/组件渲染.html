@@ -27,8 +27,9 @@
         },
         render(proxy) {
           return h("div", [
-            h(Text, "my name is" + this.$attrs.a),
-            h("a", this.age),
+            // h(Text, "my name is" + this.$attrs.a),
+            // h("a", this.age),
+            h("a", proxy.name),
           ]);
         },
       };

@@ -21,16 +21,44 @@
         },
       };
 
+      //RenderComponent
+      // <template>
+      //  <slot name="avatar">
+      //    <slot name="footer"></slot>
+      //    <slot name="header"></slot>
+      // </template>
+
       const VueComponent = {
         setup(props, { emit, attrs, expose, slots }) {
-          return (proxy) => {
-            return h(RenderComponent, null, {
-              header: (t) => h("header", "header" + t),
-              footer: (t) => h("footer", "footer" + t),
-            });
+          const flag = ref(false);
+          setTimeout(() => {
+            flag.value = true;
+          }, 3000);
+          return {
+            flag,
           };
         },
+        render: (proxy) => {
+          return h(RenderComponent, null, {
+            header: proxy.flag
+              ? (t) => h("header", "header" + t)
+              : (t) => h("header", "wangtao" + t),
+            footer: (t) => h("footer", "footer" + t),
+          });
+        },
       };
+
+      //VueComponent
+      // <template>
+      //   <RenderComponent>
+      //     <template v-slot:header>
+      //       header
+      //     </template>
+      //     <template v-slot:footer>
+      //       footer
+      //     </template>
+      //   </RenderComponent>
+      // </template>
 
       render(h(VueComponent, {}), app);
     </script>
