@@ -22,6 +22,7 @@ export function createVnode(type, props, children?, patchFlag?) {
     : isFunction(type)
     ? ShapeFlags.FUNCTIONAL_COMPONENT
     : 0;
+  // debugger;
   const vnode = {
     __v_isVnode: true,
     type,
@@ -86,7 +87,3 @@ export function toDisplayString(value) {
 }
 
 export { createVnode as createElementVNode };
-
-
-
-

@@ -8,11 +8,20 @@
   <body>
     <div id="app"></div>
     <style>
-      .x-enter-active,
+      /* 
+      * 定义过渡效果：
+      * - v-enter-active/v-leave-active 定义过渡持续时间和缓动函数
+      * - v-enter-from/v-leave-to 定义起始和结束状态
+      */
+      /* 定义进入的过渡动画 */
+      .x-enter-active,  
+      /* 定义离开的过渡动画 */
       .x-leave-active {
         transition: opacity 0.8s ease;
       }
+      /* 起始状态 */
       .x-enter-from,
+      /* 结束状态 */
       .x-leave-to {
         opacity: 0;
       }
@@ -23,12 +32,15 @@
       const props = {
         name: "x",
         onBeforeEnter(el) {
+          //进入之前
           console.log(arguments, "before enter");
         },
         onEnter(el) {
+          //进入
           console.log(arguments, "enter");
         },
         onLeave(el) {
+          //离开
           console.log(arguments, "leave");
         },
       };

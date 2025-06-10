@@ -38,8 +38,9 @@
           const name = ref("jw");
 
           setTimeout(() => {
+            debugger;
             name.value = "handsome jw";
-          }, 1000);
+          }, 3000);
 
           provide("name", name);
           return () => h(P2);
@@ -50,6 +51,7 @@
       //将p1的provide给p2
       //将p2的provide给p3
       //p1 -> p2 -> p3 -> p4 -> p5
+      debugger;
       render(h(P1), app);
     </script>
   </body>

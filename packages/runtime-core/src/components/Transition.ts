@@ -5,6 +5,7 @@ import { h } from "../h";
 //enterFrom enterActive enterTo      leaveFrom leaveActive leaveTo
 
 function nextFrame(fn) {
+  //绝对保证fn在当前帧的下一帧执行
   requestAnimationFrame(() => {
     requestAnimationFrame(fn);
   });
@@ -36,7 +37,6 @@ export function resolveTransitionProps(props) {
         el.classList.remove(enterActiveClass);
         done && done();
       };
-
       onEnter && onEnter(el, resolve);
       //添加后再移除，而不是马上移除
       nextFrame(() => {
@@ -45,6 +45,8 @@ export function resolveTransitionProps(props) {
         el.classList.add(enterToClass);
 
         if (!onEnter || onEnter.length <= 1) {
+          //transitionend是CSS过渡完成后触发的事件，用于在动画结束时执行JavaScript代码‌。‌
+          // 开发者需确保元素应用了CSS过渡效果、属性发生变化并正确监听事件‌。
           el.addEventListener("transitionend", resolve);
         }
       });
