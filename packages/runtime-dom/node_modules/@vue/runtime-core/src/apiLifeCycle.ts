@@ -3,6 +3,7 @@ import {
   setCurrentInstance,
   unsetCurrentInstance,
 } from "./component";
+
 export const enum LifeCycle {
   BEFORE_MOUNT = "bm",
   MOUNTED = "m",

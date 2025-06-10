@@ -26,9 +26,9 @@
           a: Number,
         },
         setup(props, { emit, attrs, expose, slots }) {
-          expose({
-            a: 200,
-          });
+          // expose({
+          //   a: 200,
+          // });
           return () => {
             return h("div", 111);
           };
@@ -43,12 +43,12 @@
           //如果放到dom元素上指代的是dom元素
           onMounted(() => {
             // console.log(comp.value);
-            console.log(comp.value.a);
+            console.log(comp.value);
           });
 
           return () => {
-            // return h(My, { ref: comp, a: 100 });
             return h(My, { ref: comp, a: 100 });
+            // return h(My, { ref: comp, a: 100 });
           };
         },
       };

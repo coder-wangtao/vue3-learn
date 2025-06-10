@@ -1205,7 +1205,8 @@ function createRenderer(renderOptions2) {
           processComponent(n1, n2, container, anchor, parentComponent);
         }
     }
-    if (ref2 !== null) {
+    if (ref2) {
+      debugger;
       setRef(ref2, n2);
     }
   };
