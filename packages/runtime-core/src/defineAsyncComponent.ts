@@ -20,6 +20,7 @@ export function defineAsyncComponent(options) {
       const error = ref(false);
       const loading = ref(false);
       let loadingTimer = null;
+
       if (delay) {
         loadingTimer = setTimeout(() => {
           loading.value = true;
@@ -66,6 +67,7 @@ export function defineAsyncComponent(options) {
       }
 
       const placeholder = h("div");
+
       return () => {
         if (loaded.value) {
           return h(Comp);

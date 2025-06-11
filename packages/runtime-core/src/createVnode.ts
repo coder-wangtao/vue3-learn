@@ -54,9 +54,11 @@ export function createVnode(type, props, children?, patchFlag?) {
 }
 
 let currentBlock = null;
+
 export function openBlock() {
   currentBlock = []; //用于收集动态节点的
 }
+
 export function closeBlock() {
   currentBlock = null;
 }

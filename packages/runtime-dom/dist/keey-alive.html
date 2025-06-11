@@ -24,7 +24,7 @@
       //2.组件不会被卸载，而是将dom移除掉
       //3.内部需要缓存dom
 
-      let keepAliveProps = { max: 1 };
+      let keepAliveProps = {};
 
       const A1 = {
         a: "a1",
@@ -61,7 +61,6 @@
           };
         },
       };
-
       render(
         h(KeepAlive, keepAliveProps, {
           default: () => h(A1, { key: "a1" }),
@@ -86,10 +85,11 @@
           app
         );
       }, 2000);
+
       setTimeout(() => {
         render(
           h(KeepAlive, keepAliveProps, {
-            default: () => h(A1, { key: "a2" }),
+            default: () => h(A2, { key: "a2" }),
           }),
           app
         );

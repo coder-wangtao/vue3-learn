@@ -15,11 +15,13 @@
         Fragment,
         toRefs,
         reactive,
+        ref,
         createElementVNode as _createElementVNode,
         toDisplayString as _toDisplayString,
         openBlock as _openBlock,
         createElementBlock as _createElementBlock,
-      } from "./runtime-dom.js";
+        // } from "./runtime-dom.js";
+      } from "/node_modules/vue/dist/vue.esm-browser.prod.js";
 
       //在编写vue3的时候，直接采用jsx或者h的写法 得不到优化
 
@@ -27,14 +29,16 @@
 
       const MyComponent = {
         setup() {
-          const state = reactive({ name: "jw" });
-
+          // const state = reactive({ name: "jw" });
+          const flag = ref(true);
+          const a = ref(1);
           setTimeout(() => {
-            state.name = "handsome jw";
+            flag.value = false;
           }, 1000);
 
           return {
-            ...toRefs(state), //vue会把setup返回值放到当前组件实例上，转成ref会自动拖value，方便在render
+            flag,
+            a, //vue会把setup返回值放到当前组件实例上，转成ref会自动拖value，方便在render里使用。
           };
         },
 
@@ -43,18 +47,30 @@
           const vnode =
             (_openBlock(),
             _createElementBlock("div", null, [
-              _createElementVNode("h1", null, "hello Jiang"),
-              _createElementVNode(
-                "span",
-                null,
-                _toDisplayString(_ctx.name),
-                1 /*TEXT*/ //模版编译vue会自动加入
-              ),
+              _ctx.flag
+                ? (_openBlock(),
+                  _createElementBlock("p", { key: 0 }, [
+                    _createElementVNode(
+                      "span",
+                      null,
+                      _toDisplayString(_ctx.a),
+                      1 /* TEXT */
+                    ),
+                  ]))
+                : (_openBlock(),
+                  _createElementBlock("div", { key: 1 }, [
+                    _createElementVNode(
+                      "span",
+                      null,
+                      _toDisplayString(_ctx.a),
+                      1 /* TEXT */
+                    ),
+                  ])),
             ]));
+          console.log(vnode);
           return vnode;
         },
       };
-
       render(h(MyComponent), app);
     </script>
   </body>

@@ -1206,7 +1206,6 @@ function createRenderer(renderOptions2) {
         }
     }
     if (ref2) {
-      debugger;
       setRef(ref2, n2);
     }
   };

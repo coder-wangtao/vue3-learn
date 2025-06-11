@@ -35,7 +35,6 @@ export const KeepAlive = {
       if (shapeFlag & ShapeFlags.COMPONENT_SHOULD_KEEP_ALIVE) {
         shapeFlag -= ShapeFlags.COMPONENT_SHOULD_KEEP_ALIVE;
       }
-
       vnode.shapeFlag = shapeFlag;
     }
 
@@ -58,6 +57,7 @@ export const KeepAlive = {
 
     //卸载的时候执行
     const storageContent = createElement("div");
+
     instance.ctx.deactivate = function (vnode) {
       move(vnode, storageContent, null); //将dom元素临时移动到这个div中，但是没有被销毁
     };
@@ -84,7 +84,6 @@ export const KeepAlive = {
         keys.add(key);
         if (max && keys.size > max) {
           //说明达到了最大的缓存个数
-
           //set中的第一个元素
           pureCacheEntry(keys.values().next().value);
         }

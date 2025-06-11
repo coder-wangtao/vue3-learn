@@ -572,7 +572,6 @@ export function createRenderer(renderOptions) {
 
     if (ref) {
       //n2是dom 还是组件 还是组件由expose
-      debugger;
       setRef(ref, n2);
     }
   };
