@@ -1,0 +1,61 @@
+  <body>
+    <div id="app"></div>
+    <script type="module">
+      import { ref, effect,effectScope,reactive } from "./reactivity.js";
+
+      const scope = effectScope()
+      // debugger
+      // scope.run(() => {
+      //   const state = reactive({age:30})
+      //   let runner = effect(()=> {
+      //     console.log(state.age)
+      //   })
+      //   setTimeout(() => {
+      //     debugger
+      //     state.age++
+      //   }, 2000);
+      // })
+
+      // scope.run(() => {
+      //   const state = reactive({age:30})
+      //   let runner = effect(()=> {
+      //     console.log(state.age)
+      //   })
+      //   setTimeout(() => {
+      //       debugger
+      //       state.age++
+      //   }, 2000);
+      // })
+      // scope.stop()
+
+
+      debugger
+      scope.run(() => {
+        // run 函数（接受一个函数作为参数，并返回该函数的返回值），
+        // 并且捕获所有在该函数执行过程中创建的 effect ，包括可以创建 effect 的API，例如 computed , watch , watchEffect :
+        const state = reactive({age:30})
+        let runner = effect(()=> {
+          console.log(state.age)
+        })
+        
+        setTimeout(() => {
+          state.age++
+        }, 2000);
+
+        const scope = effectScope()
+        scope.run(() => {
+          const state = reactive({age:35})
+          let runner = effect(() => {
+            console.log(state.age)
+          })
+          setTimeout(() => {
+            console.log(state.age)
+          }, 2000);
+        })
+      })
+      //当调用 scope.stop(), 所有被捕获的effect都会被取消，包括 嵌套 Scopes 也会被递归取消
+      debugger
+      scope.stop()
+    </script>
+  </body>
+</html>

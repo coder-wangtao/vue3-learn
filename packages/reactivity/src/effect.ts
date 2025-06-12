@@ -1,3 +1,4 @@
+import { recordEffectScope } from "./effectScope";
 import { DirtyLevels } from "./constants";
 
 export function effect(fn, options?) {
@@ -52,7 +53,9 @@ export class ReactiveEffect {
 
   //fn 用户传入的函数
   //如果fn中以来的数据发生变化后，需要重新调用 -> run()
-  constructor(public fn, public scheduler) {}
+  constructor(public fn, public scheduler) {
+    recordEffectScope(this);
+  }
 
   public get dirty() {
     return this._dirtyLevel === DirtyLevels.Dirty;
