@@ -555,12 +555,14 @@ function generate(ast) {
   }
   deindent();
   push(`}`);
+  debugger;
   console.log(context.code);
 }
 function compile(template) {
   const ast = parse(template);
   transform(ast);
   generate(ast);
+  console.log(generate(ast));
   return generate(ast);
 }
 export {

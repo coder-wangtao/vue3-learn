@@ -129,6 +129,7 @@ function generate(ast) {
 
   deindent();
   push(`}`);
+  debugger;
   console.log(context.code);
 }
 
@@ -137,6 +138,7 @@ function compile(template: string) {
   // 进行代码的转化
   transform(ast); //生成javascript AST抽象语法树  (对指令v-for、v-if node节点进行转换)
   generate(ast); //生成render函数
+  console.log(generate(ast));
   return generate(ast);
 }
 
