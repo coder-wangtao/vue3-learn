@@ -236,7 +236,6 @@ export function createRenderer(renderOptions) {
       let j = increasingSeq.length - 1;
 
       //toBePatched:[0,1,2,3]
-      // debugger;
       for (let i = toBePatched - 1; i >= 0; i--) {
         //3,1,2,0
         let newIndex = s2 + i;

@@ -100,6 +100,52 @@ function patchProp(el, key, preValue, nextValue) {
   }
 }
 
+// packages/reactivity/src/effectScope.ts
+var activeEffectScope;
+var EffectScope = class {
+  // 收集作用域的
+  constructor(detached = false) {
+    this.active = true;
+    this.effects = [];
+    if (!detached && activeEffectScope) {
+      activeEffectScope.scopes || (activeEffectScope.scopes = []).push(this);
+    }
+  }
+  run(fn) {
+    if (this.active) {
+      try {
+        this.parent = activeEffectScope;
+        activeEffectScope = this;
+        return fn();
+      } finally {
+        activeEffectScope = this.parent;
+        this.parent = null;
+      }
+    }
+  }
+  stop() {
+    if (this.active) {
+      for (let i = 0; i < this.effects.length; i++) {
+        this.effects[i].stop();
+      }
+      this.active = false;
+    }
+    if (this.scopes) {
+      for (let i = 0; i < this.scopes.length; i++) {
+        this.scopes[i].stop();
+      }
+    }
+  }
+};
+function recordEffectScope(effect3) {
+  if (activeEffectScope && activeEffectScope.active) {
+    activeEffectScope.effects.push(effect3);
+  }
+}
+function effectScope(detached) {
+  return new EffectScope(detached);
+}
+
 // packages/reactivity/src/effect.ts
 function effect(fn, options) {
   const _effect = new ReactiveEffect(fn, () => {
@@ -142,6 +188,7 @@ var ReactiveEffect = class {
     this._running = 0;
     //如果本次在执行effect的过程 更新了数据 不会触发effect更新
     this.active = true;
+    recordEffectScope(this);
   }
   get dirty() {
     return this._dirtyLevel === 4 /* Dirty */;
@@ -1535,6 +1582,7 @@ export {
   Text,
   Transition,
   activeEffect,
+  activeEffectScope,
   cleanDepEffect,
   closeBlock,
   computed,
@@ -1546,6 +1594,7 @@ export {
   currentInstance,
   defineAsyncComponent,
   effect,
+  effectScope,
   getCurrentInstance,
   h,
   initSlots,
@@ -1565,6 +1614,7 @@ export {
   provide,
   proxyRefs,
   reactive,
+  recordEffectScope,
   ref,
   resolveTransitionProps,
   setCurrentInstance,
