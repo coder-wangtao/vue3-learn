@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module">
+      import { reactive, effect, ref, watchEffect } from "./reactivity.js";
+      let dummy1, dummy2;
+      //Dep1
+      const counter1 = ref(1);
+      //Dep2
+      const counter2 = ref(2);
+      //Sub1
+      watchEffect(() => {
+        dummy1 = counter1.value + counter2.value;
+        console.log("dummy1", dummy1);
+      });
+      //Sub2
+      watchEffect(() => {
+        dummy2 = counter1.value + counter2.value + 1;
+        console.log("dummy2", dummy2);
+      });
+
+      counter1.value++;
+      counter2.value++;
+    </script>
+  </body>
+</html>
