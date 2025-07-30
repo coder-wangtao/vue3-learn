@@ -1,53 +1,53 @@
 <mxfile host="65bd71144e">
     <diagram id="yp6HfY-TQUkHBI3eNk6E" name="Page-1">
-        <mxGraphModel dx="1394" dy="924" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="10000" pageHeight="10000" math="0" shadow="0">
+        <mxGraphModel dx="1267" dy="993" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="10000" pageHeight="10000" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="5" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Optima, &amp;quot;Microsoft YaHei&amp;quot;, PingFangSC-regular, serif; font-size: 22px; font-weight: 700; text-align: left; background-color: rgb(255, 255, 255);&quot;&gt;Dep（ref,reactive）&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="5" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Optima, &amp;quot;Microsoft YaHei&amp;quot;, PingFangSC-regular, serif; font-size: 22px; font-weight: 700; text-align: left; background-color: rgb(255, 255, 255);&quot;&gt;Dep（ref,reactive）&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="80" y="10" width="230" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="7" value="&lt;pre style=&quot;-webkit-tap-highlight-color: transparent; margin-top: 10px; margin-bottom: 10px; padding: 0px; outline: 0px; max-width: 100%; box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px; color: rgb(163, 163, 163); font-size: 16px; text-align: left; background-color: rgb(25, 25, 25); border-radius: 5px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot; class=&quot;js_darkmode__145&quot; data-tool=&quot;mdnice编辑器&quot;&gt;&lt;code style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 15px 16px 16px; outline: 0px; max-width: 100%; background: rgb(40, 44, 52); overflow-x: auto; color: rgb(171, 178, 191); border-radius: 5px; display: -webkit-box; font-family: Consolas, Monaco, Menlo, monospace; font-size: 12px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot; class=&quot;js_darkmode__147&quot;&gt;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; line-height: 26px;&quot;&gt;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(198, 120, 221); line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;class&lt;/span&gt;&amp;nbsp;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(230, 192, 123); line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;Dep&lt;/span&gt;&amp;nbsp;&lt;/span&gt;{&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(92, 99, 112); font-style: italic; line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot; class=&quot;js_darkmode__148&quot;&gt;//&amp;nbsp;指向Link链表的尾部节点&lt;/span&gt;&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(209, 154, 102); line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;subs&lt;/span&gt;:&amp;nbsp;Link&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(92, 99, 112); font-style: italic; line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot; class=&quot;js_darkmode__149&quot;&gt;//&amp;nbsp;收集依赖&lt;/span&gt;&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(209, 154, 102); line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;track&lt;/span&gt;:&amp;nbsp;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(230, 192, 123); line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;Function&lt;/span&gt;&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(92, 99, 112); font-style: italic; line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot; class=&quot;js_darkmode__150&quot;&gt;//&amp;nbsp;触发依赖&lt;/span&gt;&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(209, 154, 102); line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;trigger&lt;/span&gt;:&amp;nbsp;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(230, 192, 123); line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;Function&lt;/span&gt;&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;}&lt;/code&gt;&lt;/pre&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;" vertex="1" parent="1">
+                <mxCell id="7" value="&lt;pre style=&quot;-webkit-tap-highlight-color: transparent; margin-top: 10px; margin-bottom: 10px; padding: 0px; outline: 0px; max-width: 100%; box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px; color: rgb(163, 163, 163); font-size: 16px; text-align: left; background-color: rgb(25, 25, 25); border-radius: 5px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot; class=&quot;js_darkmode__145&quot; data-tool=&quot;mdnice编辑器&quot;&gt;&lt;code style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 15px 16px 16px; outline: 0px; max-width: 100%; background: rgb(40, 44, 52); overflow-x: auto; color: rgb(171, 178, 191); border-radius: 5px; display: -webkit-box; font-family: Consolas, Monaco, Menlo, monospace; font-size: 12px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot; class=&quot;js_darkmode__147&quot;&gt;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; line-height: 26px;&quot;&gt;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(198, 120, 221); line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;class&lt;/span&gt;&amp;nbsp;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(230, 192, 123); line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;Dep&lt;/span&gt;&amp;nbsp;&lt;/span&gt;{&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(92, 99, 112); font-style: italic; line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot; class=&quot;js_darkmode__148&quot;&gt;//&amp;nbsp;指向Link链表的尾部节点&lt;/span&gt;&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(209, 154, 102); line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;subs&lt;/span&gt;:&amp;nbsp;Link&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(92, 99, 112); font-style: italic; line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot; class=&quot;js_darkmode__149&quot;&gt;//&amp;nbsp;收集依赖&lt;/span&gt;&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(209, 154, 102); line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;track&lt;/span&gt;:&amp;nbsp;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(230, 192, 123); line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;Function&lt;/span&gt;&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(92, 99, 112); font-style: italic; line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot; class=&quot;js_darkmode__150&quot;&gt;//&amp;nbsp;触发依赖&lt;/span&gt;&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(209, 154, 102); line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;trigger&lt;/span&gt;:&amp;nbsp;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(230, 192, 123); line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;Function&lt;/span&gt;&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;}&lt;/code&gt;&lt;/pre&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;" parent="1" vertex="1">
                     <mxGeometry x="80" y="80" width="220" height="250" as="geometry"/>
                 </mxCell>
-                <mxCell id="8" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Optima, &amp;quot;Microsoft YaHei&amp;quot;, PingFangSC-regular, serif; font-size: 22px; font-weight: 700; text-align: left; background-color: rgb(255, 255, 255);&quot;&gt;Sub（watctEffect,watch,render,computed）&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="8" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Optima, &amp;quot;Microsoft YaHei&amp;quot;, PingFangSC-regular, serif; font-size: 22px; font-weight: 700; text-align: left; background-color: rgb(255, 255, 255);&quot;&gt;Sub（watctEffect,watch,render,computed）&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="540" y="20" width="440" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="11" value="&lt;pre style=&quot;-webkit-tap-highlight-color: transparent; margin-top: 10px; margin-bottom: 10px; padding: 0px; outline: 0px; max-width: 100%; box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px; color: rgb(163, 163, 163); font-size: 16px; text-align: left; background-color: rgb(25, 25, 25); border-radius: 5px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot; class=&quot;js_darkmode__145&quot; data-tool=&quot;mdnice编辑器&quot;&gt;&lt;code style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 15px 16px 16px; outline: 0px; max-width: 100%; background: rgb(40, 44, 52); overflow-x: auto; color: rgb(171, 178, 191); border-radius: 5px; display: -webkit-box; font-family: Consolas, Monaco, Menlo, monospace; font-size: 12px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot; class=&quot;js_darkmode__147&quot;&gt;&lt;span style=&quot;color: rgb(171, 178, 191); background-color: rgb(49, 54, 63);&quot;&gt;interface&amp;nbsp;Subscriber&amp;nbsp;{&lt;/span&gt;&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(171, 178, 191); box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;&lt;span style=&quot;color: rgb(171, 178, 191); background-color: rgb(49, 54, 63);&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(92, 99, 112); font-style: italic; line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot; class=&quot;js_darkmode__172&quot;&gt;//&amp;nbsp;指向Link链表的头部节点&lt;/span&gt;&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(171, 178, 191); box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;&lt;span style=&quot;color: rgb(171, 178, 191); background-color: rgb(49, 54, 63);&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(209, 154, 102); line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;deps&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191); background-color: rgb(49, 54, 63);&quot;&gt;:&amp;nbsp;Link&lt;/span&gt;&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(171, 178, 191); box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;&lt;span style=&quot;color: rgb(171, 178, 191); background-color: rgb(49, 54, 63);&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(92, 99, 112); font-style: italic; line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot; class=&quot;js_darkmode__173&quot;&gt;//&amp;nbsp;指向Link链表的尾部节点&lt;/span&gt;&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(171, 178, 191); box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;&lt;span style=&quot;color: rgb(171, 178, 191); background-color: rgb(49, 54, 63);&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(209, 154, 102); line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;depsTail&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191); background-color: rgb(49, 54, 63);&quot;&gt;:&amp;nbsp;Link&lt;/span&gt;&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(171, 178, 191); box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;&lt;span style=&quot;color: rgb(171, 178, 191); background-color: rgb(49, 54, 63);&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(92, 99, 112); font-style: italic; line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot; class=&quot;js_darkmode__174&quot;&gt;//&amp;nbsp;执行依赖&lt;/span&gt;&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(171, 178, 191); box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;&lt;span style=&quot;color: rgb(171, 178, 191); background-color: rgb(49, 54, 63);&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(209, 154, 102); line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;notify&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191); background-color: rgb(49, 54, 63);&quot;&gt;:&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(230, 192, 123); line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;Function&lt;/span&gt;&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(171, 178, 191); box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;&lt;span style=&quot;color: rgb(171, 178, 191); background-color: rgb(49, 54, 63);&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;" vertex="1" parent="1">
+                <mxCell id="11" value="&lt;pre style=&quot;-webkit-tap-highlight-color: transparent; margin-top: 10px; margin-bottom: 10px; padding: 0px; outline: 0px; max-width: 100%; box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px; color: rgb(163, 163, 163); font-size: 16px; text-align: left; background-color: rgb(25, 25, 25); border-radius: 5px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot; class=&quot;js_darkmode__145&quot; data-tool=&quot;mdnice编辑器&quot;&gt;&lt;code style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 15px 16px 16px; outline: 0px; max-width: 100%; background: rgb(40, 44, 52); overflow-x: auto; color: rgb(171, 178, 191); border-radius: 5px; display: -webkit-box; font-family: Consolas, Monaco, Menlo, monospace; font-size: 12px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot; class=&quot;js_darkmode__147&quot;&gt;&lt;span style=&quot;color: rgb(171, 178, 191); background-color: rgb(49, 54, 63);&quot;&gt;interface&amp;nbsp;Subscriber&amp;nbsp;{&lt;/span&gt;&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(171, 178, 191); box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;&lt;span style=&quot;color: rgb(171, 178, 191); background-color: rgb(49, 54, 63);&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(92, 99, 112); font-style: italic; line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot; class=&quot;js_darkmode__172&quot;&gt;//&amp;nbsp;指向Link链表的头部节点&lt;/span&gt;&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(171, 178, 191); box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;&lt;span style=&quot;color: rgb(171, 178, 191); background-color: rgb(49, 54, 63);&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(209, 154, 102); line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;deps&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191); background-color: rgb(49, 54, 63);&quot;&gt;:&amp;nbsp;Link&lt;/span&gt;&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(171, 178, 191); box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;&lt;span style=&quot;color: rgb(171, 178, 191); background-color: rgb(49, 54, 63);&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(92, 99, 112); font-style: italic; line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot; class=&quot;js_darkmode__173&quot;&gt;//&amp;nbsp;指向Link链表的尾部节点&lt;/span&gt;&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(171, 178, 191); box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;&lt;span style=&quot;color: rgb(171, 178, 191); background-color: rgb(49, 54, 63);&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(209, 154, 102); line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;depsTail&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191); background-color: rgb(49, 54, 63);&quot;&gt;:&amp;nbsp;Link&lt;/span&gt;&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(171, 178, 191); box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;&lt;span style=&quot;color: rgb(171, 178, 191); background-color: rgb(49, 54, 63);&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(92, 99, 112); font-style: italic; line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot; class=&quot;js_darkmode__174&quot;&gt;//&amp;nbsp;执行依赖&lt;/span&gt;&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(171, 178, 191); box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;&lt;span style=&quot;color: rgb(171, 178, 191); background-color: rgb(49, 54, 63);&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(209, 154, 102); line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;notify&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191); background-color: rgb(49, 54, 63);&quot;&gt;:&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(230, 192, 123); line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;Function&lt;/span&gt;&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(171, 178, 191); box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;&lt;span style=&quot;color: rgb(171, 178, 191); background-color: rgb(49, 54, 63);&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;" parent="1" vertex="1">
                     <mxGeometry x="640" y="100" width="220" height="250" as="geometry"/>
                 </mxCell>
-                <mxCell id="12" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Optima, &amp;quot;Microsoft YaHei&amp;quot;, PingFangSC-regular, serif; font-size: 22px; font-weight: 700; text-align: left; background-color: rgb(255, 255, 255);&quot;&gt;Link&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="12" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Optima, &amp;quot;Microsoft YaHei&amp;quot;, PingFangSC-regular, serif; font-size: 22px; font-weight: 700; text-align: left; background-color: rgb(255, 255, 255);&quot;&gt;Link&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="1150" y="20" width="250" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="15" value="&lt;pre style=&quot;-webkit-tap-highlight-color: transparent; margin-top: 10px; margin-bottom: 10px; padding: 0px; outline: 0px; max-width: 100%; box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px; color: rgb(163, 163, 163); font-size: 16px; text-align: left; background-color: rgb(25, 25, 25); border-radius: 5px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot; class=&quot;js_darkmode__145&quot; data-tool=&quot;mdnice编辑器&quot;&gt;&lt;code style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 15px 16px 16px; outline: 0px; max-width: 100%; background: rgb(40, 44, 52); overflow-x: auto; color: rgb(171, 178, 191); border-radius: 5px; display: -webkit-box; font-family: Consolas, Monaco, Menlo, monospace; font-size: 12px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot; class=&quot;js_darkmode__147&quot;&gt;&lt;pre style=&quot;-webkit-tap-highlight-color: transparent; margin-top: 10px; margin-bottom: 10px; padding: 0px; outline: 0px; max-width: 100%; box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px; color: rgb(163, 163, 163); font-size: 16px; background-color: rgb(25, 25, 25); border-radius: 5px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot; class=&quot;js_darkmode__193&quot; data-tool=&quot;mdnice编辑器&quot;&gt;&lt;code style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 15px 16px 16px; outline: 0px; max-width: 100%; background: rgb(40, 44, 52); overflow-x: auto; color: rgb(171, 178, 191); border-radius: 5px; display: -webkit-box; font-family: Consolas, Monaco, Menlo, monospace; font-size: 12px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot; class=&quot;js_darkmode__195&quot;&gt;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; line-height: 26px;&quot;&gt;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(198, 120, 221); line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;class&lt;/span&gt;&amp;nbsp;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(230, 192, 123); line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;Link&lt;/span&gt;&amp;nbsp;&lt;/span&gt;{&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(92, 99, 112); font-style: italic; line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot; class=&quot;js_darkmode__196&quot;&gt;//&amp;nbsp;指向Subscriber订阅者&lt;/span&gt;&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(209, 154, 102); line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;sub&lt;/span&gt;:&amp;nbsp;Subscriber&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(92, 99, 112); font-style: italic; line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot; class=&quot;js_darkmode__197&quot;&gt;//&amp;nbsp;指向Dep依赖&lt;/span&gt;&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(209, 154, 102); line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;dep&lt;/span&gt;:&amp;nbsp;Dep&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(92, 99, 112); font-style: italic; line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot; class=&quot;js_darkmode__198&quot;&gt;//&amp;nbsp;指向Link链表的后一个节点（X轴）&lt;/span&gt;&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(209, 154, 102); line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;nextDep&lt;/span&gt;:&amp;nbsp;Link&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(92, 99, 112); font-style: italic; line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot; class=&quot;js_darkmode__199&quot;&gt;//&amp;nbsp;指向Link链表的前一个节点（X轴）&lt;/span&gt;&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(209, 154, 102); line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;prevDep&lt;/span&gt;:&amp;nbsp;Link&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(92, 99, 112); font-style: italic; line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot; class=&quot;js_darkmode__200&quot;&gt;//&amp;nbsp;指向Link链表的下一个节点（Y轴）&lt;/span&gt;&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(209, 154, 102); line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;nextSub&lt;/span&gt;:&amp;nbsp;Link&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(92, 99, 112); font-style: italic; line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot; class=&quot;js_darkmode__201&quot;&gt;//&amp;nbsp;指向Link链表的上一个节点（Y轴）&lt;/span&gt;&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(209, 154, 102); line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;prevSub&lt;/span&gt;:&amp;nbsp;Link&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;}&lt;/code&gt;&lt;/pre&gt;&lt;/code&gt;&lt;/pre&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;" vertex="1" parent="1">
+                <mxCell id="15" value="&lt;pre style=&quot;-webkit-tap-highlight-color: transparent; margin-top: 10px; margin-bottom: 10px; padding: 0px; outline: 0px; max-width: 100%; box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px; color: rgb(163, 163, 163); font-size: 16px; text-align: left; background-color: rgb(25, 25, 25); border-radius: 5px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot; class=&quot;js_darkmode__145&quot; data-tool=&quot;mdnice编辑器&quot;&gt;&lt;code style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 15px 16px 16px; outline: 0px; max-width: 100%; background: rgb(40, 44, 52); overflow-x: auto; color: rgb(171, 178, 191); border-radius: 5px; display: -webkit-box; font-family: Consolas, Monaco, Menlo, monospace; font-size: 12px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot; class=&quot;js_darkmode__147&quot;&gt;&lt;pre style=&quot;-webkit-tap-highlight-color: transparent; margin-top: 10px; margin-bottom: 10px; padding: 0px; outline: 0px; max-width: 100%; box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px; color: rgb(163, 163, 163); font-size: 16px; background-color: rgb(25, 25, 25); border-radius: 5px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot; class=&quot;js_darkmode__193&quot; data-tool=&quot;mdnice编辑器&quot;&gt;&lt;code style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 15px 16px 16px; outline: 0px; max-width: 100%; background: rgb(40, 44, 52); overflow-x: auto; color: rgb(171, 178, 191); border-radius: 5px; display: -webkit-box; font-family: Consolas, Monaco, Menlo, monospace; font-size: 12px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot; class=&quot;js_darkmode__195&quot;&gt;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; line-height: 26px;&quot;&gt;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(198, 120, 221); line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;class&lt;/span&gt;&amp;nbsp;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(230, 192, 123); line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;Link&lt;/span&gt;&amp;nbsp;&lt;/span&gt;{&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(92, 99, 112); font-style: italic; line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot; class=&quot;js_darkmode__196&quot;&gt;//&amp;nbsp;指向Subscriber订阅者&lt;/span&gt;&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(209, 154, 102); line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;sub&lt;/span&gt;:&amp;nbsp;Subscriber&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(92, 99, 112); font-style: italic; line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot; class=&quot;js_darkmode__197&quot;&gt;//&amp;nbsp;指向Dep依赖&lt;/span&gt;&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(209, 154, 102); line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;dep&lt;/span&gt;:&amp;nbsp;Dep&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(92, 99, 112); font-style: italic; line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot; class=&quot;js_darkmode__198&quot;&gt;//&amp;nbsp;指向Link链表的后一个节点（X轴）&lt;/span&gt;&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(209, 154, 102); line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;nextDep&lt;/span&gt;:&amp;nbsp;Link&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(92, 99, 112); font-style: italic; line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot; class=&quot;js_darkmode__199&quot;&gt;//&amp;nbsp;指向Link链表的前一个节点（X轴）&lt;/span&gt;&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(209, 154, 102); line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;prevDep&lt;/span&gt;:&amp;nbsp;Link&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(92, 99, 112); font-style: italic; line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot; class=&quot;js_darkmode__200&quot;&gt;//&amp;nbsp;指向Link链表的下一个节点（Y轴）&lt;/span&gt;&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(209, 154, 102); line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;nextSub&lt;/span&gt;:&amp;nbsp;Link&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(92, 99, 112); font-style: italic; line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot; class=&quot;js_darkmode__201&quot;&gt;//&amp;nbsp;指向Link链表的上一个节点（Y轴）&lt;/span&gt;&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;span style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(209, 154, 102); line-height: 26px; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;prevSub&lt;/span&gt;:&amp;nbsp;Link&lt;br style=&quot;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;&quot;&gt;}&lt;/code&gt;&lt;/pre&gt;&lt;/code&gt;&lt;/pre&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;" parent="1" vertex="1">
                     <mxGeometry x="1130" y="90" width="310" height="460" as="geometry"/>
                 </mxCell>
-                <mxCell id="17" value="&lt;div style=&quot;background-color: rgb(40, 44, 52); line-height: 19px; color: rgb(171, 178, 191);&quot;&gt;&lt;div style=&quot;color: light-dark(rgb(171, 178, 191), rgb(79, 85, 96)); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; white-space: pre; text-align: left;&quot;&gt;&lt;span style=&quot;color: rgb(198, 120, 221);&quot;&gt;import&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt; { &lt;/span&gt;&lt;span style=&quot;color: rgb(224, 108, 117);&quot;&gt;reactive&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt;, &lt;/span&gt;&lt;span style=&quot;color: rgb(224, 108, 117);&quot;&gt;effect&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt;, &lt;/span&gt;&lt;span style=&quot;color: rgb(224, 108, 117);&quot;&gt;ref&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt;, &lt;/span&gt;&lt;span style=&quot;color: rgb(224, 108, 117);&quot;&gt;watchEffect&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt; } &lt;/span&gt;&lt;span style=&quot;color: rgb(198, 120, 221);&quot;&gt;from&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt; &lt;/span&gt;&lt;span style=&quot;color: rgb(152, 195, 121);&quot;&gt;&quot;./reactivity.js&quot;&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt;;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;color: light-dark(rgb(171, 178, 191), rgb(79, 85, 96)); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; white-space: pre; text-align: left;&quot;&gt;&lt;span style=&quot;color: rgb(198, 120, 221);&quot;&gt;let&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt; dummy1, dummy2;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;color: light-dark(rgb(171, 178, 191), rgb(79, 85, 96)); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; white-space: pre; text-align: left;&quot;&gt;&lt;span style=&quot;color: rgb(92, 99, 112); font-style: italic;&quot;&gt;//Dep1&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;color: light-dark(rgb(171, 178, 191), rgb(79, 85, 96)); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; white-space: pre; text-align: left;&quot;&gt;&lt;span style=&quot;color: rgb(198, 120, 221);&quot;&gt;const&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt; &lt;/span&gt;&lt;span style=&quot;color: rgb(209, 154, 102);&quot;&gt;counter1&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt; &lt;/span&gt;&lt;span style=&quot;color: rgb(86, 182, 194);&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt; &lt;/span&gt;&lt;span style=&quot;color: rgb(97, 175, 239);&quot;&gt;ref&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;color: rgb(209, 154, 102);&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt;);&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;color: light-dark(rgb(171, 178, 191), rgb(79, 85, 96)); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; white-space: pre; text-align: left;&quot;&gt;&lt;span style=&quot;font-style: italic; background-color: light-dark(rgb(40, 44, 52), rgb(196, 200, 207));&quot;&gt;//Dep2&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;color: light-dark(rgb(171, 178, 191), rgb(79, 85, 96)); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; white-space: pre; text-align: left;&quot;&gt;&lt;span style=&quot;color: rgb(198, 120, 221);&quot;&gt;const&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt; &lt;/span&gt;&lt;span style=&quot;color: rgb(209, 154, 102);&quot;&gt;counter2&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt; &lt;/span&gt;&lt;span style=&quot;color: rgb(86, 182, 194);&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt; &lt;/span&gt;&lt;span style=&quot;color: rgb(97, 175, 239);&quot;&gt;ref&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;color: rgb(209, 154, 102);&quot;&gt;2&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt;);&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;color: light-dark(rgb(171, 178, 191), rgb(79, 85, 96)); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; white-space: pre; text-align: left;&quot;&gt;&lt;span style=&quot;color: rgb(92, 99, 112); font-style: italic;&quot;&gt;//Sub1&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;color: light-dark(rgb(171, 178, 191), rgb(79, 85, 96)); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; white-space: pre; text-align: left;&quot;&gt;&lt;span style=&quot;color: rgb(97, 175, 239);&quot;&gt;watchEffect&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt;(() &lt;/span&gt;&lt;span style=&quot;color: rgb(198, 120, 221);&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt; {&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; color: light-dark(rgb(171, 178, 191), rgb(79, 85, 96)); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; white-space: pre;&quot;&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt;&amp;nbsp; dummy1 &lt;/span&gt;&lt;span style=&quot;color: rgb(86, 182, 194);&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt; counter1.&lt;/span&gt;&lt;span style=&quot;color: rgb(224, 108, 117);&quot;&gt;value&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt; &lt;/span&gt;&lt;span style=&quot;color: rgb(86, 182, 194);&quot;&gt;+&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt; counter2.&lt;/span&gt;&lt;span style=&quot;color: rgb(224, 108, 117);&quot;&gt;value&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt;;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; color: light-dark(rgb(171, 178, 191), rgb(79, 85, 96)); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; white-space: pre;&quot;&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt;&amp;nbsp; console.&lt;/span&gt;&lt;span style=&quot;color: rgb(97, 175, 239);&quot;&gt;log&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;color: rgb(152, 195, 121);&quot;&gt;&quot;dummy1&quot;&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt;, dummy1);&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; color: light-dark(rgb(171, 178, 191), rgb(79, 85, 96)); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; white-space: pre;&quot;&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt;});&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; color: light-dark(rgb(171, 178, 191), rgb(79, 85, 96)); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; white-space: pre;&quot;&gt;&lt;span style=&quot;color: rgb(92, 99, 112); font-style: italic;&quot;&gt;//Sub2&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; color: light-dark(rgb(171, 178, 191), rgb(79, 85, 96)); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; white-space: pre;&quot;&gt;&lt;span style=&quot;color: rgb(97, 175, 239);&quot;&gt;watchEffect&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt;(() &lt;/span&gt;&lt;span style=&quot;color: rgb(198, 120, 221);&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt; {&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; color: light-dark(rgb(171, 178, 191), rgb(79, 85, 96)); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; white-space: pre;&quot;&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt;&amp;nbsp; &amp;nbsp;dummy2 &lt;/span&gt;&lt;span style=&quot;color: rgb(86, 182, 194);&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt; counter1.&lt;/span&gt;&lt;span style=&quot;color: rgb(224, 108, 117);&quot;&gt;value&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt; &lt;/span&gt;&lt;span style=&quot;color: rgb(86, 182, 194);&quot;&gt;+&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt; counter2.&lt;/span&gt;&lt;span style=&quot;color: rgb(224, 108, 117);&quot;&gt;value&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt; &lt;/span&gt;&lt;span style=&quot;color: rgb(86, 182, 194);&quot;&gt;+&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt; &lt;/span&gt;&lt;span style=&quot;color: rgb(209, 154, 102);&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt;;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; color: light-dark(rgb(171, 178, 191), rgb(79, 85, 96)); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; white-space: pre;&quot;&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt;&amp;nbsp; &amp;nbsp;console.&lt;/span&gt;&lt;span style=&quot;color: rgb(97, 175, 239);&quot;&gt;log&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;color: rgb(152, 195, 121);&quot;&gt;&quot;dummy2&quot;&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt;, dummy2);&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; color: light-dark(rgb(171, 178, 191), rgb(79, 85, 96)); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; white-space: pre;&quot;&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt;&amp;nbsp;});&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; color: light-dark(rgb(171, 178, 191), rgb(79, 85, 96)); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; white-space: pre;&quot;&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt;counter1.&lt;/span&gt;&lt;span style=&quot;color: rgb(224, 108, 117);&quot;&gt;value&lt;/span&gt;&lt;span style=&quot;color: rgb(86, 182, 194);&quot;&gt;++&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt;;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; color: light-dark(rgb(171, 178, 191), rgb(79, 85, 96)); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; white-space: pre;&quot;&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt;counter2.&lt;/span&gt;&lt;span style=&quot;color: rgb(224, 108, 117);&quot;&gt;value&lt;/span&gt;&lt;span style=&quot;color: rgb(86, 182, 194);&quot;&gt;++&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt;;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="17" value="&lt;div style=&quot;background-color: rgb(40, 44, 52); line-height: 19px; color: rgb(171, 178, 191);&quot;&gt;&lt;div style=&quot;color: light-dark(rgb(171, 178, 191), rgb(79, 85, 96)); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; white-space: pre; text-align: left;&quot;&gt;&lt;span style=&quot;color: rgb(198, 120, 221);&quot;&gt;import&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt; { &lt;/span&gt;&lt;span style=&quot;color: rgb(224, 108, 117);&quot;&gt;reactive&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt;, &lt;/span&gt;&lt;span style=&quot;color: rgb(224, 108, 117);&quot;&gt;effect&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt;, &lt;/span&gt;&lt;span style=&quot;color: rgb(224, 108, 117);&quot;&gt;ref&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt;, &lt;/span&gt;&lt;span style=&quot;color: rgb(224, 108, 117);&quot;&gt;watchEffect&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt; } &lt;/span&gt;&lt;span style=&quot;color: rgb(198, 120, 221);&quot;&gt;from&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt; &lt;/span&gt;&lt;span style=&quot;color: rgb(152, 195, 121);&quot;&gt;&quot;./reactivity.js&quot;&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt;;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;color: light-dark(rgb(171, 178, 191), rgb(79, 85, 96)); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; white-space: pre; text-align: left;&quot;&gt;&lt;span style=&quot;color: rgb(198, 120, 221);&quot;&gt;let&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt; dummy1, dummy2;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;color: light-dark(rgb(171, 178, 191), rgb(79, 85, 96)); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; white-space: pre; text-align: left;&quot;&gt;&lt;span style=&quot;color: rgb(92, 99, 112); font-style: italic;&quot;&gt;//Dep1&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;color: light-dark(rgb(171, 178, 191), rgb(79, 85, 96)); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; white-space: pre; text-align: left;&quot;&gt;&lt;span style=&quot;color: rgb(198, 120, 221);&quot;&gt;const&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt; &lt;/span&gt;&lt;span style=&quot;color: rgb(209, 154, 102);&quot;&gt;counter1&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt; &lt;/span&gt;&lt;span style=&quot;color: rgb(86, 182, 194);&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt; &lt;/span&gt;&lt;span style=&quot;color: rgb(97, 175, 239);&quot;&gt;ref&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;color: rgb(209, 154, 102);&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt;);&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;color: light-dark(rgb(171, 178, 191), rgb(79, 85, 96)); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; white-space: pre; text-align: left;&quot;&gt;&lt;span style=&quot;font-style: italic; background-color: light-dark(rgb(40, 44, 52), rgb(196, 200, 207));&quot;&gt;//Dep2&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;color: light-dark(rgb(171, 178, 191), rgb(79, 85, 96)); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; white-space: pre; text-align: left;&quot;&gt;&lt;span style=&quot;color: rgb(198, 120, 221);&quot;&gt;const&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt; &lt;/span&gt;&lt;span style=&quot;color: rgb(209, 154, 102);&quot;&gt;counter2&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt; &lt;/span&gt;&lt;span style=&quot;color: rgb(86, 182, 194);&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt; &lt;/span&gt;&lt;span style=&quot;color: rgb(97, 175, 239);&quot;&gt;ref&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;color: rgb(209, 154, 102);&quot;&gt;2&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt;);&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;color: light-dark(rgb(171, 178, 191), rgb(79, 85, 96)); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; white-space: pre; text-align: left;&quot;&gt;&lt;span style=&quot;color: rgb(92, 99, 112); font-style: italic;&quot;&gt;//Sub1&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;color: light-dark(rgb(171, 178, 191), rgb(79, 85, 96)); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; white-space: pre; text-align: left;&quot;&gt;&lt;span style=&quot;color: rgb(97, 175, 239);&quot;&gt;watchEffect&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt;(() &lt;/span&gt;&lt;span style=&quot;color: rgb(198, 120, 221);&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt; {&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; color: light-dark(rgb(171, 178, 191), rgb(79, 85, 96)); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; white-space: pre;&quot;&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt;&amp;nbsp; dummy1 &lt;/span&gt;&lt;span style=&quot;color: rgb(86, 182, 194);&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt; counter1.&lt;/span&gt;&lt;span style=&quot;color: rgb(224, 108, 117);&quot;&gt;value&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt; &lt;/span&gt;&lt;span style=&quot;color: rgb(86, 182, 194);&quot;&gt;+&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt; counter2.&lt;/span&gt;&lt;span style=&quot;color: rgb(224, 108, 117);&quot;&gt;value&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt;;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; color: light-dark(rgb(171, 178, 191), rgb(79, 85, 96)); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; white-space: pre;&quot;&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt;&amp;nbsp; console.&lt;/span&gt;&lt;span style=&quot;color: rgb(97, 175, 239);&quot;&gt;log&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;color: rgb(152, 195, 121);&quot;&gt;&quot;dummy1&quot;&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt;, dummy1);&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; color: light-dark(rgb(171, 178, 191), rgb(79, 85, 96)); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; white-space: pre;&quot;&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt;});&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; color: light-dark(rgb(171, 178, 191), rgb(79, 85, 96)); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; white-space: pre;&quot;&gt;&lt;span style=&quot;color: rgb(92, 99, 112); font-style: italic;&quot;&gt;//Sub2&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; color: light-dark(rgb(171, 178, 191), rgb(79, 85, 96)); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; white-space: pre;&quot;&gt;&lt;span style=&quot;color: rgb(97, 175, 239);&quot;&gt;watchEffect&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt;(() &lt;/span&gt;&lt;span style=&quot;color: rgb(198, 120, 221);&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt; {&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; color: light-dark(rgb(171, 178, 191), rgb(79, 85, 96)); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; white-space: pre;&quot;&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt;&amp;nbsp; &amp;nbsp;dummy2 &lt;/span&gt;&lt;span style=&quot;color: rgb(86, 182, 194);&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt; counter1.&lt;/span&gt;&lt;span style=&quot;color: rgb(224, 108, 117);&quot;&gt;value&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt; &lt;/span&gt;&lt;span style=&quot;color: rgb(86, 182, 194);&quot;&gt;+&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt; counter2.&lt;/span&gt;&lt;span style=&quot;color: rgb(224, 108, 117);&quot;&gt;value&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt; &lt;/span&gt;&lt;span style=&quot;color: rgb(86, 182, 194);&quot;&gt;+&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt; &lt;/span&gt;&lt;span style=&quot;color: rgb(209, 154, 102);&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt;;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; color: light-dark(rgb(171, 178, 191), rgb(79, 85, 96)); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; white-space: pre;&quot;&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt;&amp;nbsp; &amp;nbsp;console.&lt;/span&gt;&lt;span style=&quot;color: rgb(97, 175, 239);&quot;&gt;log&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;color: rgb(152, 195, 121);&quot;&gt;&quot;dummy2&quot;&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt;, dummy2);&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; color: light-dark(rgb(171, 178, 191), rgb(79, 85, 96)); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; white-space: pre;&quot;&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt;&amp;nbsp;});&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; color: light-dark(rgb(171, 178, 191), rgb(79, 85, 96)); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; white-space: pre;&quot;&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt;counter1.&lt;/span&gt;&lt;span style=&quot;color: rgb(224, 108, 117);&quot;&gt;value&lt;/span&gt;&lt;span style=&quot;color: rgb(86, 182, 194);&quot;&gt;++&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt;;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; color: light-dark(rgb(171, 178, 191), rgb(79, 85, 96)); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; white-space: pre;&quot;&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt;counter2.&lt;/span&gt;&lt;span style=&quot;color: rgb(224, 108, 117);&quot;&gt;value&lt;/span&gt;&lt;span style=&quot;color: rgb(86, 182, 194);&quot;&gt;++&lt;/span&gt;&lt;span style=&quot;color: rgb(171, 178, 191);&quot;&gt;;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="1660" y="35" width="540" height="380" as="geometry"/>
                 </mxCell>
-                <mxCell id="48" style="edgeStyle=none;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="18" target="28">
+                <mxCell id="48" style="edgeStyle=none;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" parent="1" source="18" target="28" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="50" value="subs" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="48">
+                <mxCell id="50" value="subs" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="48" vertex="1" connectable="0">
                     <mxGeometry x="-0.135" y="-2" relative="1" as="geometry">
                         <mxPoint y="2" as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="18" value="Dep1(count1)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="18" value="Dep1(count1)" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="540" y="770" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="19" value="Dep2(count2)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="19" value="Dep2(count2)" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="920" y="770" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="41" style="edgeStyle=none;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="20" target="28">
+                <mxCell id="41" style="edgeStyle=none;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" parent="1" source="20" target="28" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="42" value="deps" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="41">
+                <mxCell id="42" value="deps" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="41" vertex="1" connectable="0">
                     <mxGeometry x="0.0175" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="45" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="20" target="28">
+                <mxCell id="45" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="20" target="28" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="270" y="1130"/>
@@ -55,97 +55,97 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="47" value="depsTail" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="45">
+                <mxCell id="47" value="depsTail" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="45" vertex="1" connectable="0">
                     <mxGeometry x="0.017" y="2" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="20" value="Sub1(watchEffect1)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="20" value="Sub1(watchEffect1)" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="210" y="1010" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="21" value="Sub2(&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;watchEffect2&lt;/span&gt;)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="21" value="Sub2(&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;watchEffect2&lt;/span&gt;)" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="220" y="1290" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="24" value="" style="endArrow=classic;html=1;" edge="1" parent="1">
+                <mxCell id="24" value="" style="endArrow=classic;html=1;" parent="1" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="180" y="750" as="sourcePoint"/>
                         <mxPoint x="1250" y="750" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="25" value="X轴&amp;nbsp; dep" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="25" value="X轴&amp;nbsp; dep" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="635" y="710" width="70" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="26" value="" style="endArrow=classic;html=1;" edge="1" parent="1">
+                <mxCell id="26" value="" style="endArrow=classic;html=1;" parent="1" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="180" y="750" as="sourcePoint"/>
                         <mxPoint x="180" y="1350" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="27" value="y轴&amp;nbsp; Sub" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="27" value="y轴&amp;nbsp; Sub" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="100" y="1030" width="70" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="34" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1">
+                <mxCell id="34" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="580" y="1010" as="sourcePoint"/>
                         <mxPoint x="580" y="830" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="49" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 12px; background-color: rgb(251, 251, 251);&quot;&gt;dep&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="34">
+                <mxCell id="49" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 12px; background-color: rgb(251, 251, 251);&quot;&gt;dep&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="34" vertex="1" connectable="0">
                     <mxGeometry x="0.0918" y="2" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="40" style="edgeStyle=none;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="28" target="20">
+                <mxCell id="40" style="edgeStyle=none;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" parent="1" source="28" target="20" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="44" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 12px; background-color: rgb(251, 251, 251);&quot;&gt;sub&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="40">
+                <mxCell id="44" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 12px; background-color: rgb(251, 251, 251);&quot;&gt;sub&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="40" vertex="1" connectable="0">
                     <mxGeometry x="-0.1079" y="-2" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="28" value="link1" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="28" value="link1" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="540" y="1010" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="33" value="1.watchEffect1中访问count1，触发&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;count1&lt;/span&gt;的getter，getter触发dep的track方法，此时会生成一个link1节点。此时link1节点中sub指向&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;watchEffect1&lt;/span&gt;,dep指向count1。" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="33" value="1.watchEffect1中访问count1，触发&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;count1&lt;/span&gt;的getter，getter触发dep的track方法，此时会生成一个link1节点。此时link1节点中sub指向&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;watchEffect1&lt;/span&gt;,dep指向count1。" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="280" y="610" width="890" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="38" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;2.&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;watchEffect1中的deps(链表的头部)和depsTail&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;(链表的尾部)&lt;/span&gt;指向生成的link1节点。&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="38" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;2.&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;watchEffect1中的deps(链表的头部)和depsTail&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;(链表的尾部)&lt;/span&gt;指向生成的link1节点。&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="285" y="640" width="460" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="52" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;3.count1&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;中的subs(链表的尾部)指向生成的link1节点。&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="52" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;3.count1&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;中的subs(链表的尾部)指向生成的link1节点。&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="280" y="670" width="310" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="53" style="edgeStyle=none;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="55" target="70">
+                <mxCell id="53" style="edgeStyle=none;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" parent="1" source="55" target="70" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="54" value="subs" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="53">
+                <mxCell id="54" value="subs" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="53" vertex="1" connectable="0">
                     <mxGeometry x="-0.135" y="-2" relative="1" as="geometry">
                         <mxPoint y="2" as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="55" value="Dep1(count1)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="55" value="Dep1(count1)" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="1950" y="780" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="88" style="edgeStyle=none;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="56" target="72">
+                <mxCell id="88" style="edgeStyle=none;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" parent="1" source="56" target="72" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="89" value="subs" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="88">
+                <mxCell id="89" value="subs" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="88" vertex="1" connectable="0">
                     <mxGeometry x="-0.0918" y="-2" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="56" value="Dep2(count2)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="56" value="Dep2(count2)" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="2330" y="780" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="57" style="edgeStyle=none;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="61" target="70">
+                <mxCell id="57" style="edgeStyle=none;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" parent="1" source="61" target="70" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="58" value="deps" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="57">
+                <mxCell id="58" value="deps" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="57" vertex="1" connectable="0">
                     <mxGeometry x="0.0175" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="59" style="edgeStyle=none;html=1;exitX=0.657;exitY=0.955;exitDx=0;exitDy=0;entryX=0.31;entryY=0.964;entryDx=0;entryDy=0;entryPerimeter=0;exitPerimeter=0;" edge="1" parent="1" source="61" target="72">
+                <mxCell id="59" style="edgeStyle=none;html=1;exitX=0.657;exitY=0.955;exitDx=0;exitDy=0;entryX=0.31;entryY=0.964;entryDx=0;entryDy=0;entryPerimeter=0;exitPerimeter=0;" parent="1" source="61" target="72" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="1699" y="1140"/>
@@ -154,73 +154,73 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="60" value="depsTail" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="59">
+                <mxCell id="60" value="depsTail" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="59" vertex="1" connectable="0">
                     <mxGeometry x="0.017" y="2" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="61" value="Sub1(watchEffect1)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="61" value="Sub1(watchEffect1)" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="1620" y="1020" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="62" value="Sub2(&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;watchEffect2&lt;/span&gt;)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="62" value="Sub2(&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;watchEffect2&lt;/span&gt;)" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="1630" y="1300" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="63" value="" style="endArrow=classic;html=1;" edge="1" parent="1">
+                <mxCell id="63" value="" style="endArrow=classic;html=1;" parent="1" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="1590" y="760" as="sourcePoint"/>
                         <mxPoint x="2660" y="760" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="64" value="X轴&amp;nbsp; dep" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="64" value="X轴&amp;nbsp; dep" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="2045" y="720" width="70" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="65" value="" style="endArrow=classic;html=1;" edge="1" parent="1">
+                <mxCell id="65" value="" style="endArrow=classic;html=1;" parent="1" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="1590" y="760" as="sourcePoint"/>
                         <mxPoint x="1590" y="1360" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="66" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1">
+                <mxCell id="66" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="1990" y="1020" as="sourcePoint"/>
                         <mxPoint x="1990" y="840" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="67" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 12px; background-color: rgb(251, 251, 251);&quot;&gt;dep&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="66">
+                <mxCell id="67" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 12px; background-color: rgb(251, 251, 251);&quot;&gt;dep&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="66" vertex="1" connectable="0">
                     <mxGeometry x="0.0918" y="2" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="68" style="edgeStyle=none;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="70" target="61">
+                <mxCell id="68" style="edgeStyle=none;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" parent="1" source="70" target="61" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="69" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 12px; background-color: rgb(251, 251, 251);&quot;&gt;sub&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="68">
+                <mxCell id="69" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 12px; background-color: rgb(251, 251, 251);&quot;&gt;sub&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="68" vertex="1" connectable="0">
                     <mxGeometry x="-0.1079" y="-2" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="86" style="edgeStyle=none;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="70" target="72">
+                <mxCell id="86" style="edgeStyle=none;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" parent="1" source="70" target="72" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="87" value="nextDep" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="86">
+                <mxCell id="87" value="nextDep" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="86" vertex="1" connectable="0">
                     <mxGeometry x="0.0244" y="-1" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="70" value="link1" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="70" value="link1" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="1950" y="1020" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="79" style="edgeStyle=none;html=1;entryX=0.25;entryY=1;entryDx=0;entryDy=0;exitX=0.25;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="72" target="56">
+                <mxCell id="79" style="edgeStyle=none;html=1;entryX=0.25;entryY=1;entryDx=0;entryDy=0;exitX=0.25;exitY=0;exitDx=0;exitDy=0;" parent="1" source="72" target="56" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="2360" y="1010" as="sourcePoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="80" value="dep" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="79">
+                <mxCell id="80" value="dep" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="79" vertex="1" connectable="0">
                     <mxGeometry x="0.0833" y="1" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="81" style="edgeStyle=none;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="72" target="61">
+                <mxCell id="81" style="edgeStyle=none;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" parent="1" source="72" target="61" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="2420" y="1160"/>
@@ -228,38 +228,38 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="82" value="sub" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="81">
+                <mxCell id="82" value="sub" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="81" vertex="1" connectable="0">
                     <mxGeometry x="-0.0096" y="-2" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="84" style="edgeStyle=none;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="72" target="70">
+                <mxCell id="84" style="edgeStyle=none;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" parent="1" source="72" target="70" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="85" value="prevDep" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="84">
+                <mxCell id="85" value="prevDep" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="84" vertex="1" connectable="0">
                     <mxGeometry x="-0.0378" y="-3" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="72" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;link2&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="72" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;link2&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="2330" y="1020" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="74" value="1.watchEffect1中访问count2，触发&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;count2&lt;/span&gt;的getter，getter触发dep的track方法，此时会生成一个link2节点。此时link2节点中sub指向&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;watchEffect1&lt;/span&gt;,dep指向count2。" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="74" value="1.watchEffect1中访问count2，触发&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;count2&lt;/span&gt;的getter，getter触发dep的track方法，此时会生成一个link2节点。此时link2节点中sub指向&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;watchEffect1&lt;/span&gt;,dep指向count2。" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="1680" y="580" width="890" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="75" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;&amp;nbsp; 2.link2的prevDep指向linke1，&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;link1的nextDep指向linke2。&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="75" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;&amp;nbsp; 2.link2的prevDep指向linke1，&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;link1的nextDep指向linke2。&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="1675" y="610" width="340" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="76" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;4.count2&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;中的subs(链表的尾部)指向生成的link2节点。&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="76" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;4.count2&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;中的subs(链表的尾部)指向生成的link2节点。&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="1680" y="670" width="310" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="77" value="" style="shape=flexArrow;endArrow=classic;html=1;" edge="1" parent="1">
+                <mxCell id="77" value="" style="shape=flexArrow;endArrow=classic;html=1;" parent="1" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="1330" y="1010" as="sourcePoint"/>
                         <mxPoint x="1490" y="1010" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="90" style="edgeStyle=none;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="92" target="112">
+                <mxCell id="90" style="edgeStyle=none;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="92" target="112" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="3480" y="810" as="sourcePoint"/>
                         <mxPoint x="3490" y="1330" as="targetPoint"/>
@@ -268,34 +268,34 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="143" value="subs" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="90">
+                <mxCell id="143" value="subs" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="90" vertex="1" connectable="0">
                     <mxGeometry x="0.2348" y="-2" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="92" value="Dep1(count1)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="92" value="Dep1(count1)" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="3320" y="780" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="93" style="edgeStyle=none;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="95" target="119">
+                <mxCell id="93" style="edgeStyle=none;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" parent="1" source="95" target="119" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="94" value="subs" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="93">
+                <mxCell id="94" value="subs" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="93" vertex="1" connectable="0">
                     <mxGeometry x="-0.0918" y="-2" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="95" value="Dep2(count2)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="95" value="Dep2(count2)" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="3700" y="780" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="96" style="edgeStyle=none;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="100" target="111">
+                <mxCell id="96" style="edgeStyle=none;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" parent="1" source="100" target="111" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="97" value="deps" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="96">
+                <mxCell id="97" value="deps" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="96" vertex="1" connectable="0">
                     <mxGeometry x="0.0175" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="98" style="edgeStyle=none;html=1;exitX=0.657;exitY=0.955;exitDx=0;exitDy=0;entryX=0.31;entryY=0.964;entryDx=0;entryDy=0;entryPerimeter=0;exitPerimeter=0;" edge="1" parent="1" source="100" target="119">
+                <mxCell id="98" style="edgeStyle=none;html=1;exitX=0.657;exitY=0.955;exitDx=0;exitDy=0;entryX=0.31;entryY=0.964;entryDx=0;entryDy=0;entryPerimeter=0;exitPerimeter=0;" parent="1" source="100" target="119" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="3069" y="1140"/>
@@ -304,23 +304,23 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="99" value="depsTail" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="98">
+                <mxCell id="99" value="depsTail" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="98" vertex="1" connectable="0">
                     <mxGeometry x="0.017" y="2" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="100" value="Sub1(watchEffect1)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="100" value="Sub1(watchEffect1)" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="2990" y="1020" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="131" style="edgeStyle=none;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="101" target="112">
+                <mxCell id="131" style="edgeStyle=none;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" parent="1" source="101" target="112" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="132" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 12px; background-color: rgb(251, 251, 251);&quot;&gt;deps&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="131">
+                <mxCell id="132" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 12px; background-color: rgb(251, 251, 251);&quot;&gt;deps&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="131" vertex="1" connectable="0">
                     <mxGeometry x="-0.0967" y="-3" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="133" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="101" target="112">
+                <mxCell id="133" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="101" target="112" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="3060" y="1410"/>
@@ -328,76 +328,76 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="135" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 12px; background-color: rgb(251, 251, 251);&quot;&gt;depsTail&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="133">
+                <mxCell id="135" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 12px; background-color: rgb(251, 251, 251);&quot;&gt;depsTail&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="133" vertex="1" connectable="0">
                     <mxGeometry x="0.0095" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="101" value="Sub2(&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;watchEffect2&lt;/span&gt;)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="101" value="Sub2(&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;watchEffect2&lt;/span&gt;)" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="3000" y="1300" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="102" value="" style="endArrow=classic;html=1;" edge="1" parent="1">
+                <mxCell id="102" value="" style="endArrow=classic;html=1;" parent="1" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="2960" y="760" as="sourcePoint"/>
                         <mxPoint x="4030" y="760" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="103" value="X轴&amp;nbsp; dep" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="103" value="X轴&amp;nbsp; dep" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="3415" y="720" width="70" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="104" value="" style="endArrow=classic;html=1;" edge="1" parent="1">
+                <mxCell id="104" value="" style="endArrow=classic;html=1;" parent="1" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="2960" y="760" as="sourcePoint"/>
                         <mxPoint x="2960" y="1360" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="105" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1">
+                <mxCell id="105" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="3360" y="1020" as="sourcePoint"/>
                         <mxPoint x="3360" y="840" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="106" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 12px; background-color: rgb(251, 251, 251);&quot;&gt;dep&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="105">
+                <mxCell id="106" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 12px; background-color: rgb(251, 251, 251);&quot;&gt;dep&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="105" vertex="1" connectable="0">
                     <mxGeometry x="0.0918" y="2" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="107" style="edgeStyle=none;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="111" target="100">
+                <mxCell id="107" style="edgeStyle=none;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" parent="1" source="111" target="100" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="108" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 12px; background-color: rgb(251, 251, 251);&quot;&gt;sub&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="107">
+                <mxCell id="108" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 12px; background-color: rgb(251, 251, 251);&quot;&gt;sub&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="107" vertex="1" connectable="0">
                     <mxGeometry x="-0.1079" y="-2" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="109" style="edgeStyle=none;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="111" target="119">
+                <mxCell id="109" style="edgeStyle=none;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" parent="1" source="111" target="119" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="110" value="nextDep" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="109">
+                <mxCell id="110" value="nextDep" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="109" vertex="1" connectable="0">
                     <mxGeometry x="0.0244" y="-1" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="140" style="edgeStyle=none;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="111" target="112">
+                <mxCell id="140" style="edgeStyle=none;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" parent="1" source="111" target="112" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="141" value="nextSub" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="140">
+                <mxCell id="141" value="nextSub" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="140" vertex="1" connectable="0">
                     <mxGeometry x="0.2788" y="2" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="111" value="link1" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="111" value="link1" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="3320" y="1020" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="125" style="edgeStyle=none;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="112" target="101">
+                <mxCell id="125" style="edgeStyle=none;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" parent="1" source="112" target="101" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="126" value="sub" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="125">
+                <mxCell id="126" value="sub" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="125" vertex="1" connectable="0">
                     <mxGeometry x="0.05" y="-3" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="127" style="edgeStyle=none;html=1;exitX=0;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="112" target="92">
+                <mxCell id="127" style="edgeStyle=none;html=1;exitX=0;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="112" target="92" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="3260" y="1287.5" as="sourcePoint"/>
                         <mxPoint x="3260" y="812.5" as="targetPoint"/>
@@ -406,33 +406,33 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="128" value="dep" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="127">
+                <mxCell id="128" value="dep" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="127" vertex="1" connectable="0">
                     <mxGeometry x="-0.2285" y="-4" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="138" style="edgeStyle=none;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="112" target="111">
+                <mxCell id="138" style="edgeStyle=none;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" parent="1" source="112" target="111" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="139" value="prevSub" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="138">
+                <mxCell id="139" value="prevSub" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="138" vertex="1" connectable="0">
                     <mxGeometry x="-0.3539" y="-1" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="112" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;link3&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="112" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;link3&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="3320" y="1300" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="113" style="edgeStyle=none;html=1;entryX=0.25;entryY=1;entryDx=0;entryDy=0;exitX=0.25;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="119" target="95">
+                <mxCell id="113" style="edgeStyle=none;html=1;entryX=0.25;entryY=1;entryDx=0;entryDy=0;exitX=0.25;exitY=0;exitDx=0;exitDy=0;" parent="1" source="119" target="95" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="3730" y="1010" as="sourcePoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="114" value="dep" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="113">
+                <mxCell id="114" value="dep" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="113" vertex="1" connectable="0">
                     <mxGeometry x="0.0833" y="1" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="115" style="edgeStyle=none;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="119" target="100">
+                <mxCell id="115" style="edgeStyle=none;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" parent="1" source="119" target="100" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="3790" y="1160"/>
@@ -440,47 +440,47 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="116" value="sub" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="115">
+                <mxCell id="116" value="sub" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="115" vertex="1" connectable="0">
                     <mxGeometry x="-0.0096" y="-2" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="117" style="edgeStyle=none;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="119" target="111">
+                <mxCell id="117" style="edgeStyle=none;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" parent="1" source="119" target="111" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="118" value="prevDep" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="117">
+                <mxCell id="118" value="prevDep" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="117" vertex="1" connectable="0">
                     <mxGeometry x="-0.0378" y="-3" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="119" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;link2&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="119" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;link2&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="3700" y="1020" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="121" value="1.watchEffect2中访问count1，触发&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;count1&lt;/span&gt;的getter，getter触发dep的track方法，此时会生成一个link3节点。此时link3节点中sub指向&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;watchEffect2&lt;/span&gt;,dep指向count1。" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="121" value="1.watchEffect2中访问count1，触发&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;count1&lt;/span&gt;的getter，getter触发dep的track方法，此时会生成一个link3节点。此时link3节点中sub指向&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;watchEffect2&lt;/span&gt;,dep指向count1。" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="3060" y="590" width="890" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="123" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;&amp;nbsp; 3.link3&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;中的prevSub指向link1节点，&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;link1&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;中的nextSub指向link3节点，&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="123" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;&amp;nbsp; 3.link3&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;中的prevSub指向link1节点，&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;link1&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;中的nextSub指向link3节点，&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="3055" y="650" width="400" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="124" value="" style="shape=flexArrow;endArrow=classic;html=1;" edge="1" parent="1">
+                <mxCell id="124" value="" style="shape=flexArrow;endArrow=classic;html=1;" parent="1" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="2700" y="1010" as="sourcePoint"/>
                         <mxPoint x="2860" y="1010" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="130" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;&amp;nbsp; &amp;nbsp;2.&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;watchEffect2中的deps(链表的头部)和depsTail&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;(链表的尾部)&lt;/span&gt;指向生成的link3节点。&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="130" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;&amp;nbsp; &amp;nbsp;2.&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;watchEffect2中的deps(链表的头部)和depsTail&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;(链表的尾部)&lt;/span&gt;指向生成的link3节点。&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="3055" y="620" width="470" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="136" value="y轴&amp;nbsp; Sub" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="136" value="y轴&amp;nbsp; Sub" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="1520" y="1050" width="70" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="137" value="y轴&amp;nbsp; Sub" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="137" value="y轴&amp;nbsp; Sub" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="2890" y="1050" width="70" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="144" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;3.count1&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;中的subs(链表的尾部)指向生成的link3节点。&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="144" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;3.count1&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;中的subs(链表的尾部)指向生成的link3节点。&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="3060" y="680" width="310" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="145" style="edgeStyle=none;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="147" target="179">
+                <mxCell id="145" style="edgeStyle=none;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="147" target="179" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="4870" y="810" as="sourcePoint"/>
                         <mxPoint x="4880" y="1330" as="targetPoint"/>
@@ -489,34 +489,26 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="146" value="subs" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="145">
+                <mxCell id="146" value="subs" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="145" vertex="1" connectable="0">
                     <mxGeometry x="0.2348" y="-2" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="147" value="Dep1(count1)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="147" value="Dep1(count1)" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="4710" y="780" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="148" style="edgeStyle=none;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="150" target="186">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="149" value="subs" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="148">
-                    <mxGeometry x="-0.0918" y="-2" relative="1" as="geometry">
-                        <mxPoint as="offset"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="150" value="Dep2(count2)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="150" value="Dep2(count2)" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="5090" y="780" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="151" style="edgeStyle=none;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="155" target="172">
+                <mxCell id="151" style="edgeStyle=none;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" parent="1" source="155" target="172" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="152" value="deps" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="151">
+                <mxCell id="152" value="deps" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="151" vertex="1" connectable="0">
                     <mxGeometry x="0.0175" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="153" style="edgeStyle=none;html=1;exitX=0.657;exitY=0.955;exitDx=0;exitDy=0;entryX=0.31;entryY=0.964;entryDx=0;entryDy=0;entryPerimeter=0;exitPerimeter=0;" edge="1" parent="1" source="155" target="186">
+                <mxCell id="153" style="edgeStyle=none;html=1;exitX=0.657;exitY=0.955;exitDx=0;exitDy=0;entryX=0.31;entryY=0.964;entryDx=0;entryDy=0;entryPerimeter=0;exitPerimeter=0;" parent="1" source="155" target="186" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="4459" y="1140"/>
@@ -525,23 +517,23 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="154" value="depsTail" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="153">
+                <mxCell id="154" value="depsTail" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="153" vertex="1" connectable="0">
                     <mxGeometry x="0.017" y="2" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="155" value="Sub1(watchEffect1)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="155" value="Sub1(watchEffect1)" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="4380" y="1020" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="156" style="edgeStyle=none;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="160" target="179">
+                <mxCell id="156" style="edgeStyle=none;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" parent="1" source="160" target="179" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="157" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 12px; background-color: rgb(251, 251, 251);&quot;&gt;deps&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="156">
+                <mxCell id="157" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 12px; background-color: rgb(251, 251, 251);&quot;&gt;deps&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="156" vertex="1" connectable="0">
                     <mxGeometry x="-0.0967" y="-3" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="158" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="160" target="187">
+                <mxCell id="158" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="160" target="187" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="4450" y="1410"/>
@@ -550,76 +542,76 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="159" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 12px; background-color: rgb(251, 251, 251);&quot;&gt;depsTail&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="158">
+                <mxCell id="159" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 12px; background-color: rgb(251, 251, 251);&quot;&gt;depsTail&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="158" vertex="1" connectable="0">
                     <mxGeometry x="0.0095" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="160" value="Sub2(&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;watchEffect2&lt;/span&gt;)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="160" value="Sub2(&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;watchEffect2&lt;/span&gt;)" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="4390" y="1300" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="161" value="" style="endArrow=classic;html=1;" edge="1" parent="1">
+                <mxCell id="161" value="" style="endArrow=classic;html=1;" parent="1" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="4350" y="760" as="sourcePoint"/>
                         <mxPoint x="5420" y="760" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="162" value="X轴&amp;nbsp; dep" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="162" value="X轴&amp;nbsp; dep" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="4805" y="720" width="70" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="163" value="" style="endArrow=classic;html=1;" edge="1" parent="1">
+                <mxCell id="163" value="" style="endArrow=classic;html=1;" parent="1" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="4350" y="760" as="sourcePoint"/>
                         <mxPoint x="4350" y="1360" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="164" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1">
+                <mxCell id="164" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="4750" y="1020" as="sourcePoint"/>
                         <mxPoint x="4750" y="840" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="165" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 12px; background-color: rgb(251, 251, 251);&quot;&gt;dep&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="164">
+                <mxCell id="165" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 12px; background-color: rgb(251, 251, 251);&quot;&gt;dep&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="164" vertex="1" connectable="0">
                     <mxGeometry x="0.0918" y="2" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="166" style="edgeStyle=none;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="172" target="155">
+                <mxCell id="166" style="edgeStyle=none;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" parent="1" source="172" target="155" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="167" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 12px; background-color: rgb(251, 251, 251);&quot;&gt;sub&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="166">
+                <mxCell id="167" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 12px; background-color: rgb(251, 251, 251);&quot;&gt;sub&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="166" vertex="1" connectable="0">
                     <mxGeometry x="-0.1079" y="-2" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="168" style="edgeStyle=none;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="172" target="186">
+                <mxCell id="168" style="edgeStyle=none;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" parent="1" source="172" target="186" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="169" value="nextDep" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="168">
+                <mxCell id="169" value="nextDep" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="168" vertex="1" connectable="0">
                     <mxGeometry x="0.0244" y="-1" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="170" style="edgeStyle=none;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="172" target="179">
+                <mxCell id="170" style="edgeStyle=none;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" parent="1" source="172" target="179" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="171" value="nextSub" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="170">
+                <mxCell id="171" value="nextSub" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="170" vertex="1" connectable="0">
                     <mxGeometry x="0.2788" y="2" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="172" value="link1" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="172" value="link1" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="4710" y="1020" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="173" style="edgeStyle=none;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="179" target="160">
+                <mxCell id="173" style="edgeStyle=none;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" parent="1" source="179" target="160" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="174" value="sub" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="173">
+                <mxCell id="174" value="sub" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="173" vertex="1" connectable="0">
                     <mxGeometry x="0.05" y="-3" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="175" style="edgeStyle=none;html=1;exitX=0;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="179" target="147">
+                <mxCell id="175" style="edgeStyle=none;html=1;exitX=0;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="179" target="147" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="4650" y="1287.5" as="sourcePoint"/>
                         <mxPoint x="4650" y="812.5" as="targetPoint"/>
@@ -628,33 +620,33 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="176" value="dep" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="175">
+                <mxCell id="176" value="dep" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="175" vertex="1" connectable="0">
                     <mxGeometry x="-0.2285" y="-4" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="177" style="edgeStyle=none;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="179" target="172">
+                <mxCell id="177" style="edgeStyle=none;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" parent="1" source="179" target="172" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="178" value="prevSub" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="177">
+                <mxCell id="178" value="prevSub" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="177" vertex="1" connectable="0">
                     <mxGeometry x="-0.3539" y="-1" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="179" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;link3&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="179" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;link3&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="4710" y="1300" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="180" style="edgeStyle=none;html=1;entryX=0.25;entryY=1;entryDx=0;entryDy=0;exitX=0.25;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="186" target="150">
+                <mxCell id="180" style="edgeStyle=none;html=1;entryX=0.25;entryY=1;entryDx=0;entryDy=0;exitX=0.25;exitY=0;exitDx=0;exitDy=0;" parent="1" source="186" target="150" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="5120" y="1010" as="sourcePoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="181" value="dep" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="180">
+                <mxCell id="181" value="dep" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="180" vertex="1" connectable="0">
                     <mxGeometry x="0.0833" y="1" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="182" style="edgeStyle=none;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="186" target="155">
+                <mxCell id="182" style="edgeStyle=none;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" parent="1" source="186" target="155" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="5180" y="1160"/>
@@ -662,47 +654,47 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="183" value="sub" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="182">
+                <mxCell id="183" value="sub" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="182" vertex="1" connectable="0">
                     <mxGeometry x="-0.0096" y="-2" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="184" style="edgeStyle=none;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="186" target="172">
+                <mxCell id="184" style="edgeStyle=none;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" parent="1" source="186" target="172" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="185" value="prevDep" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="184">
+                <mxCell id="185" value="prevDep" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="184" vertex="1" connectable="0">
                     <mxGeometry x="-0.0378" y="-3" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="186" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;link2&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="186" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;link2&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="5090" y="1020" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="187" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;link4&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="187" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;link4&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="5090" y="1300" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="188" value="1.watchEffect2中访问count2，触发&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;count2&lt;/span&gt;的getter，getter触发dep的track方法，此时会生成一个link4节点。此时link4节点中sub指向&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;watchEffect2&lt;/span&gt;,dep指向count2。" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="188" value="1.watchEffect2中访问count2，触发&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;count2&lt;/span&gt;的getter，getter触发dep的track方法，此时会生成一个link4节点。此时link4节点中sub指向&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;watchEffect2&lt;/span&gt;,dep指向count2。" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="4450" y="560" width="890" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="189" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;&amp;nbsp; 3.link4&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;中的prevSub指向link2节点，&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;link2&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;中的nextSub指向link4节点，&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="189" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;&amp;nbsp; 3.link4&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;中的prevSub指向link2节点，&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;link2&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;中的nextSub指向link4节点，&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="4445" y="650" width="400" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="190" value="" style="shape=flexArrow;endArrow=classic;html=1;" edge="1" parent="1">
+                <mxCell id="190" value="" style="shape=flexArrow;endArrow=classic;html=1;" parent="1" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="4090" y="1010" as="sourcePoint"/>
                         <mxPoint x="4250" y="1010" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="191" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;&amp;nbsp; &amp;nbsp; 2.&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;watchEffect2中depsTail&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;(链表的尾部)&lt;/span&gt;指向生成的link4节点。&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="191" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;&amp;nbsp; &amp;nbsp; 2.&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;watchEffect2中depsTail&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;(链表的尾部)&lt;/span&gt;指向生成的link4节点。&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="4440" y="620" width="360" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="192" value="y轴&amp;nbsp; Sub" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="192" value="y轴&amp;nbsp; Sub" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="4280" y="1050" width="70" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="193" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;3.count2&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;中的subs(链表的尾部)指向生成的link4节点。&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="193" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;3.count2&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;中的subs(链表的尾部)指向生成的link4节点。&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="4450" y="680" width="310" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="195" style="edgeStyle=none;html=1;exitX=0;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1">
+                <mxCell id="195" style="edgeStyle=none;html=1;exitX=0;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="5090" y="1300" as="sourcePoint"/>
                         <mxPoint x="5090" y="810" as="targetPoint"/>
@@ -711,12 +703,12 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="196" value="dep" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="195">
+                <mxCell id="196" value="dep" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="195" vertex="1" connectable="0">
                     <mxGeometry x="-0.2285" y="-4" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="197" style="edgeStyle=none;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.197;entryY=1.054;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="160">
+                <mxCell id="197" style="edgeStyle=none;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.197;entryY=1.054;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="160" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="5171.28" y="1360" as="sourcePoint"/>
                         <mxPoint x="4400" y="1361.98" as="targetPoint"/>
@@ -726,62 +718,62 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="199" value="sub" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="197">
+                <mxCell id="199" value="sub" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="197" vertex="1" connectable="0">
                     <mxGeometry x="0.0076" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="200" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;3.&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;watchEffect1中的depsTail&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;(链表的尾部)&lt;/span&gt;指向生成的link2节点。&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="200" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;3.&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;watchEffect1中的depsTail&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;(链表的尾部)&lt;/span&gt;指向生成的link2节点。&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="1680" y="640" width="360" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="201" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;2.link4的prevDep指向linke3，&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;link3的nextDep指向linke4。&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="201" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;2.link4的prevDep指向linke3，&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;link3的nextDep指向linke4。&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="4455" y="590" width="330" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="202" style="edgeStyle=none;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1">
+                <mxCell id="202" style="edgeStyle=none;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" parent="1" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="4830" y="1349.09" as="sourcePoint"/>
                         <mxPoint x="5090" y="1349.09" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="203" value="nextDep" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="202">
+                <mxCell id="203" value="nextDep" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="202" vertex="1" connectable="0">
                     <mxGeometry x="0.0244" y="-1" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="204" style="edgeStyle=none;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1">
+                <mxCell id="204" style="edgeStyle=none;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" parent="1" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="5090" y="1319.09" as="sourcePoint"/>
                         <mxPoint x="4830" y="1319.09" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="205" value="prevDep" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="204">
+                <mxCell id="205" value="prevDep" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="204" vertex="1" connectable="0">
                     <mxGeometry x="-0.0378" y="-3" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="206" style="edgeStyle=none;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1">
+                <mxCell id="206" style="edgeStyle=none;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" parent="1" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="5140" y="1080" as="sourcePoint"/>
                         <mxPoint x="5140" y="1300" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="207" value="nextSub" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="206">
+                <mxCell id="207" value="nextSub" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="206" vertex="1" connectable="0">
                     <mxGeometry x="0.2788" y="2" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="208" style="edgeStyle=none;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1">
+                <mxCell id="208" style="edgeStyle=none;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" parent="1" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="5200" y="1300" as="sourcePoint"/>
                         <mxPoint x="5200" y="1080" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="209" value="prevSub" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="208">
+                <mxCell id="209" value="prevSub" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="208" vertex="1" connectable="0">
                     <mxGeometry x="-0.3539" y="-1" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="210" style="edgeStyle=none;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1">
+                <mxCell id="210" style="edgeStyle=none;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="5210" y="797.5" as="sourcePoint"/>
                         <mxPoint x="5210" y="1332.5" as="targetPoint"/>
@@ -790,12 +782,12 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="211" value="subs" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="210">
+                <mxCell id="211" value="subs" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="210" vertex="1" connectable="0">
                     <mxGeometry x="0.2348" y="-2" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="212" value="&lt;div style=&quot;font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; line-height: 19px; white-space-collapse: preserve;&quot;&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;&lt;b&gt;&lt;span&gt;当执行counter1.&lt;/span&gt;&lt;span&gt;value&lt;/span&gt;&lt;span&gt;++&lt;/span&gt;&lt;span&gt;时，就会被变量counter1（也就是Dep1依赖）的set函数拦截。&lt;/span&gt;&lt;span&gt;此时就可以通过Dep1的subs属性指向队列的尾部，也就是指向Link3。&lt;/span&gt;&lt;/b&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;&lt;b&gt;Link3中可以直接通过sub属性访问到订阅者Sub2，也就是第二个watchEffect，从而执行第二个watchEffect的回调函数。&lt;/b&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;&lt;b&gt;接着就是使用Link的preSub属性从队尾依次移动到队头，从而触发Dep1队列中的所有Sub订阅者。&lt;/b&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;&lt;b&gt;在这里就是使用preSub属性访问到Link1（就到队列的头部啦），Link1中可以直接通过sub属性访问到订阅者Sub1，也就是第一个watchEffect，从而执行第一个watchEffect的回调函数。&lt;/b&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="212" value="&lt;div style=&quot;font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; line-height: 19px; white-space-collapse: preserve;&quot;&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;&lt;b&gt;&lt;span&gt;当执行counter1.&lt;/span&gt;&lt;span&gt;value&lt;/span&gt;&lt;span&gt;++&lt;/span&gt;&lt;span&gt;时，就会被变量counter1（也就是Dep1依赖）的set函数拦截。&lt;/span&gt;&lt;span&gt;此时就可以通过Dep1的subs属性指向队列的尾部，也就是指向Link3。&lt;/span&gt;&lt;/b&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;&lt;b&gt;Link3中可以直接通过sub属性访问到订阅者Sub2，也就是第二个watchEffect，从而执行第二个watchEffect的回调函数。&lt;/b&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;&lt;b&gt;接着就是使用Link的preSub属性从队尾依次移动到队头，从而触发Dep1队列中的所有Sub订阅者。&lt;/b&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;&lt;b&gt;在这里就是使用preSub属性访问到Link1（就到队列的头部啦），Link1中可以直接通过sub属性访问到订阅者Sub1，也就是第一个watchEffect，从而执行第一个watchEffect的回调函数。&lt;/b&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="4290" y="1470" width="1190" height="90" as="geometry"/>
                 </mxCell>
             </root>
