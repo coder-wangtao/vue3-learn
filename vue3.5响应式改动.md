@@ -14,6 +14,6 @@ Dep 依赖和 Sub 订阅者不再有直接的联系，而是通过 Link 节点�
 然后依次从队尾向队头移动，依次触发队列中每个 Link 节点的 Sub 订阅者。
 
 2.关于 computed
-computed 计算属性不仅是 Sub 订阅者还是 Dep 依赖。 原因是 computed 可以像 watchEffect 那样监听里面的响应式变量，当响应式变量改变后会触发 computed 的回调。还可以将 computed 的返回值当做 ref 那样的普通响应式变量去使用，所以我们才说 computed 不仅是 Sub 订阅者还是 Dep 依赖。
-所以这里就是调用 link.sub.notify()不会触发计算属性 doubleCount 中的回调函数重新执行，而是去触发计算属性 doubleCount 的订阅者，也就是 render 函数。
-在执行 render 函数之前会再去通过脏检查（依靠版本计数实现）去判断是否需要重新执行计算属性的回调，如果需要执行计算属性的回调那么就去执行 render 函数重新渲染。
+版本计数主要有四个版本：全局变量 globalVersion、dep.version、link.version 和 computed.globalVersion。dep.version 和 link.version 如果不相等就说明当前响应式变量的值改变了，就需要让 Sub 订阅者进行更新。如果是计算属性作为 Dep 依赖时就不能通过 dep.version 和 link.version 去判断了，而是执行 refreshComputed 函数进行判断。在 refreshComputed 函数中首先会判断 globalVersion 和 computed.globalVersion 是否相等，如果相等就说明并没有响应式变量更新。如果不相等那么就会执行计算属性的回调函数，拿到最新的值后去比较计算属性的值是否改变。并且还会执行 prepareDeps 和 cleanupDeps 函数将那些计算属性不再依赖的响应式变量对应的 Link 节点从双向链表中移除。最后说一句，版本计数最大的赢家应该是 computed 计算属性，虽然引入版本计数后代码更难理解了。但是整体流程更加优雅，以及现在只需要通过判断几个 version 是否相等就能知道订阅者是否需要更新，性能当然也更好了。
+
+3.  Vue3.5 响应式重构主要是通过双向链表和版本计数实现的，优化后内存占用减少了 56%。主要原因是：在新的响应式系统中多了一个 Link 节点用于链接 Sub 订阅者和 Dep 依赖，更新 Sub 订阅者依赖只是进行指针的变换，并且还能够复用 Link 节点以及将不再使用的 Link 节点给孤立出来便于 V8 更快的将这个 Link 节点给回收。此外还有 Sub 订阅者的触发也变得更加简单，以及现在是 computed 计算属性是惰性计算了，这些优化同样也优化了内存的使用。
