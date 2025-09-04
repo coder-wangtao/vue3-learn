@@ -103,7 +103,7 @@ function patchProp(el, key, preValue, nextValue) {
 // packages/reactivity/src/effectScope.ts
 var activeEffectScope;
 var EffectScope = class {
-  // 收集作用域的
+  // scopes 收集所有的子 effectScope
   constructor(detached = false) {
     this.active = true;
     this.effects = [];
